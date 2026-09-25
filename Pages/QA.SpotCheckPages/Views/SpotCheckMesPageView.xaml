@@ -1,0 +1,198 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Views.SpotCheckMesPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.SpotCheckPages.Views"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:converts="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="{DynamicResource MES设置}" Margin="5" FontSize="18">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="LineName：" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding LineName}" Foreground="Black" FontSize="18"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change1}"/>
+                </Grid>
+                <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="StationName：" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding StationName}" Foreground="Black" FontSize="18"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False"/>
+                </Grid>
+                <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Fixid：" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding Fixid}" Foreground="Black" FontSize="18"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change1}"/>
+                </Grid>
+                <Button Grid.Row="3" Name="AllowModifyLeft" Content="{DynamicResource 允许修改参数}" FontSize="18" Height="auto" Margin="0,5,0,0"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Allow1}"/>
+                <Button Grid.Row="4" Name="SaveLeftParam" Content="{DynamicResource 保存参数}" FontSize="18" Height="auto" Margin="0,5,0,0"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Save1}"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="{DynamicResource 手动检查}" Margin="5" FontSize="18">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 料卷长度：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <!--<TextBox Grid.Column="1" Text="{Binding TapeLength}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>-->
+                    <hc:ComboBox Grid.Column="1" Foreground="Black" FontSize="18"
+                                 ItemsSource="{Binding TapeLenKinds}" SelectedItem="{Binding TapeLenKind}"
+                                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 料卷特征码}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding TapeIPNs}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 左飞达料卷SN：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding Feeder1TapeSN}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 右飞达料卷SN：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding Feeder2TapeSN}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False"/>
+                </Grid>
+                <Grid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 物料数量：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding TapeAlarmMaxUseCount}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 剩余预警：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding TapeAlarmTipLeftCount}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 左飞达当前数量：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding Feeder1TapeCurrCount}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False"/>
+                    <Button Grid.Column="2" Name="ResetFeeder1TapeUseCount" Content="{DynamicResource 重置当前数量}" FontSize="18" Height="auto"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 右飞达当前数量：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding Feeder2TapeCurrCount}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False"/>
+                    <Button Grid.Column="2" Name="ResetFeeder2TapeUseCount" Content="{DynamicResource 重置当前数量}" FontSize="18" Height="auto"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Grid Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource 物料名称：}" Foreground="Black" FontSize="18"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="1" Text="{Binding TapeName}" Foreground="Black" FontSize="18"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Change2}"/>
+                </Grid>
+                <Button Grid.Row="9" Name="AllowModifyRight" Content="{DynamicResource 允许修改参数}" FontSize="18" Height="auto" Margin="0,5,0,0"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Allow2}"/>
+                <Button Grid.Row="10" Name="SaveRightParam" Content="{DynamicResource 保存参数}" FontSize="18" Height="auto" Margin="0,5,0,0"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding Save2}"/>
+               
+            </Grid>
+
+        </GroupBox>
+       
+    </Grid>
+   
+</UserControl>

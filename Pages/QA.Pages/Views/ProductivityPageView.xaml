@@ -1,0 +1,909 @@
+﻿<UserControl x:Class="QA.Pages.Views.ProductivityPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.Pages.Views"
+             mc:Ignorable="d" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:convert="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:uc="clr-namespace:QA.UserControls;assembly=QA.UserControls"
+             d:DesignHeight="960" d:DesignWidth="1280" Margin="5" FontFamily="微软雅黑" FontSize="18">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/GroupBoxStyle1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="QuickGreen" Color="#008D86"></SolidColorBrush>
+            <Thickness x:Key="Padding1">3</Thickness>
+            <convert:PcsConvert x:Key="PcsConvert"></convert:PcsConvert>
+            <convert:FloatToSecondConvert x:Key="FloatToSecondConvert"></convert:FloatToSecondConvert>
+            <convert:FloatToPercentConvert x:Key="FloatToPercentConvert"></convert:FloatToPercentConvert>
+            <convert:BoolToConnectStringConvert x:Key="BoolToConnectStringConvert"></convert:BoolToConnectStringConvert>
+            <convert:BoolToBackgroundConvert x:Key="BoolToBackgroundConvert"></convert:BoolToBackgroundConvert>
+
+            <convert:TriStateToConnectStringConvert x:Key="TriStateToConnectStringConvert"></convert:TriStateToConnectStringConvert>
+            <convert:TriStateToBackgroundConvert x:Key="TriStateToBackgroundConvert"></convert:TriStateToBackgroundConvert>
+
+            <convert:BoolToEnableStringConvert x:Key="BoolToEnableStringConvert"></convert:BoolToEnableStringConvert>
+            <convert:InfoLevelToColorConvert x:Key="InfoLevelToColorConvert"></convert:InfoLevelToColorConvert>
+            <Style x:Key="MoveFont" TargetType="TextBlock">
+                <Setter Property="TextBlock.FontFamily" Value="微软雅黑" />
+                <Setter Property="TextBlock.Width" Value="100"/>
+                <Setter Property="TextBlock.Height" Value="30"/>
+                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                <Setter Property="TextBlock.Padding" Value="2"/>
+                <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.FontSize" Value="18"/>
+                <Setter Property="TextBlock.Foreground" Value= "Black"/>
+                <Style.Triggers>
+                    <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Background" Value="#008D86"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <TabControl>
+        <TabItem Header="{DynamicResource 图表}" FontSize="18" Width="200">
+            <Grid Background="#FFDEDEDE">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="{DynamicResource 一天产量}" Margin="5"/>
+                <Grid Grid.Row="1" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{DynamicResource 选择日期}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <DatePicker  Grid.Column="1"  SelectedDate="{Binding ChoicetData}"/>
+                            <!--<Button Grid.Column="2" Content="打开数据文件夹" FontSize="18" Height="40" Width="160" 
+                                    HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                                    cal:Message.Attach="[Event Click] = [Action OpenFolder]"/>-->
+                        </Grid>
+                        <lvc:CartesianChart Series="{Binding ToDayHistogramSeriesCollection}" LegendLocation="Top" Grid.Row="1">
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="{DynamicResource 小时}" Labels="{Binding Labels}" >
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator Step="1" />
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="{DynamicResource 产量(Pcs)}" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                        <lvc:PieChart Grid.Column="1" Grid.Row="1" Series="{Binding ToDayPieSeriesCollection}" LegendLocation="Bottom" Hoverable="False"/>
+                    </Grid>
+                </Grid>
+                <GroupBox  Grid.Row="2" Header="{DynamicResource 一段时间内产量}" Margin="5"/>
+                <Grid  Grid.Row="3" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource 起始日期}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <DatePicker Grid.Row="0" Grid.Column="1" SelectedDate="{Binding StartData}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource 结束日期}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding EndData}"/>
+                        </Grid>
+                        <lvc:CartesianChart Grid.Row="3" Series="{Binding ChoiceTimeSlotHistogramSeriesCollection}" LegendLocation="Top" >
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="{DynamicResource 天}" 
+                          Labels="{Binding ChoiceTimeSlotLabels}" >
+
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="{DynamicResource 产量(Pcs)}" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                        <lvc:PieChart Series="{Binding ChoiceTimeSlotPieSeriesCollection}" LegendLocation="Bottom"   Hoverable="False"  Grid.Column="1" Grid.Row="1"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="{DynamicResource 生产数据}" FontSize="18" Width="200">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Style="{StaticResource GroupBoxStyle1}" Header="{DynamicResource 生产信息}" FontFamily="微软雅黑">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="3"/>
+                                <RowDefinition Height="6*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{DynamicResource 当前产量}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Label Grid.Column="1" Content="{Binding Statistic.CurrentNum}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Button Grid.Column="2" Content="{DynamicResource 重置}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetCurrentNum]"/>
+                                <Label Grid.Column="4" Content="{DynamicResource 目标产量}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Label Grid.Column="5" Content="{Binding Statistic.TargetNum}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Label Grid.Column="7" Content="CT" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Label Grid.Column="8" Content="{Binding CT.CycleCT, Converter={StaticResource FloatToSecondConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <!--<ColumnDefinition Width="*"/>-->
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource 吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource 1号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource 2号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="0" Content="{DynamicResource 3号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="0" Content="{DynamicResource 4号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="0" Content="{DynamicResource 总计}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="1" Content="{DynamicResource 使用次数}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Statistic.UseCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Statistic.UseCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="1" Content="{Binding Statistic.UseCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="1" Content="{Binding Statistic.UseCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="1" Content="{Binding Statistic.UseCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="2" Content="{DynamicResource 取料NG}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="2" Content="{Binding Statistic.SuckNgCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="2" Content="{Binding Statistic.SuckNgCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="2" Content="{Binding Statistic.SuckNgCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="2" Content="{Binding Statistic.SuckNgCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="2" Content="{Binding Statistic.SuckNgCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="3" Content="{DynamicResource 拍照NG}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="3" Content="{Binding Statistic.CamNgCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="3" Content="{Binding Statistic.CamNgCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="3" Content="{Binding Statistic.CamNgCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="3" Content="{Binding Statistic.CamNgCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="3" Content="{Binding Statistic.CamNgCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="4" Content="{DynamicResource 抛料率}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="4" Content="{Binding Statistic.FlingRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="4" Content="{Binding Statistic.FlingRate2, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="4" Content="{Binding Statistic.FlingRate3, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="4" Content="{Binding Statistic.FlingRate4, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="4" Content="{Binding Statistic.FlingRateAll, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="5" Content="{DynamicResource 良率}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="5" Content="{Binding Statistic.OkRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="5" Content="{Binding Statistic.OkRate2, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="5" Content="{Binding Statistic.OkRate3, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="5" Content="{Binding Statistic.OkRate4, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="5" Content="{Binding Statistic.OkRateAll, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Button Grid.Row="1" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(1)]"/>
+                                <Button Grid.Row="2" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(2)]"/>
+                                <Button Grid.Row="3" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(3)]"/>
+                                <Button Grid.Row="4" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(4)]"/>
+                                <Button Grid.Row="5" Grid.Column="6" Content="{DynamicResource 全部清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(0)]"/>
+
+                                <!--<Label Grid.Row="0" Grid.Column="7" Content="吸嘴寿命"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="1" Grid.Column="7" Content="{Binding Statistic.AliveCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="2" Grid.Column="7" Content="{Binding Statistic.AliveCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="3" Grid.Column="7" Content="{Binding Statistic.AliveCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="4" Grid.Column="7" Content="{Binding Statistic.AliveCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>-->
+                                <!--<Label Grid.Row="5" Grid.Column="7" Content="{Binding Statistic.AliveCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>-->
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GridSplitter Grid.Column="1" Width="4" Background="{StaticResource QuickGreen}" Margin="5,0,5,0"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <GroupBox Grid.Column="2" Style="{StaticResource GroupBoxStyle1}" Header="{DynamicResource 模块信息}" FontFamily="微软雅黑" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource PLC}"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="0" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsPlcConnected, Converter={StaticResource TriStateToConnectStringConvert}}"
+                                   Background="{Binding ConnectState.IsPlcConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource 固高}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsMotionConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsMotionConnected, Converter={StaticResource TriStateToBackgroundConvert}}" 
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="4" Grid.Column="0" Content="{DynamicResource 扫码枪}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="4" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsScannerConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsScannerConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="6" Grid.Column="0" Content="{DynamicResource 视觉}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="6" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsVisionConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsVisionConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="8" Grid.Column="0" Content="{DynamicResource MES}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="8" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsMesConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsMesConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <GroupBox Style="{StaticResource GroupBoxStyle1}" Header="UPH" FontFamily="微软雅黑">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource 时间}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource 计数}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource 时间}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="0" Content="{DynamicResource 计数}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="1" Content="8:00-9:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Statistic.Uph0, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="1" Content="20:00-21:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Statistic.Uph12, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="2" Content="9:00-10:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding Statistic.Uph1, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="2" Content="21:00-22:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="2" Content="{Binding Statistic.Uph13, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="3" Content="10:00-11:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding Statistic.Uph2, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="3" Content="22:00-23:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="3" Content="{Binding Statistic.Uph14, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="4" Content="11:00-12:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Statistic.Uph3, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="4" Content="23:00-0:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="4" Content="{Binding Statistic.Uph15, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="5" Content="12:00-13:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Statistic.Uph4, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="5" Content="0:00-1:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="5" Content="{Binding Statistic.Uph16, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="6" Content="13:00-14:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Statistic.Uph5, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="6" Content="1:00-2:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="6" Content="{Binding Statistic.Uph17, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="7" Content="14:00-15:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Statistic.Uph6, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="7" Content="2:00-3:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="7" Content="{Binding Statistic.Uph18, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="8" Content="15:00-16:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Statistic.Uph7, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="8" Content="3:00-4:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="8" Content="{Binding Statistic.Uph19, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="9" Content="16:00-17:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Statistic.Uph8, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="9" Content="4:00-5:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="9" Content="{Binding Statistic.Uph20, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="10" Content="17:00-18:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="10" Content="{Binding Statistic.Uph9, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="10" Content="5:00-6:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="10" Content="{Binding Statistic.Uph21, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="11" Content="18:00-19:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="11" Content="{Binding Statistic.Uph10, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="11" Content="6:00-7:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="11" Content="{Binding Statistic.Uph22, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="12" Content="19:00-20:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="12" Content="{Binding Statistic.Uph11, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="12" Content="7:00-8:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="12" Content="{Binding Statistic.Uph23, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="{DynamicResource 调试数据}" FontSize="18" Width="200">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="322*"/>
+                    <ColumnDefinition Width="28*"/>
+                    <ColumnDefinition Width="130*"/>
+                    <ColumnDefinition Width="795*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.ColumnSpan="4" Margin="0,0,0.4,0.4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Style="{StaticResource GroupBoxStyle1}" Header="{DynamicResource 生产信息}" FontFamily="微软雅黑">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="3"/>
+                                <RowDefinition Height="6*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="132*"/>
+                                    <ColumnDefinition Width="133*"/>
+                                    <ColumnDefinition Width="68*"/>
+                                    <ColumnDefinition Width="64*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="133*"/>
+                                    <ColumnDefinition Width="133*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="133*"/>
+                                    <ColumnDefinition Width="133*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{DynamicResource 当前产量}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                <Label Grid.Column="1" Content="{Binding Statistic.CurrentdebugNum}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0,0,67.808,0"/>
+                                <Button Grid.Column="2" Content="{DynamicResource 重置}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetCurrentNum]" Grid.ColumnSpan="3" Margin="0.2,0,4.6,0"/>
+                                <Label Grid.Column="5" Content="{DynamicResource 目标产量}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0.4,0"/>
+                                <Label Grid.Column="5" Content="{Binding Statistic.TargetNum}" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="132.4,0,0.2,0"/>
+                                <Label Grid.Column="8" Content="CT" FontSize="18" Padding="{StaticResource Padding1}"
+                               Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0,0,132.6,0"/>
+                                <Label Grid.Column="9" Content="{Binding CT.CycleCT, Converter={StaticResource FloatToSecondConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" Margin="0.2,0,-0.4,0"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <!--<ColumnDefinition Width="*"/>-->
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource 吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource 1号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource 2号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="0" Content="{DynamicResource 3号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="0" Content="{DynamicResource 4号吸嘴}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="0" Content="{DynamicResource 总计}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="1" Content="{DynamicResource 使用次数}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Statistic.UsedebugCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Statistic.UsedebugCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="1" Content="{Binding Statistic.UsedebugCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="1" Content="{Binding Statistic.UsedebugCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="1" Content="{Binding Statistic.UsedebugCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="2" Content="{DynamicResource 取料NG}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="2" Content="{Binding Statistic.SuckNgdebugCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="2" Content="{Binding Statistic.SuckNgdebugCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="2" Content="{Binding Statistic.SuckNgdebugCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="2" Content="{Binding Statistic.SuckNgdebugCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="2" Content="{Binding Statistic.SuckNgdebugCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="3" Content="{DynamicResource 拍照NG}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="3" Content="{Binding Statistic.CamNgdebugCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="3" Content="{Binding Statistic.CamNgdebugCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="3" Content="{Binding Statistic.CamNgdebugCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="3" Content="{Binding Statistic.CamNgdebugCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="3" Content="{Binding Statistic.CamNgdebugCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="4" Content="{DynamicResource 抛料率}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="4" Content="{Binding Statistic.FlingDebugRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="4" Content="{Binding Statistic.FlingDebugRate2, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="4" Content="{Binding Statistic.FlingDebugRate3, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="4" Content="{Binding Statistic.FlingDebugRate4, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="4" Content="{Binding Statistic.FlingDebugRateAll, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Label Grid.Row="0" Grid.Column="5" Content="{DynamicResource 良率}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="1" Grid.Column="5" Content="{Binding Statistic.OkDebugRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="2" Grid.Column="5" Content="{Binding Statistic.OkDebugRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="3" Grid.Column="5" Content="{Binding Statistic.OkDebugRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="4" Grid.Column="5" Content="{Binding Statistic.OkDebugRate1, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                                <Label Grid.Row="5" Grid.Column="5" Content="{Binding Statistic.OkDebugRateAll, Converter={StaticResource FloatToPercentConvert}}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                                <Button Grid.Row="1" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(1)]"/>
+                                <Button Grid.Row="2" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(2)]"/>
+                                <Button Grid.Row="3" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(3)]"/>
+                                <Button Grid.Row="4" Grid.Column="6" Content="{DynamicResource 清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(4)]"/>
+                                <Button Grid.Row="5" Grid.Column="6" Content="{DynamicResource 全部清零}" FontSize="18" Height="Auto" Padding="{StaticResource Padding1}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="{Binding EnableButtons}"
+                                cal:Message.Attach="[Event Click] = [Action ResetNozzleCount(0)]"/>
+
+                                <!--<Label Grid.Row="0" Grid.Column="7" Content="吸嘴寿命"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="1" Grid.Column="7" Content="{Binding Statistic.AliveCount1}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="2" Grid.Column="7" Content="{Binding Statistic.AliveCount2}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="3" Grid.Column="7" Content="{Binding Statistic.AliveCount3}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        <Label Grid.Row="4" Grid.Column="7" Content="{Binding Statistic.AliveCount4}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>-->
+                                <!--<Label Grid.Row="5" Grid.Column="7" Content="{Binding Statistic.AliveCountAll}"
+                               Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>-->
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GridSplitter Grid.Column="1" Width="4" Background="{StaticResource QuickGreen}" Margin="5,0,5,0"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <GroupBox Grid.Column="2" Style="{StaticResource GroupBoxStyle1}" Header="{DynamicResource 模块信息}" FontFamily="微软雅黑" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource PLC}"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="0" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsPlcConnected, Converter={StaticResource TriStateToConnectStringConvert}}"
+                                   Background="{Binding ConnectState.IsPlcConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource 固高}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsMotionConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsMotionConnected, Converter={StaticResource TriStateToBackgroundConvert}}" 
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="4" Grid.Column="0" Content="{DynamicResource 扫码枪}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="4" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsScannerConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsScannerConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="6" Grid.Column="0" Content="{DynamicResource 视觉}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="6" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsVisionConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsVisionConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="8" Grid.Column="0" Content="{DynamicResource MES}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="8" Grid.Column="1"
+                                   Content="{Binding ConnectState.IsMesConnected, Converter={StaticResource TriStateToConnectStringConvert}}" 
+                                   Background="{Binding ConnectState.IsMesConnected, Converter={StaticResource TriStateToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="1" Grid.ColumnSpan="4" Margin="0,4.6,0.4,0" Grid.RowSpan="2">
+                    <GroupBox Style="{StaticResource GroupBoxStyle1}" Header="UPH" FontFamily="微软雅黑">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource 时间}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource 计数}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource 时间}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="0" Content="{DynamicResource 计数}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="1" Content="8:00-9:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Statistic.Uphdebug0, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="1" Content="20:00-21:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Statistic.Uphdebug12, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="2" Content="9:00-10:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding Statistic.Uphdebug1, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="2" Content="21:00-22:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="2" Content="{Binding Statistic.Uphdebug13, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="3" Content="10:00-11:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="3" Content="{Binding Statistic.Uphdebug2, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="3" Content="22:00-23:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="3" Content="{Binding Statistic.Uphdebug14, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="4" Content="11:00-12:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="4" Content="{Binding Statistic.Uphdebug3, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="4" Content="23:00-0:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="4" Content="{Binding Statistic.Uphdebug15, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="5" Content="12:00-13:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="5" Content="{Binding Statistic.Uphdebug4, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="5" Content="0:00-1:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="5" Content="{Binding Statistic.Uphdebug16, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="6" Content="13:00-14:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="6" Content="{Binding Statistic.Uphdebug5, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="6" Content="1:00-2:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="6" Content="{Binding Statistic.Uphdebug17, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="7" Content="14:00-15:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="7" Content="{Binding Statistic.Uphdebug6, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="7" Content="2:00-3:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="7" Content="{Binding Statistic.Uphdebug18, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="8" Content="15:00-16:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="8" Content="{Binding Statistic.Uphdebug7, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="8" Content="3:00-4:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="8" Content="{Binding Statistic.Uphdebug19, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="9" Content="16:00-17:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="9" Content="{Binding Statistic.Uphdebug8, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="9" Content="4:00-5:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="9" Content="{Binding Statistic.Uphdebug20, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="10" Content="17:00-18:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="10" Content="{Binding Statistic.Uphdebug9, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="10" Content="5:00-6:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="10" Content="{Binding Statistic.Uphdebug21, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="11" Content="18:00-19:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="11" Content="{Binding Statistic.Uphdebug10, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="11" Content="6:00-7:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="11" Content="{Binding Statistic.Uphdebug22, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+
+                            <Label Grid.Row="0" Grid.Column="12" Content="19:00-20:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="1" Grid.Column="12" Content="{Binding Statistic.Uphdebug11, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="2" Grid.Column="12" Content="7:00-8:00"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                            <Label Grid.Row="3" Grid.Column="12" Content="{Binding Statistic.Uphdebug23, Converter={StaticResource PcsConvert}}"
+                           Padding="{StaticResource Padding1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>

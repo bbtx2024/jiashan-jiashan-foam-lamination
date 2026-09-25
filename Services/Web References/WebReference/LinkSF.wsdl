@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.orgit/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.orgit/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.orgit/">
+      <s:element name="Query">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="json" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ADD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="json" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ADDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ADDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALARM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="json" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALARMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ALARMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QuerySoapIn">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="QuerySoapOut">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ADDSoapIn">
+    <wsdl:part name="parameters" element="tns:ADD" />
+  </wsdl:message>
+  <wsdl:message name="ADDSoapOut">
+    <wsdl:part name="parameters" element="tns:ADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ALARMSoapIn">
+    <wsdl:part name="parameters" element="tns:ALARM" />
+  </wsdl:message>
+  <wsdl:message name="ALARMSoapOut">
+    <wsdl:part name="parameters" element="tns:ALARMResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LinkSFSoap">
+    <wsdl:operation name="Query">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">名称：自动化接口&lt;br&gt;功能：Query&lt;br&gt;传入Json：[{"sn":"GY6CG01HQ1CV","line":"A01-2FAS-01","station":"Check comp1","app":"PTL","fixid":"001","barcode":"BC SEAL|717011700SMSE300A+0112B01C01D12","p":"checkcomp, complist","carrier":""}]&lt;br&gt;返回Json：{"Result": "OK","Info": [{"msg": "checkcomp=OK;complist="},]}</wsdl:documentation>
+      <wsdl:input message="tns:QuerySoapIn" />
+      <wsdl:output message="tns:QuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">名称：自动化接口&lt;br&gt;功能：ADD&lt;br&gt;传入Json：[{"sn":"GY6CG01HQ1CV","line":"A01-2FAS-01","station":"Check comp1","app":"PTL","fixid":"001","barcode":"BC SEAL|717011700SMSE300A+0112B01C01D12","carrier":""}]&lt;br&gt;返回Json：{"Result": "OK","Info": [{"msg": "OK"},]}</wsdl:documentation>
+      <wsdl:input message="tns:ADDSoapIn" />
+      <wsdl:output message="tns:ADDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ALARM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">名称：自动化接口&lt;br&gt;功能：ALARM&lt;br&gt;传入Json：[{"line":"A01-2F-01","stationid":"xx","fixtureid":"","parameter":"扭力","lower":"1","upper":"3","raw_val":"1","new_val":"2","user":"12345","time":"2020-05-11 15:00:00"}]&lt;br&gt;返回Json：{"Result": "OK","Info": [{"msg": "OK"},]}</wsdl:documentation>
+      <wsdl:input message="tns:ALARMSoapIn" />
+      <wsdl:output message="tns:ALARMSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LinkSFSoap" type="tns:LinkSFSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.orgit/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <soap:operation soapAction="http://tempuri.orgit/ADD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALARM">
+      <soap:operation soapAction="http://tempuri.orgit/ALARM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LinkSFSoap12" type="tns:LinkSFSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Query">
+      <soap12:operation soapAction="http://tempuri.orgit/Query" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <soap12:operation soapAction="http://tempuri.orgit/ADD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALARM">
+      <soap12:operation soapAction="http://tempuri.orgit/ALARM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LinkSF">
+    <wsdl:port name="LinkSFSoap" binding="tns:LinkSFSoap">
+      <soap:address location="http://10.55.4.101/Automation_Sub/LinkSF.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LinkSFSoap12" binding="tns:LinkSFSoap12">
+      <soap12:address location="http://10.55.4.101/Automation_Sub/LinkSF.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

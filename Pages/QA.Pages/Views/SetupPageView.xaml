@@ -1,0 +1,470 @@
+﻿<UserControl x:Class="QA.Pages.Views.SetupPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.Pages.Views"
+             mc:Ignorable="d" 
+             xmlns:convert="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             xmlns:uc="clr-namespace:QA.UserControls;assembly=QA.UserControls"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             d:DesignHeight="970" d:DesignWidth="1600" >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/DataGridStyle.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/DataGridStyle.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/GroupBoxStyle1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <convert:InfoLevelToColorConvert x:Key="InfoLevelToColorConvert"/>
+            <SolidColorBrush x:Key="QuickGreen" Color="#008D86"></SolidColorBrush>
+            <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+                <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/#FontAwesome"/>
+                <Setter Property="FontSize" Value="18"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="#008d8c"/>
+                <Setter Property="Margin" Value="0,5,0,5"/>
+            </Style>
+            <Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/#FontAwesome" />
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="Foreground" Value="#008d8c"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="LightBlue"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Margin" Value="0,2"/>
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="true">
+                        <Setter Property="Foreground" Value="#008D86" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="{x:Type GridViewColumnHeader}" x:Key="myHeaderStyle">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <TabControl>
+        <TabItem Header="{DynamicResource 点检}" FontSize="18" Width="200">
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="278*"/>
+                    <ColumnDefinition Width="39*"/>
+                    <ColumnDefinition Width="211*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1058*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="{DynamicResource 点检日志}" Grid.Row="0" Grid.Column="0" FontSize="18">
+                        <uc:ScrollingListBox x:Name="WorkRunLog" Style="{x:Null}" ItemsSource="{Binding RunTimeLogs.Logs}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DispMsg}" FontSize="18" Foreground="{Binding RunLevel,Converter={StaticResource InfoLevelToColorConvert}}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="清空运行日志" cal:Message.Attach="[Event Click]=[Action ClearLogs]"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
+                        </uc:ScrollingListBox>
+                    </GroupBox>
+                    <GridSplitter Grid.Row="1" Height="4" Background="#008D86" Margin="0,5"
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <GroupBox Header="{DynamicResource 显示主板点检IO控制区域}" Grid.Row="2" Grid.Column="0" FontSize="18">
+                        <Grid Background="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                            <Grid Grid.Row="0">
+                                <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18">
+                                    <TabItem Header="{DynamicResource 主板点检}"  Width="180" Height="35" FontSize="18" Padding="2">
+                                        <hc:ScrollViewer>
+                                            <ContentControl x:Name="SpotCheckMotionCtrlPageViewModel"  Margin="0"></ContentControl>
+                                        </hc:ScrollViewer>
+                                    </TabItem>
+                                </TabControl>
+                                <!--<ScrollViewer Content="{Binding VisionBinding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />-->
+                            </Grid>
+
+                            <!--<Grid Grid.Row="1" Background="Black"/>-->
+                            <Button Grid.Row="0" Grid.Column="0" Visibility="Hidden" x:Name="VisionAdd" Content="{DynamicResource 视觉加载}" Style="{DynamicResource ButtonPrimary}" FontSize="18" Width="130" Height="34" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="555,0,192,0"/>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="OpenTeachPanel" Content="{DynamicResource 示教面板}" Style="{DynamicResource ButtonPrimary}" FontSize="18" Width="130" Height="34" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <GridSplitter Grid.Column="3" Width="4" Background="{StaticResource QuickGreen}" Margin="5,0,5,0" HorizontalAlignment="Stretch" />
+                <Grid Grid.Column="3" Grid.ColumnSpan="2" Margin="14,0,0,0">
+                    <GroupBox Grid.Row="2" Grid.Column="0" Header="{DynamicResource 点检项目}" FontSize="18">
+                        <TabControl>
+                            <TabItem Header="{DynamicResource MES设置}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckMesPageViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 扫码与绑定}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckScannerPageViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 点位与标定}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckCalibPageViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource  压力点检}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckPressurePageViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource PLC点检}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckPlcPageViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 相机点检}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckCameraPageViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 图片上传}" Width="130" Height="35" FontSize="18">
+                                <hc:ScrollViewer>
+                                    <ContentControl x:Name="SpotCheckFTPUploadImgViewModel"/>
+                                </hc:ScrollViewer>
+                            </TabItem>
+                        </TabControl>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="{DynamicResource 制程}" FontSize="18" Width="200">
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <!-- 左侧区域 -->
+                <Grid Grid.Column="0" Margin="8">
+                    <Grid.RowDefinitions>
+                        <!-- 制程操作1 -->
+                        <RowDefinition Height="*"/>
+                        <!-- 间距 -->
+                        <RowDefinition Height="5"/>
+                        <!-- 制程操作2 -->
+                        <RowDefinition Height="*"/>
+                        <!-- 间距 -->
+                        <RowDefinition Height="5"/>
+                        <!-- 制程名称 -->
+                        <RowDefinition Height="*"/>
+                        <!-- 分隔条 -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- 穴位选择、吸嘴选择 -->
+                        <RowDefinition Height="*"/>
+                        <!-- 间距 -->
+                        <RowDefinition Height="5"/>
+                        <!-- 手动贴合 -->
+                        <RowDefinition Height="8*"/>
+                    </Grid.RowDefinitions>
+                    <!-- 制程操作1 -->
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="{DynamicResource 加载制程}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="0"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action LoadProcedure]"/>
+                        <Button Content="{DynamicResource 新建制程}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="2"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action NewProcedure]"/>
+                        <Button Content="{DynamicResource 复制制程}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="4"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action CopyProcedure]"/>
+                    </Grid>
+                    <!-- 制程操作2 -->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="{DynamicResource 删除制程}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="0"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action DeleteProcedure]"/>
+                        <Button Content="{DynamicResource 保存制程}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="2"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action SaveProcedure]"/>
+                        <Button Content="{DynamicResource 打开示教}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="4"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action OpenTeachPanel]"/>
+                    </Grid>
+                    <!--制程名称-->
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="{DynamicResource 制程名称}" FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="0"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBox Text="{Binding CurrProcedure.ProcedureName, UpdateSourceTrigger=PropertyChanged}"
+                         FontFamily="微软雅黑" FontSize="20" Height="Auto" Grid.Column="2"
+                         VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                    </Grid>
+                    <!--分隔条-->
+                    <Line Grid.Row="5" Stretch="Fill" Stroke="Gray" X2="1" Height="12"/>
+                    <!-- 穴位选择、吸嘴选择 -->
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="{DynamicResource 穴位号}" FontFamily="微软雅黑" FontSize="20" Height="auto" Grid.Column="0"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <hc:ComboBox Name="Cavity" FontFamily="微软雅黑" FontSize="20" Height="auto" Grid.Column="2"
+                             ItemsSource="{Binding CavityNoLst}" SelectedItem="{Binding SelCavityNo}"
+                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <Label Content="{DynamicResource 吸嘴号}" FontFamily="微软雅黑" FontSize="20" Height="auto" Grid.Column="4"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <hc:ComboBox Name="NozzleNo" FontFamily="微软雅黑" FontSize="20" Height="auto" Grid.Column="6"
+                             ItemsSource="{Binding NozzleNoLst}" SelectedItem="{Binding SelNozzleNo}"
+                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                    </Grid>
+                    <!--手动操作-->
+                    <Grid Grid.Row="8">
+                        <Grid.RowDefinitions>
+                            <!-- 初始化步骤 -->
+                            <RowDefinition Height="*"/>
+                            <!-- 间距 -->
+                            <RowDefinition Height="5"/>
+                            <!-- 飞达取料 -->
+                            <RowDefinition Height="*"/>
+                            <!-- 间距 -->
+                            <RowDefinition Height="5"/>
+                            <!-- 下相机拍照 -->
+                            <RowDefinition Height="*"/>
+                            <!-- 间距 -->
+                            <RowDefinition Height="5"/>
+                            <!-- 上相机拍穴位产品 -->
+                            <RowDefinition Height="*"/>
+                            <!-- 间距 -->
+                            <RowDefinition Height="5"/>
+                            <!-- 贴合产品 -->
+                            <RowDefinition Height="*"/>
+                            <!-- 间距 -->
+                            <RowDefinition Height="5"/>
+                            <!-- log -->
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+                        <Button Name="InitStep" Content="{DynamicResource 初始化步骤}" FontSize="26"
+                                    Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto"/>
+                        <Button Name="DoFeederFetchMaterial" Visibility="{Binding VisualStep1}" Content="{DynamicResource 第一步 飞达取料}" FontSize="26"
+                                    Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto"/>
+                        <Button Name="DoDownCameraLocation" Visibility="{Binding VisualStep2}" Content="{DynamicResource 第二步 下相机定位}" FontSize="26"
+                                    Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto"/>
+                        <Button Name="DoUpCameraLocation" Visibility="{Binding VisualStep3}" Content="{DynamicResource 第三步 上相机定位}" FontSize="26"
+                                    Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto"/>
+                        <Button Name="DoAttach" Visibility="{Binding VisualStep4}" Content="{DynamicResource 第四步 贴合产品}" FontSize="26"
+                                    Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto"/>
+                        <!--log-->
+                        <uc:ScrollingListBox Grid.Row="10" Style="{x:Null}" ItemsSource="{Binding RunTimeLogs.Logs}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DispMsg}" FontSize="18" Foreground="{Binding RunLevel,Converter={StaticResource InfoLevelToColorConvert}}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="清空运行日志" cal:Message.Attach="[Event Click]=[Action ClearLogs]"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
+                        </uc:ScrollingListBox>
+                    </Grid>
+                </Grid>
+
+                <!-- 分隔条 -->
+                <GridSplitter Grid.Column="1" Width="4" Margin="0,8" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <!-- 右侧区域 -->
+                <Grid Grid.Column="2" Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" MinHeight="100"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2*" MinHeight="100"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="3*" MinHeight="200"/>
+                    </Grid.RowDefinitions>
+                    <!-- 拍照位置 -->
+                    <GroupBox Grid.Row="0" Header="{DynamicResource 拍照位置}">
+                        <DataGrid Grid.Column="0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="false" CanUserSortColumns="False" 
+                                      ItemsSource="{Binding CurrProcedure.VisionPoints}" SelectedItem="{Binding SelectedVisionPoint, Mode=TwoWay}"
+                                      CellStyle="{StaticResource myDataGridCellStyle}"
+                                      RowStyle="{StaticResource myDataGridRowStyle}"
+                                      ColumnHeaderStyle="{StaticResource myDataGridColumnHeader}"
+                                      Style="{StaticResource myDataGridStyle}"
+                                      CanUserReorderColumns="False" 
+                                      CanUserResizeRows="False" 
+                                      AlternationCount="2" ColumnWidth="*">
+                            <DataGrid.Columns >
+
+                                <DataGridCheckBoxColumn Header="{DynamicResource 启用}" Binding="{Binding IsUsed,UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn Header="{DynamicResource 穴位号}" Binding="{Binding CavityNum,UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridTextColumn Header="X" Binding="{Binding VisionPointX,UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridTextColumn Header="Y" Binding="{Binding VisionPointY,UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridTextColumn Header="{DynamicResource X贴合补偿}" Binding="{Binding VisionPointXOffset,UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridTextColumn Header="{DynamicResource Y贴合补偿}" Binding="{Binding VisionPointYOffset,UpdateSourceTrigger=LostFocus}"/>
+                            </DataGrid.Columns>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu Style="{x:Null}">
+                                    <MenuItem Header="{DynamicResource 添加}" cal:Message.Attach="[Event Click]=[Action AddVisionPoint]"/>
+                                    <MenuItem Header="{DynamicResource 删除}" cal:Message.Attach="[Event Click]=[Action DeleteVisionPoint]"/>
+                                    <MenuItem Header="{DynamicResource 上移}" cal:Message.Attach="[Event Click]=[Action MoveUpVisionPoint]"/>
+                                    <MenuItem Header="{DynamicResource 下移}" cal:Message.Attach="[Event Click]=[Action MoveDownVisionPoint]"/>
+                                    <MenuItem Header="{DynamicResource 阵列}" cal:Message.Attach="[Event Click]=[Action ArrayVisionPoints]"/>
+                                    <Separator />
+                                    <MenuItem Header="{DynamicResource XY设置为当前坐标}" cal:Message.Attach="[Event Click]=[Action GetCurCrdVisionMenuClick()]"/>
+                                    <MenuItem Header="{DynamicResource 移动到点位坐标}" cal:Message.Attach="[Event Click]=[Action MoveSelectPointVisionMenuClick()]"/>
+                                    <Separator />
+                                    <MenuItem Header="{DynamicResource 当前位置视觉定位Mark}" cal:Message.Attach="[Event Click]=[Action LocateMarkVisionMenuClick()]"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
+                    </GroupBox>
+                    <!-- 分隔条 -->
+                    <GridSplitter Grid.Row="1" Height="4" Margin="0,5" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <!-- 贴合位置 -->
+                    <GroupBox Grid.Row="2" Header="{DynamicResource 贴合位置}">
+                        <DataGrid Grid.Column="0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" 
+                                      ItemsSource="{Binding SelectedVisionPoint.SolderPoints}" SelectedItem="{Binding SelectedSolderPoint}"
+                                      CellStyle="{StaticResource myDataGridCellStyle}"
+                                      RowStyle="{StaticResource myDataGridRowStyle}"
+                                      ColumnHeaderStyle="{StaticResource myDataGridColumnHeader}"
+                                      Style="{StaticResource myDataGridStyle}"
+                                      CanUserReorderColumns="False" 
+                                      CanUserResizeRows="False" 
+                                      AlternationCount="2" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn Header="{DynamicResource 启用}" Binding="{Binding IsUsed,UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn Header="{DynamicResource 吸嘴编号}" Binding="{Binding NozzleNo,UpdateSourceTrigger=LostFocus}" />
+                                <DataGridTemplateColumn Header="{DynamicResource 贴合配方}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="{Binding SolderRecipeName,UpdateSourceTrigger=PropertyChanged}"
+                                                        cal:Message.Attach="[Event Click] = [Action SelectSolderRecipe]"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="X" Binding="{Binding SolderPointX ,UpdateSourceTrigger=LostFocus}" />
+                                <DataGridTextColumn Header="Y" Binding="{Binding SolderPointY ,UpdateSourceTrigger=LostFocus}" />
+                                <DataGridTextColumn Header="Z" Binding="{Binding SolderPointZ ,UpdateSourceTrigger=LostFocus}" />
+                                <DataGridTextColumn Header="{DynamicResource X贴合补偿}" Binding="{Binding SolderPointXOffset,UpdateSourceTrigger=LostFocus}"/>
+                                <DataGridTextColumn Header="{DynamicResource Y贴合补偿}" Binding="{Binding SolderPointYOffset,UpdateSourceTrigger=LostFocus}"/>
+                            </DataGrid.Columns>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu Style="{x:Null}">
+                                    <MenuItem Header="{DynamicResource 添加}"  cal:Message.Attach="[Event Click]=[Action AddSolderPoint]"/>
+                                    <MenuItem Header="{DynamicResource 删除}"  cal:Message.Attach="[Event Click]=[Action DeleteSolderPoint]"/>
+                                    <MenuItem Header="{DynamicResource 上移}"  cal:Message.Attach="[Event Click]=[Action MoveUpSolderPoint]"/>
+                                    <MenuItem Header="{DynamicResource 下移}"  cal:Message.Attach="[Event Click]=[Action MoveDownSolderPoint]"/>
+                                    <MenuItem Header="{DynamicResource 阵列}"  cal:Message.Attach="[Event Click]=[Action ArraySolderPoints]"/>
+                                    <Separator />
+                                    <MenuItem Header="{DynamicResource XY设置为当前坐标}" cal:Message.Attach="[Event Click]=[Action SetSolderPointXYAsRealPos]"/>
+                                    <MenuItem Header="{DynamicResource Z设置为当前坐标}" cal:Message.Attach="[Event Click]=[Action SetSolderPointZAsRealPos]"/>
+                                    <MenuItem Header="{DynamicResource Z设置为当前坐标（全部修改）}" cal:Message.Attach="[Event Click]=[Action SetAllSolderPointZAsRealPos]"/>
+                                    <MenuItem Header="{DynamicResource 移动到点位坐标}" cal:Message.Attach="[Event Click]=[Action MoveSelectPointPlaceMenuClick()]"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
+                    </GroupBox>
+                    <!-- 分隔条 -->
+                    <GridSplitter Grid.Row="3" Height="4" Margin="0,5" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <!-- 贴合配方 -->
+                    <GroupBox Grid.Row="4" Header="{DynamicResource 贴合配方}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <!-- 配方左侧（按钮+配方选择） -->
+                                <ColumnDefinition Width="*"/>
+                                <!-- 分隔条 -->
+                                <ColumnDefinition Width="5"/>
+                                <!-- 配方右侧（配方内容） -->
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- 配方左侧（按钮+配方选择） -->
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <!-- 按钮 -->
+                                    <RowDefinition Height="Auto"/>
+                                    <!-- 分隔条 -->
+                                    <RowDefinition Height="5"/>
+                                    <!-- 配方选择 -->
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <!-- 按钮 -->
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Content="{DynamicResource 添加}" Padding="0,0" FontSize="18" Grid.Column="0"
+                                        HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action AddRecipe]"/>
+                                    <Button Content="{DynamicResource 删除}" Padding="0,0" FontSize="18" Grid.Column="2"
+                                        HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action DeleteRecipe]"/>
+                                    <Button Content="{DynamicResource 保存全部}" Padding="0,0" FontSize="18" Grid.Column="4"
+                                        HorizontalAlignment="Stretch" cal:Message.Attach="[Event Click] = [Action SaveRecipes]"/>
+                                </Grid>
+                                <!-- 配方选择 -->
+                                <ListBox Grid.Row="2" Style="{x:Null}" Background="White" ItemsSource="{Binding Recipes}" SelectedItem="{Binding SelectedRecipe}" SelectedIndex="0">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding RecipeName}" Style="{x:Null}"  Background="Transparent"
+                                                 HorizontalAlignment="Stretch" FontFamily="微软雅黑" FontSize="18"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                            <!-- 配方右侧（配方内容） -->
+                            <uc:PropertyGridView Grid.Column="2" SelectedObject="{Binding SelectedRecipe}"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>

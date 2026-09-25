@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Views.SpotCheckCameraPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.Spotd:\程序\fa07-贴膜1npi-0203\pages\qa.spotcheckpages\views\spotcheckcamerapageview.xaml
+d:\程序\fa07-贴膜1npi-0203\pages\qa.spotcheckpages\views\spotcheckcamerapageview.xaml.cs
+CheckPages.Views"
+             xmlns:cal ="http://www.caliburnproject.org"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+        <UniformGrid Rows="1">
+            <Label  Content="{DynamicResource 次数：}" FontSize="18" Height="35"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <hc:NumericUpDown hc:TitleElement.Title ="{DynamicResource 次数：}" DecimalPlaces="0" FontSize="18" Padding="0"
+                                      HorizontalContentAlignment="Center" Minimum="1" Maximum="100"
+                                      Value="{Binding TestCount,UpdateSourceTrigger =PropertyChanged}" 
+                                      cal:Message.Attach="[Event ValueChanged] = [Action NumUDTestCountChanged($source)]"
+                                      Height="35" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <Label  Content="{DynamicResource 轴精度停顿时间(s)：}" FontSize="18" Height="35"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <hc:NumericUpDown  hc:TitleElement.Title ="{DynamicResource 轴精度停顿时间：}" DecimalPlaces="1" FontSize="18" Padding="0"
+                                      HorizontalContentAlignment="Center" Minimum="0.1" Maximum="10"
+                                      Value="{Binding AxisWaitTime,UpdateSourceTrigger =PropertyChanged}" 
+                                      cal:Message.Attach="[Event ValueChanged] = [Action NumUDTestCavityChanged($source)]"
+                                      Height="35" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        </UniformGrid>
+        <UniformGrid Columns="1" Grid.Row="1">
+            <UniformGrid Rows="1">
+                <Button  Name="DoFeeder1CamStaticTest" Content="{DynamicResource 左飞达上相机静态测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Button  Name="DoFeeder1CamDynamicTest" Content="{DynamicResource 左飞达上相机动态测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Button  Name="DoFeeder1CylinderTest" Content="{DynamicResource 左飞达上相机气缸精度}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="DoFeeder2CamStaticTest" Content="{DynamicResource 右飞达上相机静态测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Button  Name="DoFeeder2CamDynamicTest" Content="{DynamicResource 右飞达上相机动态测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Button  Name="DoFeeder2CylinderTest" Content="{DynamicResource 右飞达上相机气缸精度}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetUpCamDynamicTestStartPos" Content="{DynamicResource 设置上相机静态点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding UpCamDynamicTestStartPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveUpCamDynamicTestStartPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoUpCamStaticTest" Content="{DynamicResource 静态测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Label  Content="" FontSize="18" Height="35"  HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetUpCamDynamicTestEndPos" Content="{DynamicResource 设置上相机动态点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding UpCamDynamicTestEndPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveUpCamDynamicTestEndPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoUpCamDynamicTest" Content="{DynamicResource 动态测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Label  Content="" FontSize="18" Height="35"  HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetDownCamDynamicTestStartPos" Content="{DynamicResource 设置下相机静态点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding DownCamDynamicTestStartPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveDownCamDynamicTestStartPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoDownCamStaticTestNozzel1" Content="{DynamicResource 吸嘴1静态}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoDownCamStaticTestNozzel2" Content="{DynamicResource 吸嘴2静态}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetDownCamDynamicTestEndPos" Content="{DynamicResource 设置下相机动态点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding DownCamDynamicTestEndPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveDownCamDynamicTestEndPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoDownCamDynamicTestNozzel1" Content="{DynamicResource 吸嘴1动态}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoDownCamDynamicTestNozzel2" Content="{DynamicResource 吸嘴2动态}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+
+            <UniformGrid Rows="1">
+                <Button  Name="SetUpCamAxisTestStartPos" Content="{DynamicResource 设置上相机轴轴精度起始点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding UpCamAxisTestStartPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveUpCamAxisTestStartPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Label  Content="" FontSize="18" Height="35"  HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetUpCamAxisTestEndPos" Content="{DynamicResource 设置上相机轴轴精度结束点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding UpCamAxisTestEndPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveUpCamAxisTestEndPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoUpAxisTest" Content="{DynamicResource 上相机轴精度测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetDownCamAxisTestStartPos" Content="{DynamicResource 设置下相机轴轴精度起始点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding DownCamAxisTestStartPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveDownCamAxisTestStartPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Label  Content="" FontSize="18" Height="35"  HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetDownCamAxisTestEndPos" Content="{DynamicResource 设置下相机轴轴精度结束点位}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding DownCamAxisTestEndPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <UniformGrid Rows="1">
+                    <Button  Name="MoveDownCamAxisTestEndPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    <Button  Name="DoDownAxisTest" Content="{DynamicResource 下相机轴精度测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+
+        </UniformGrid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="StopTest" Content="{DynamicResource 停止测试}" FontSize="18" Height="35" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="1" Name="ReadData" Content="{DynamicResource 查看数据}" FontSize="18" Height="35" HorizontalAlignment="Stretch"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <TextBox
+                        Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        FontSize="18"
+                        Foreground="Black"
+                        IsEnabled="{Binding Change1}"
+                        Text="{Binding SendStr}" />
+            
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button   Name="SendCameraTest" Content="{DynamicResource 发送测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Button   Name="TakeThrowTapeTest" Content="{DynamicResource 取料抛料测试}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        </Grid>
+
+
+
+
+
+    </Grid>
+</UserControl>

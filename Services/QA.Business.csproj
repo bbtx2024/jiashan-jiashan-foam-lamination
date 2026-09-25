@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4139C53E-9135-451F-89C9-8C14D5DE9990}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QA.Business</RootNamespace>
+    <AssemblyName>QA.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;M9075NUM</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;M9075NUM</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Core.3.2.0\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ComCtrl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\ComCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSI9075">
+      <HintPath>..\Libraries\CSSI9075.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSIModbus, Version=1.5.1.36061, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\CSSIModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="HandyControl">
+      <HintPath>..\Libraries\HandyControl\HandyControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.ComponentModelHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="ModBus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\ModBus.dll</HintPath>
+    </Reference>
+    <Reference Include="MotionCtrl">
+      <HintPath>..\Libraries\MotionCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QA_Infrastructure, Version=1.1.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\QA_Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="QMotion, Version=1.0.8231.27307, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\QMotion.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TraceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\TraceInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="VisionParam">
+      <HintPath>..\Libraries\VisionParam.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheParam\HomeUiParam.cs" />
+    <Compile Include="CacheParam\ManualPositionParam.cs" />
+    <Compile Include="CacheParam\CalibParam.cs" />
+    <Compile Include="CacheParam\PressParam.cs" />
+    <Compile Include="CacheParam\RunInfoParam.cs" />
+    <Compile Include="CacheParam\TaskParam.cs" />
+    <Compile Include="CacheParam\VisionTemplateParam.cs" />
+    <Compile Include="CacheParam\WorkPointParam.cs" />
+    <Compile Include="CommonFunc.cs" />
+    <Compile Include="Component\Clean\CleanParam.cs" />
+    <Compile Include="Component\Clean\Clean_Component.cs" />
+    <Compile Include="Component\DashBoard\DashBoardParam.cs" />
+    <Compile Include="Component\DashBoard\DashBoard_Component.cs" />
+    <Compile Include="Component\GT2\GT2Param.cs" />
+    <Compile Include="Component\GT2\GT2_SerialComponent.cs" />
+    <Compile Include="Component\HIVE\HiveParam.cs" />
+    <Compile Include="Component\HIVE\Hive_Component.cs" />
+    <Compile Include="Component\LaserHeightSensor\LaserHeightSensorParam.cs" />
+    <Compile Include="Component\LaserHeightSensor\LaserHeightSensor_Component.cs" />
+    <Compile Include="Converts\DoubleConvert.cs" />
+    <Compile Include="Converts\HiveConvert.cs" />
+    <Compile Include="Define\EN_FeederStatus.cs" />
+    <Compile Include="Define\HiveAlarmDefine.cs" />
+    <Compile Include="Define\MESDefine.cs" />
+    <Compile Include="Component\Motion\IMotion.cs" />
+    <Compile Include="Converts\BoolConvert.cs" />
+    <Compile Include="Converts\InfoLevelToColorConverter.cs" />
+    <Compile Include="Converts\PcsConvert.cs" />
+    <Compile Include="Converts\PickConvert.cs" />
+    <Compile Include="Converts\TrayStatusConvert.cs" />
+    <Compile Include="Converts\TriStateToBackgroundConvert.cs" />
+    <Compile Include="Converts\TriStateToConnectStringConvert.cs" />
+    <Compile Include="Converts\UserInfoConvert.cs" />
+    <Compile Include="Converts\FloatConvert.cs" />
+    <Compile Include="Converts\ValueToTimeConvert.cs" />
+    <Compile Include="Define\EN_HiveStatus.cs" />
+    <Compile Include="Define\EN_PickOpportunity.cs" />
+    <Compile Include="Define\EN_OncePickNum.cs" />
+    <Compile Include="Define\NozzleId.cs" />
+    <Compile Include="Define\PLCDefine.cs" />
+    <Compile Include="Define\EN_TrayStatus.cs" />
+    <Compile Include="Define\SysConfig.cs" />
+    <Compile Include="Define\TapeNames.cs" />
+    <Compile Include="Helper\PropAttrUtils.cs" />
+    <Compile Include="Interfaces\IHive.cs" />
+    <Compile Include="Manager\BC750.cs" />
+    <Compile Include="Manager\ScannerHook.cs" />
+    <Compile Include="Manager\ComponentManager.cs" />
+    <Compile Include="Message\CarrierInfoPanelMessage.cs" />
+    <Compile Include="Message\FunctionIsEnabledMessage.cs" />
+    <Compile Include="Message\NeedLoginMessage.cs" />
+    <Compile Include="Message\TapeUseCountChangeMessage.cs" />
+    <Compile Include="Model\FileHandleModel.cs" />
+    <Compile Include="Model\FtpWeb.cs" />
+    <Compile Include="Model\HiveMachineStatusStatistic.cs" />
+    <Compile Include="Model\HttpInterface.cs" />
+    <Compile Include="Component\MES\MESParam.cs" />
+    <Compile Include="Component\MES\MES_Component.cs" />
+    <Compile Include="Component\Monitor\MonitorParam.cs" />
+    <Compile Include="Component\Monitor\Monitor_SerialComponent.cs" />
+    <Compile Include="Component\Motion\Googol\MotionGoogolParam.cs" />
+    <Compile Include="Component\Motion\Googol\MotionGoogol_Component.cs" />
+    <Compile Include="Component\Motion\Robot9075\Motion9075Param.cs" />
+    <Compile Include="Component\Motion\Robot9075\Motion9075_Component.cs" />
+    <Compile Include="Component\Motion\MotionFactory_Component.cs" />
+    <Compile Include="Component\OtherSetting\OtherSettingParam.cs" />
+    <Compile Include="Component\OtherSetting\OtherSetting_Component.cs" />
+    <Compile Include="Component\Scanner\ScannerParam.cs" />
+    <Compile Include="Component\ScrewDriver\ScrewDriverParam.cs" />
+    <Compile Include="Component\ScrewDriver\ScrewDriver_Component.cs" />
+    <Compile Include="Component\Temp378\Temp378Param.cs" />
+    <Compile Include="Component\Temp378\Temp378_Component.cs" />
+    <Compile Include="Define\EnumDefine.cs" />
+    <Compile Include="Define\EN_RunRet.cs" />
+    <Compile Include="Message\RobotRealStateInfo.cs" />
+    <Compile Include="Helper\DapperHelper.cs" />
+    <Compile Include="Interfaces\IClean.cs" />
+    <Compile Include="Interfaces\IDashBoard.cs" />
+    <Compile Include="Interfaces\IDapperHelper.cs" />
+    <Compile Include="Interfaces\IGT2.cs" />
+    <Compile Include="Interfaces\ILaserHeightSensor.cs" />
+    <Compile Include="Interfaces\IM9075.cs" />
+    <Compile Include="Interfaces\IMES.cs" />
+    <Compile Include="Interfaces\IMGoogol.cs" />
+    <Compile Include="Interfaces\IOtherSetting.cs" />
+    <Compile Include="Interfaces\IScrewDriver.cs" />
+    <Compile Include="Interfaces\ITemp378.cs" />
+    <Compile Include="Manager\ParamManager.cs" />
+    <Compile Include="Interfaces\IMonitor.cs" />
+    <Compile Include="Manager\CacheParamManager.cs" />
+    <Compile Include="Manager\RecipeManager.cs" />
+    <Compile Include="Manager\StatusManager.cs" />
+    <Compile Include="Manager\TaskManager.cs" />
+    <Compile Include="Model\AlarmInfoModel.cs" />
+    <Compile Include="Message\LoginSuccessMessage.cs" />
+    <Compile Include="Model\OutputPerHour.cs" />
+    <Compile Include="Model\PlcIOMode.cs" />
+    <Compile Include="Model\RunTimeInfoModel.cs" />
+    <Compile Include="Manager\MyUserManager.cs" />
+    <Compile Include="Define\WorkMode.cs" />
+    <Compile Include="Model\TossingPerHour.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\LaserSprayRecipe.cs" />
+    <Compile Include="Recipe\IRecipe.cs" />
+    <Compile Include="Component\PLC\Attributes\TriggerHandlerAttribute.cs" />
+    <Compile Include="Interfaces\IBaseBiz.cs" />
+    <Compile Include="Station\BaseBiz.cs" />
+    <Compile Include="Component\Camera\CameraParam.cs" />
+    <Compile Include="Component\Camera\Camera_Component.cs" />
+    <Compile Include="Interfaces\ICamera.cs" />
+    <Compile Include="Interfaces\IParam.cs" />
+    <Compile Include="Interfaces\IPDCA.cs" />
+    <Compile Include="Interfaces\IPLC.cs" />
+    <Compile Include="Interfaces\IScanner.cs" />
+    <Compile Include="Component\PDCA\PDCAParam.cs" />
+    <Compile Include="Component\PDCA\PDCA_Component.cs" />
+    <Compile Include="Component\PLC\Attributes\FloatAddressAttribute.cs" />
+    <Compile Include="Component\PLC\PLCParam.cs" />
+    <Compile Include="Component\PLC\PLC_Component.cs" />
+    <Compile Include="Component\Scanner\Scanner_TcpComponent.cs" />
+    <Compile Include="Interfaces\IComponent.cs" />
+    <Compile Include="GlobalVariable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Status\GantryNo1Steps\ScannerCarrierSnStep.cs" />
+    <Compile Include="Status\GantryNo1Steps\UpCameraIdentifyProductStep.cs" />
+    <Compile Include="Status\GantryNo3Steps\PressurizeStep.cs" />
+    <Compile Include="Status\GantryNo4Step\TestStep1.cs" />
+    <Compile Include="Status\StationStatus.cs" />
+    <Compile Include="Procedure\IProcedure.cs" />
+    <Compile Include="Procedure\LaserSprayProcedure.cs" />
+    <Compile Include="Status\GantryNo2Steps\DownCameraIdentifyMaterialStep.cs" />
+    <Compile Include="Steps\AutoRecheck_Step.cs" />
+    <Compile Include="Steps\AutoEnd_Step.cs" />
+    <Compile Include="Steps\AutoRunIdle_Step.cs" />
+    <Compile Include="Steps\AutoPDCAUpLoad_Step.cs" />
+    <Compile Include="Steps\AutoProcess_Step.cs" />
+    <Compile Include="Steps\AutoStart.cs" />
+    <Compile Include="Steps\Idle_Step.cs" />
+    <Compile Include="Steps\Pause_Step.cs" />
+    <Compile Include="Status\GantryNo2Steps\PickMaterialFromFeederStep.cs" />
+    <Compile Include="Status\GantryNo2Steps\PlaceMaterialToCarrierStep.cs" />
+    <Compile Include="Steps\Reset_Step.cs" />
+    <Compile Include="StepFactory.cs" />
+    <Compile Include="Steps\Stop_Step.cs" />
+    <Compile Include="Status\StepStatus.cs" />
+    <Compile Include="Define\EN_RunStep.cs" />
+    <Compile Include="Steps\Err_Step.cs" />
+    <Compile Include="Steps\IStep.cs" />
+    <Compile Include="VariableMonitor.cs" />
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\LinkSF.wsdl" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.55.4.101/Automation_Sub/LinkSF.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://10.55.4.101/Automation_Sub/LinkSF.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>QA_Business_WebReference_LinkSF</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebReference\LinkSF.disco" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

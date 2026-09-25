@@ -1,0 +1,1166 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Sys="clr-namespace:System;assembly=mscorlib">
+
+    <Sys:String x:Key="应力测试保压时间(ms)：">Kiểm tra căng thẳng thời gian giữ áp suất (ms):</Sys:String>
+    <Sys:String x:Key="应力测试">Kiểm tra căng thẳng</Sys:String>
+
+    <Sys:String x:Key="物料数量：">Số lượng mục:</Sys:String>
+    <Sys:String x:Key="剩余预警：">Cảnh báo còn lại:</Sys:String>
+    <Sys:String x:Key="当前数量：">Số lượng hiện tại:</Sys:String>
+    <Sys:String x:Key="重置当前数量">Đặt lại số lượng hiện tại</Sys:String>
+    <Sys:String x:Key="物料名称：">Tên mục:</Sys:String>
+    <Sys:String x:Key="调机料卷SN(以逗号分隔)">Cuộn gia vị SN (tách ra bằng dấu phẩy)</Sys:String>
+
+    <Sys:String x:Key="视觉加载">Tải trực quan</Sys:String>
+    <Sys:String x:Key="扫码与绑定">Quét mã và ràng buộc</Sys:String>
+    <Sys:String x:Key="点位与标定">Điểm và hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="同时取料数目">Số lượng vật liệu được lấy cùng một lúc</Sys:String>
+    <Sys:String x:Key="取料时机">Thời gian để lấy nguyên liệu</Sys:String>
+    <Sys:String x:Key="保持平台无料">Giữ cho nền tảng là bất ngờ</Sys:String>
+    <Sys:String x:Key="复位自动清料">Đặt lại tự động làm sạch</Sys:String>
+
+    <Sys:String x:Key="日期">Ngày</Sys:String>
+    <Sys:String x:Key="占比(%)">Tỷ lệ phần trăm (%)</Sys:String>
+    <Sys:String x:Key="运行信息">Chạy thông tin</Sys:String>
+    <Sys:String x:Key="状态统计">Thống kê trạng thái</Sys:String>
+    <Sys:String x:Key="上视觉结束后">Sau khi thị giác kết thúc</Sys:String>
+    <Sys:String x:Key="启动后">Sau khi khởi động</Sys:String>
+
+    <Sys:String x:Key="是否在当前站绑定MES：">Có ràng buộc MES tại trạm hiện tại hay không:</Sys:String>
+    <Sys:String x:Key="是否为调机料：">Có phải là gia vị cho hay không:</Sys:String>
+    <Sys:String x:Key="最大使用数量：">Số lượng tối đa sử dụng:</Sys:String>
+    <Sys:String x:Key="剩余预警数量：">Số lượng cảnh báo còn lại:</Sys:String>
+    <Sys:String x:Key="当前使用数量：">Số lượng hiện đang được sử dụng:</Sys:String>
+    <Sys:String x:Key="当前剩余数量：">Số lượng còn lại hiện tại:</Sys:String>
+
+    <Sys:String x:Key="吸嘴使用次数">Số lần sử dụng vòi phun</Sys:String>
+    <Sys:String x:Key="Tape良率">Tape tỷ lệ tốt</Sys:String>
+    <Sys:String x:Key="请刷卡！">Làm ơn quẹt thẻ!</Sys:String>
+    <Sys:String x:Key="视觉界面">Giao diện trực quan</Sys:String>
+    <Sys:String x:Key="MES相关">MES liên quan</Sys:String>
+    <Sys:String x:Key="HIVE界面">Giao diện HIVE</Sys:String>
+
+    <Sys:String x:Key="相机轴运行步骤">Các bước chạy trục máy ảnh</Sys:String>
+    <Sys:String x:Key="吸嘴轴运行步骤">Các bước chạy trục vòi hút</Sys:String>
+
+    <Sys:String x:Key="扫码与MES">Quét mã với MES</Sys:String>
+    <Sys:String x:Key="载具码：">Mã tải:</Sys:String>
+    <Sys:String x:Key="扫载具码">Quét mã thiết bị tải</Sys:String>
+    <Sys:String x:Key="获取SIP码">Nhận mã Sip</Sys:String>
+    <Sys:String x:Key="查询路由及穴位">Kiểm tra tuyến đường Ràng buộc MES</Sys:String>
+    <Sys:String x:Key="绑定MES">Ràng buộc MES</Sys:String>
+    <Sys:String x:Key="一键查询绑定">Kiểm tra tuyến đường</Sys:String>
+    <Sys:String x:Key="卷料SN：">Cuộn SN:</Sys:String>
+    <Sys:String x:Key="查询次数">Số lần truy vấn</Sys:String>
+    <Sys:String x:Key="使用次数：">Số lần sử dụng:</Sys:String>
+
+    <Sys:String x:Key="PLCParam">PLC</Sys:String>
+    <Sys:String x:Key="MotionGoogolParam">固高</Sys:String>
+    <Sys:String x:Key="ScannerParam">扫码</Sys:String>
+    <Sys:String x:Key="CameraParam">相机</Sys:String>
+    <Sys:String x:Key="LaserHeightSensorParam">测高</Sys:String>
+    <Sys:String x:Key="MESParam">MES</Sys:String>
+    <Sys:String x:Key="PDCAParam">PDCA</Sys:String>
+    <Sys:String x:Key="HiveParam">HIVE</Sys:String>
+    <Sys:String x:Key="OtherSettingParam">其他</Sys:String>
+
+    <Sys:String x:Key="你好">Xin chào</Sys:String>
+
+    <Sys:String x:Key="系统设置">Thiết lập hệ thống</Sys:String>
+    <Sys:String x:Key="切换语言">Chuyển đổi ngôn ngữ</Sys:String>
+    <Sys:String x:Key="中文">Tiếng Trung Quốc</Sys:String>
+    <Sys:String x:Key="英语">Tiếng Anh</Sys:String>
+    <Sys:String x:Key="越语">Tiếng Việt</Sys:String>
+    <Sys:String x:Key="生产模式">Chế độ sản xuất</Sys:String>
+    <Sys:String x:Key="调试模式">Chế độ gỡ lỗi</Sys:String>
+    <Sys:String x:Key="计划停机模式">计划停机模式</Sys:String>
+
+    <Sys:String x:Key="生产信息">Thông tin sản xuất</Sys:String>
+    <Sys:String x:Key="模块信息">Thông tin mô-đun</Sys:String>
+    <Sys:String x:Key="操作面板">Bảng điều khiển hoạt động</Sys:String>
+    <Sys:String x:Key="运行日志">Chạy nhật ký</Sys:String>
+    <Sys:String x:Key="视觉日志">Nhật ký trực quan</Sys:String>
+    <Sys:String x:Key="快捷开关">Công tắc lối tắt</Sys:String>
+    <Sys:String x:Key="报警信息">Thông tin báo động</Sys:String>
+    <Sys:String x:Key="图像界面">Giao diện hình ảnh</Sys:String>
+    <Sys:String x:Key="提前取料">Lấy nguyên liệu trước</Sys:String>
+
+    <Sys:String x:Key="穴位信息">Thông tin bấm huyệt</Sys:String>
+    <Sys:String x:Key="PLC信号">Tín hiệu PLC</Sys:String>
+    <Sys:String x:Key="上相机轴系运行步骤">Lên máy Trục ảnh Chạy các bước</Sys:String>
+    <Sys:String x:Key="吸嘴轴系运行步骤">Hút vào Trục ảnh Chạy các bước</Sys:String>
+
+    <Sys:String x:Key="白班总产量">Tổng sản lượng ban trắng</Sys:String>
+    <Sys:String x:Key="白班OK数量">Số lượng OK ban trắng</Sys:String>
+    <Sys:String x:Key="白班NG数量">Số lượng NG ban trắng</Sys:String>
+    <Sys:String x:Key="白班良率">Tỷ lệ bạch ban lương</Sys:String>
+    <Sys:String x:Key="白班清零">Lớp trắng thanh toán bằng không</Sys:String>
+    <Sys:String x:Key="夜班总产量">Tổng sản lượng ca đêm</Sys:String>
+    <Sys:String x:Key="夜班OK数量">Số lượng OK ca đêm</Sys:String>
+    <Sys:String x:Key="夜班NG数量">Số lượng NG ca đêm</Sys:String>
+    <Sys:String x:Key="夜班良率">Tỷ lệ ca đêm tốt</Sys:String>
+    <Sys:String x:Key="夜班清零">Ca đêm không có</Sys:String>
+    <Sys:String x:Key="左拍照CT">Trái chụp CT</Sys:String>
+    <Sys:String x:Key="左测高CT">Trái đo CT cao</Sys:String>
+    <Sys:String x:Key="左焊接CT">Trái hàn CT</Sys:String>
+    <Sys:String x:Key="左总CT">Trái tổng CT</Sys:String>
+    <Sys:String x:Key="左循环CT">CT vòng lặp trái</Sys:String>
+    <Sys:String x:Key="右拍照CT">Chụp ảnh bên phải CT</Sys:String>
+    <Sys:String x:Key="右测高CT">Phải đo CT cao</Sys:String>
+    <Sys:String x:Key="右焊接CT">CT hàn bên phải</Sys:String>
+    <Sys:String x:Key="右总CT">Tổng CT bên phải</Sys:String>
+    <Sys:String x:Key="右循环CT">CT vòng lặp bên phải</Sys:String>
+    <Sys:String x:Key="PLC">PLC</Sys:String>
+    <Sys:String x:Key="Motion">Cử động</Sys:String>
+    <Sys:String x:Key="视觉软件">Phần mềm hình ảnh</Sys:String>
+    <Sys:String x:Key="电动滑台">Bàn trượt điện</Sys:String>
+    <Sys:String x:Key="激光器">Laser</Sys:String>
+    <Sys:String x:Key="激光测高">Đo độ cao bằng laser</Sys:String>
+    <Sys:String x:Key="PDCA">PDCA</Sys:String>
+    <Sys:String x:Key="MES">MES</Sys:String>
+    <Sys:String x:Key="固高">Chiều cao rắn</Sys:String>
+    <Sys:String x:Key="扫码枪">Súng quét mã</Sys:String>
+    <Sys:String x:Key="视觉">Tầm nhìn</Sys:String>
+    <Sys:String x:Key="手动清料">Làm sạch vật liệu thủ công</Sys:String>
+    <Sys:String x:Key="喷咀管理">Quản lý phun nhai</Sys:String>
+    <Sys:String x:Key="锡球管理">Quản lý bóng thiếc</Sys:String>
+    <Sys:String x:Key="老化模式">Chế độ lão hóa</Sys:String>
+    <Sys:String x:Key="MES启用">MES Bật</Sys:String>
+    <Sys:String x:Key="MES数据模拟启用">MES Mô phỏng dữ liệu được kích hoạt</Sys:String>
+    <Sys:String x:Key="MES过站检查启用">MES Kiểm tra qua trạm được kích hoạt</Sys:String>
+    <Sys:String x:Key="安全门">Cửa an ninh</Sys:String>
+    <Sys:String x:Key="PDCA启用">PDCA Bật</Sys:String>
+    <Sys:String x:Key="出锡功能">Chức năng ra khỏi thiếc</Sys:String>
+    <Sys:String x:Key="复检启用">Kiểm tra lại được kích hoạt</Sys:String>
+    <Sys:String x:Key="空闲清洗启用">Làm sạch nhàn rỗi được kích hoạt</Sys:String>
+    <Sys:String x:Key="定时关闭焊台启用">Tắt bàn hàn theo thời gian để kích hoạt</Sys:String>
+    <Sys:String x:Key="循环老化模式启用">Chế độ lão hóa tuần hoàn được kích hoạt</Sys:String>
+    <Sys:String x:Key="定时切换生产模式启用">Chế độ sản xuất chuyển đổi theo thời gian được kích hoạt</Sys:String>
+
+    <Sys:String x:Key="出锡">出锡</Sys:String>
+    <Sys:String x:Key="回锡">回锡</Sys:String>
+    <Sys:String x:Key="出锡点动">出锡点动</Sys:String>
+    <Sys:String x:Key="焊头清洗">焊头清洗</Sys:String>
+    <Sys:String x:Key="连接">Kết nối</Sys:String>
+    <Sys:String x:Key="断开">Ngắt kết nối</Sys:String>
+    <Sys:String x:Key="启用">Bật</Sys:String>
+    <Sys:String x:Key="禁用">Vô hiệu hóa</Sys:String>
+
+    <Sys:String x:Key="新建制程">Quy trình mới</Sys:String>
+    <Sys:String x:Key="复制制程">Sao chép quy trình</Sys:String>
+    <Sys:String x:Key="加载制程">Tải quy trình</Sys:String>
+    <Sys:String x:Key="删除制程">Loại bỏ quá trình</Sys:String>
+    <Sys:String x:Key="保存制程">Lưu quy trình</Sys:String>
+    <Sys:String x:Key="制程名称">Tên quy trình</Sys:String>
+    <Sys:String x:Key="打开示教">Mở hướng dẫn</Sys:String>
+    <Sys:String x:Key="选择左制程">选择左制程</Sys:String>
+    <Sys:String x:Key="选择右制程">选择右制程</Sys:String>
+    <Sys:String x:Key="选择制程">Chọn quy trình</Sys:String>
+    <Sys:String x:Key="通用制程参数设置">Cài đặt tham số quy trình chung</Sys:String>
+    <Sys:String x:Key="拍照位置">Vị trí chụp ảnh</Sys:String>
+
+    <Sys:String x:Key="贴合配方">Công thức phù hợp</Sys:String>
+    <Sys:String x:Key="添加">Thêm</Sys:String>
+    <Sys:String x:Key="删除">Xóa</Sys:String>
+    <Sys:String x:Key="上移">Di chuyển lên</Sys:String>
+    <Sys:String x:Key="下移">Di chuyển xuống</Sys:String>
+    <Sys:String x:Key="阵列">mảng</Sys:String>
+    <Sys:String x:Key="保存">Lưu</Sys:String>
+    <Sys:String x:Key="保存全部">Lưu tất cả</Sys:String>
+    <Sys:String x:Key="视觉点名称">Tên điểm trực quan</Sys:String>
+    <Sys:String x:Key="视觉模板">Mẫu trực quan</Sys:String>
+    <Sys:String x:Key="贴合点名称">Tên điểm phù hợp</Sys:String>
+    <Sys:String x:Key="启用测高">Bật phép đo chiều cao</Sys:String>
+    <Sys:String x:Key="启用贴合">Bật phù hợp</Sys:String>
+
+    <Sys:String x:Key="用户：">Người dùng：</Sys:String>
+    <Sys:String x:Key="密码：">Mật khẩu：</Sys:String>
+    <Sys:String x:Key="确定">Ok</Sys:String>
+    <Sys:String x:Key="取消">Hủy bỏ</Sys:String>
+    <Sys:String x:Key="登录">Đăng nhập</Sys:String>
+    <Sys:String x:Key="注销">Đăng xuất</Sys:String>
+
+    <Sys:String x:Key="1号吸嘴">Vòi hút số 1</Sys:String>
+    <Sys:String x:Key="2号吸嘴">Vòi hút số 2</Sys:String>
+    <Sys:String x:Key="3号吸嘴">Vòi hút số 3</Sys:String>
+    <Sys:String x:Key="4号吸嘴">Vòi hút số 4</Sys:String>
+    <Sys:String x:Key="检测真空吸">Phát hiện hút chân không</Sys:String>
+
+    <Sys:String x:Key="清除所有吸嘴吸取的物料">Loại bỏ tất cả các vật liệu được hấp thụ bởi vòi phun</Sys:String>
+    <Sys:String x:Key="生成自动补偿制程">Tạo quy trình bù tự động</Sys:String>
+
+
+    <Sys:String x:Key="点检日志">Nhật ký kiểm tra điểm</Sys:String>
+    <Sys:String x:Key="显示主板点检IO控制区域">Hiển thị khu vực điều khiển IO kiểm tra điểm bo mạch chủ</Sys:String>
+
+    <Sys:String x:Key="主板点检">Kiểm tra điểm bo mạch chủ</Sys:String>
+    <Sys:String x:Key="示教面板">Bảng điều khiển hướng dẫn</Sys:String>
+    <Sys:String x:Key="点检项目">Điểm kiểm tra các mục</Sys:String>
+    <Sys:String x:Key="相机标定">Hiệu chuẩn máy ảnh</Sys:String>
+    <Sys:String x:Key="扫码点检">Quét mã để kiểm tra điểm</Sys:String>
+    <Sys:String x:Key="压力点检">Kiểm tra điểm căng thẳng</Sys:String>
+    <Sys:String x:Key="PLC点检">Plc điểm kiểm tra</Sys:String>
+    <Sys:String x:Key="相机点检">Kiểm tra điểm máy ảnh</Sys:String>
+
+    <Sys:String x:Key="上相机环形光源">Nguồn sáng vòng trên máy ảnh</Sys:String>
+    <Sys:String x:Key="上相机同轴光源">Nguồn sáng đồng trục của máy ảnh trên</Sys:String>
+    <Sys:String x:Key="下相机光源">Nguồn sáng máy ảnh dưới</Sys:String>
+    <Sys:String x:Key="扩展输出4">Đầu ra mở rộng 4</Sys:String>
+    <Sys:String x:Key="主输出1">Đầu ra chính 1</Sys:String>
+    <Sys:String x:Key="主输出2">Đầu ra chính 2</Sys:String>
+    <Sys:String x:Key="主输出3">Đầu ra chính 3</Sys:String>
+    <Sys:String x:Key="主输出4">Đầu ra chính 4</Sys:String>
+
+    <Sys:String x:Key="简体中文">Tiếng Trung giản thể</Sys:String>
+    <Sys:String x:Key="越南语">Tiếng Việt</Sys:String>
+    <Sys:String x:Key="MES设定">Cài đặt MES</Sys:String>
+    <Sys:String x:Key="点检">Kiểm tra điểm</Sys:String>
+    <Sys:String x:Key="制程">Quy trình</Sys:String>
+
+    <Sys:String x:Key="吸嘴号">Số vòi phun</Sys:String>
+    <Sys:String x:Key="初始化步骤">Bước khởi tạo</Sys:String>
+    <Sys:String x:Key="第一步 飞达取料">Bước đầu tiên Flying Da lấy nguyên liệu</Sys:String>
+    <Sys:String x:Key="第二步 下相机定位">Bước 2 Định vị máy ảnh dưới</Sys:String>
+    <Sys:String x:Key="第三步 上相机定位">Bước 3 Định vị máy ảnh</Sys:String>
+    <Sys:String x:Key="第四步 贴合产品">Bước 4 phù hợp với sản phẩm</Sys:String>
+
+    <Sys:String x:Key="X贴合补偿">X phù hợp với bồi thường</Sys:String>
+    <Sys:String x:Key="Y贴合补偿">Y phù hợp với bồi thường</Sys:String>
+
+    <Sys:String x:Key="XY设置为当前坐标">XY được đặt thành tọa độ hiện tại</Sys:String>
+    <Sys:String x:Key="移动到点位坐标">Di chuyển đến tọa độ điểm</Sys:String>
+    <Sys:String x:Key="当前位置视觉定位Mark">Vị trí hiện tại định vị trực quan Mark</Sys:String>
+    <Sys:String x:Key="当前位置视觉获取二维码">Trực quan vị trí hiện tại nhận được mã QR</Sys:String>
+
+    <Sys:String x:Key="贴合位置">Vị trí phù hợp</Sys:String>
+    <Sys:String x:Key="吸嘴编号">Số vòi phun</Sys:String>
+
+    <Sys:String x:Key="导出日志">Xuất nhật ký</Sys:String>
+    <Sys:String x:Key="清空日志">Làm trống nhật ký</Sys:String>
+
+
+    <Sys:String x:Key="Z设置为当前坐标">Z được đặt thành tọa độ hiện tại</Sys:String>
+    <Sys:String x:Key="Z设置为当前坐标（全部修改）">Z được đặt thành tọa độ hiện tại (sửa đổi tất cả)</Sys:String>
+
+    <Sys:String x:Key="图片">Hình ảnh</Sys:String>
+    <Sys:String x:Key="主页">Trang chủ</Sys:String>
+    <Sys:String x:Key="设置">Cài đặt</Sys:String>
+    <Sys:String x:Key="相机">Máy ảnh</Sys:String>
+    <Sys:String x:Key="表格">Bảng</Sys:String>
+    <Sys:String x:Key="日志">Nhật ký</Sys:String>
+    <Sys:String x:Key="产能">Năng lực sản xuất</Sys:String>
+
+    <Sys:String x:Key="次数：">số lần:</Sys:String>
+    <Sys:String x:Key="次数">số lần</Sys:String>
+    <Sys:String x:Key="错误类型">Loại lỗi</Sys:String>
+    <Sys:String x:Key="轴精度停顿时间(s)：">Thời gian tạm dừng độ chính xác trục (s):</Sys:String>
+    <Sys:String x:Key="轴精度停顿时间：">Thời gian tạm dừng độ chính xác trục:</Sys:String>
+
+    <Sys:String x:Key="设置上相机静态测试位置">Đặt vị trí kiểm tra tĩnh của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移">Trống rỗng</Sys:String>
+    <Sys:String x:Key="静态测试">Kiểm tra tĩnh</Sys:String>
+    <Sys:String x:Key="设置下相机静态测试位置">Đặt vị trí kiểm tra tĩnh của máy ảnh</Sys:String>
+
+    <Sys:String x:Key="设置上相机动态测试静点">Đặt điểm tĩnh kiểm tra động máy ảnh trên</Sys:String>
+    <Sys:String x:Key="动态测试">Kiểm tra động</Sys:String>
+
+    <Sys:String x:Key="设置上相机动态测试动点">Đặt điểm kiểm tra động của máy ảnh trên</Sys:String>
+    <Sys:String x:Key="轴精度测试">Kiểm tra độ chính xác trục</Sys:String>
+
+    <Sys:String x:Key="设置下相机动态测试静点">Đặt điểm tĩnh kiểm tra động của máy ảnh</Sys:String>
+    <Sys:String x:Key="设置下相机动态测试动点">Đặt điểm kiểm tra động máy ảnh bên dưới</Sys:String>
+
+    <Sys:String x:Key="停止测试">Dừng thử nghiệm</Sys:String>
+    <Sys:String x:Key="查看数据">Xem dữ liệu</Sys:String>
+
+    <Sys:String x:Key="开始时间">Thời gian bắt đầu:</Sys:String>
+    <Sys:String x:Key="结束时间">Thời gian kết thúc:</Sys:String>
+
+    <Sys:String x:Key="查询">Truy vấn</Sys:String>
+    <Sys:String x:Key="当前报警">Báo động hiện tại</Sys:String>
+
+    <Sys:String x:Key="序号">Số sê-ri</Sys:String>
+    <Sys:String x:Key="级别">cấp độ</Sys:String>
+    <Sys:String x:Key="模块">Mô-đun</Sys:String>
+    <Sys:String x:Key="信息">Thông tin</Sys:String>
+    <Sys:String x:Key="时间">Thời gian</Sys:String>
+    <Sys:String x:Key="导出">Xuất</Sys:String>
+    <Sys:String x:Key="历史报警">Báo động lịch sử</Sys:String>
+    <Sys:String x:Key="清空历史记录">Làm trống lịch sử</Sys:String>
+
+    <Sys:String x:Key="账号管理">Quản lý tài khoản</Sys:String>
+    <Sys:String x:Key="清空运行日志">Làm trống nhật ký chạy</Sys:String>
+    <Sys:String x:Key="清空报警信息">Làm trống thông tin báo động</Sys:String>
+
+    <Sys:String x:Key="图表">Biểu đồ</Sys:String>
+    <Sys:String x:Key="一天产量">Năng suất trong một ngày</Sys:String>
+    <Sys:String x:Key="选择日期">Chọn ngày</Sys:String>
+
+    <Sys:String x:Key="小时">giờ</Sys:String>
+    <Sys:String x:Key="产量(Pcs)">Sản lượng (Pcs)</Sys:String>
+
+    <Sys:String x:Key="一段时间内产量">Sản lượng trong một khoảng thời gian</Sys:String>
+    <Sys:String x:Key="起始日期">Ngày bắt đầu</Sys:String>
+    <Sys:String x:Key="结束日期">Ngày kết thúc</Sys:String>
+    <Sys:String x:Key="天">Chúa ơi</Sys:String>
+    <Sys:String x:Key="数据">Dữ liệu</Sys:String>
+    <Sys:String x:Key="当前产量">Sản lượng hiện tại</Sys:String>
+    <Sys:String x:Key="重置">Đặt lại</Sys:String>
+
+    <Sys:String x:Key="目标产量">Sản lượng mục tiêu</Sys:String>
+    <Sys:String x:Key="吸嘴">Hút vào</Sys:String>
+
+    <Sys:String x:Key="总计">Tổng cộng</Sys:String>
+    <Sys:String x:Key="使用次数">Số lần sử dụng</Sys:String>
+    <Sys:String x:Key="取料NG">Lấy nguyên liệu NG</Sys:String>
+    <Sys:String x:Key="拍照NG">Chụp ảnh NG</Sys:String>
+    <Sys:String x:Key="抛料率">Tỷ lệ ném</Sys:String>
+
+    <Sys:String x:Key="良率">Tỷ lệ tốt</Sys:String>
+    <Sys:String x:Key="清零">Không có</Sys:String>
+    <Sys:String x:Key="全部清零">Tất cả đều không có</Sys:String>
+    <Sys:String x:Key="计数">Đếm</Sys:String>
+
+    <Sys:String x:Key="备份">Sao lưu</Sys:String>
+    <Sys:String x:Key="功能测试">Kiểm tra chức năng</Sys:String>
+
+    <Sys:String x:Key="下一步">Tiếp theo</Sys:String>
+    <Sys:String x:Key="上一步">Bước trước</Sys:String>
+
+    <Sys:String x:Key="MES设置">Cài đặt MES</Sys:String>
+    <Sys:String x:Key="LineName（线别）：">LineName (Đường dây khác):</Sys:String>
+    <Sys:String x:Key="StationName（站别）：">StationName（Tạm biệt）：</Sys:String>
+
+    <Sys:String x:Key="允许修改参数">Cho phép sửa đổi các tham số</Sys:String>
+    <Sys:String x:Key="保存参数">Lưu các tham số</Sys:String>
+    <Sys:String x:Key="手动检查">Kiểm tra thủ công</Sys:String>
+    <Sys:String x:Key="料卷特征码(逗号分割)">Mã tính năng cuộn vật liệu (Chia dấu phẩy):</Sys:String>
+    <!--<Sys:String x:Key="料卷特征码">Mã tính năng cuộn vật liệu</Sys:String>-->
+
+    <Sys:String x:Key="料卷长度：">Chiều dài cuộn vật liệu:</Sys:String>
+    <Sys:String x:Key="料卷SN：">Cuộn SN:</Sys:String>
+    <Sys:String x:Key="Vendor（物料厂商）：">Vendor（Nhà sản xuất vật liệu）：</Sys:String>
+
+    <Sys:String x:Key="工单号：">Số đơn đặt hàng:</Sys:String>
+    <Sys:String x:Key="工单数量：">Số lượng đơn đặt hàng:</Sys:String>
+
+    <Sys:String x:Key="上相机环形光">Ánh sáng vòng tròn của máy ảnh trên</Sys:String>
+    <Sys:String x:Key="上相机同轴光">Ánh sáng đồng trục của máy ảnh trên</Sys:String>
+
+
+    <Sys:String x:Key="1#气缸上到位">1# xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="2#气缸上到位">2# xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="3#气缸上到位">3# xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="4#气缸上到位">4# xi lanh tại chỗ</Sys:String>
+
+    <Sys:String x:Key="1#气缸上">1#trên xi lanh</Sys:String>
+    <Sys:String x:Key="2#气缸上">2#trên xi lanh</Sys:String>
+    <Sys:String x:Key="3#气缸上">3#trên xi lanh</Sys:String>
+    <Sys:String x:Key="4#气缸上">4#trên xi lanh</Sys:String>
+    <Sys:String x:Key="1#气缸下">1#Dưới xi lanh</Sys:String>
+    <Sys:String x:Key="2#气缸下">2#Dưới xi lanh</Sys:String>
+    <Sys:String x:Key="3#气缸下">3#Dưới xi lanh</Sys:String>
+    <Sys:String x:Key="4#气缸下">4#Dưới xi lanh</Sys:String>
+    <Sys:String x:Key="1#真空吸">1#Hút chân không</Sys:String>
+    <Sys:String x:Key="2#真空吸">2#Hút chân không</Sys:String>
+    <Sys:String x:Key="3#真空吸">3#Hút chân không</Sys:String>
+    <Sys:String x:Key="4#真空吸">4#Hút chân không</Sys:String>
+    <Sys:String x:Key="1#真空破">1#Chân không bị hỏng</Sys:String>
+    <Sys:String x:Key="2#真空破">2#Chân không bị hỏng</Sys:String>
+    <Sys:String x:Key="3#真空破">3#Chân không bị hỏng</Sys:String>
+    <Sys:String x:Key="4#真空破">4#Chân không bị hỏng</Sys:String>
+
+    <Sys:String x:Key="1#气缸下到位">1#Xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="2#气缸下到位">2#Xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="3#气缸下到位">3#Xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="4#气缸下到位">4#Xi lanh tại chỗ</Sys:String>
+    <Sys:String x:Key="1#物料OK">1#Vật liệu OK</Sys:String>
+    <Sys:String x:Key="2#物料OK">2#Vật liệu OK</Sys:String>
+    <Sys:String x:Key="3#物料OK">3#Vật liệu OK</Sys:String>
+    <Sys:String x:Key="4#物料OK">4#Vật liệu OK</Sys:String>
+
+
+
+    <Sys:String x:Key="1#取料OK">1#Lấy nguyên liệu OK</Sys:String>
+    <Sys:String x:Key="2#取料OK">2#Lấy nguyên liệu OK</Sys:String>
+    <Sys:String x:Key="3#取料OK">3#Lấy nguyên liệu OK</Sys:String>
+    <Sys:String x:Key="4#取料OK">4#Lấy nguyên liệu OK</Sys:String>
+
+
+
+    <Sys:String x:Key="监控输入状态">Theo dõi trạng thái đầu vào</Sys:String>
+    <Sys:String x:Key="刷新读取地址">Làm mới địa chỉ đọc</Sys:String>
+    <Sys:String x:Key="刷新写入地址">Làm mới địa chỉ ghi</Sys:String>
+    <Sys:String x:Key="重新连接PLC">Kết nối lại PLC</Sys:String>
+
+    <Sys:String x:Key="读取地址">Đọc địa chỉ</Sys:String>
+    <Sys:String x:Key="写入地址">Ghi địa chỉ</Sys:String>
+    <Sys:String x:Key="写入PLC当前地址">Ghi vào địa chỉ hiện tại của PLC</Sys:String>
+
+    <Sys:String x:Key="机头选择：">Lựa chọn đầu máy:</Sys:String>
+    <Sys:String x:Key="当前压力（非实时）：">Áp suất hiện tại (không phải thời gian thực):</Sys:String>
+    <Sys:String x:Key="低压校准">Hiệu chuẩn áp suất thấp</Sys:String>
+    <Sys:String x:Key="高压校准">Hiệu chuẩn áp suất cao</Sys:String>
+    <Sys:String x:Key="设置动压力点位">Đặt điểm áp suất động</Sys:String>
+
+    <Sys:String x:Key="空移XY">Trống rỗng XY</Sys:String>
+    <Sys:String x:Key="空移Z">Trống rỗng Z</Sys:String>
+    <Sys:String x:Key="空压目标位置(mm)：">Vị trí mục tiêu áp suất không khí (mm):</Sys:String>
+    <Sys:String x:Key="空压目标压力(N)：">Áp suất mục tiêu áp suất không khí (N):</Sys:String>
+    <Sys:String x:Key="空压速度(mm/s)：">Tốc độ áp suất không khí (mm/s):</Sys:String>
+    <Sys:String x:Key="超时时间(ms)：">Thời gian chờ (ms):</Sys:String>
+    <Sys:String x:Key="上抬距离(mm)：">Khoảng cách nâng lên (mm):</Sys:String>
+    <Sys:String x:Key="执行一次空压">Thực hiện áp suất rỗng một lần</Sys:String>
+    <Sys:String x:Key="停止空压">Dừng áp suất rỗng</Sys:String>
+    <Sys:String x:Key="保存压力参数">Lưu các thông số áp suất</Sys:String>
+    <Sys:String x:Key="获取当前压力">Nhận áp lực hiện tại</Sys:String>
+
+    <Sys:String x:Key="Hive系统设置">Cài đặt hệ thống Hive</Sys:String>
+
+    <Sys:String x:Key="PDCA上传模式:">Chế độ tải lên PDCA:</Sys:String>
+    <Sys:String x:Key="穴位号:">Bấm huyệt:</Sys:String>
+    <Sys:String x:Key="单穴PDCA上传">Một huyệt PDCA được tải lên</Sys:String>
+    <Sys:String x:Key="查看PDCA日志">Xem nhật ký PDCA</Sys:String>
+    <Sys:String x:Key="使用当前TapeSN">Sử dụng TapeSN hiện tại</Sys:String>
+    <Sys:String x:Key="使用-R工站绑定：">Sử dụng trạm làm việc -R ràng buộc:</Sys:String>
+
+    <Sys:String x:Key="设置熨烫时间(s):">Đặt thời gian ủi (s):</Sys:String>
+    <Sys:String x:Key="X偏置(mm):">X thiên vị (mm):</Sys:String>
+    <Sys:String x:Key="Y偏置(mm)：">Y thiên vị (mm):</Sys:String>
+    <Sys:String x:Key="一键自动标定">Một cú nhấp chuột tự động hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="1号相机标定">Hiệu chuẩn máy ảnh số 1</Sys:String>
+
+    <Sys:String x:Key="设置飞达取料坐标">Đặt tọa độ lấy vật liệu Flyda</Sys:String>
+    <Sys:String x:Key="空移飞达取料位置">Không di chuyển đến vị trí lấy vật liệu</Sys:String>
+    <Sys:String x:Key="设置1号吸嘴取料坐标">Đặt tọa độ lấy thức liệu của vòi hút số 1</Sys:String>
+    <Sys:String x:Key="空移1号吸嘴取料位置">Vị trí lấy vật liệu từ vòi hút số 1</Sys:String>
+    <Sys:String x:Key="设置2号吸嘴取料坐标">Đặt tọa độ lấy thức liệu của vòi hút số 2</Sys:String>
+    <Sys:String x:Key="空移2号吸嘴取料位置">Vị trí lấy vật liệu từ vòi hút số 2 trống rỗng</Sys:String>
+    <Sys:String x:Key="设置3号吸嘴取料坐标">Đặt tọa độ lấy thức liệu của vòi hút số 3</Sys:String>
+    <Sys:String x:Key="空移3号吸嘴取料位置">Vị trí lấy vật liệu từ vòi hút số 3 trống rỗng</Sys:String>
+    <Sys:String x:Key="设置4号吸嘴取料坐标">Đặt tọa độ lấy thức liệu của vòi hút số 4</Sys:String>
+    <Sys:String x:Key="空移4号吸嘴取料位置">Vị trí lấy vật liệu từ vòi hút số 4 trống rỗng</Sys:String>
+
+    <Sys:String x:Key="设置下相机1号吸嘴坐标">Đặt tọa độ vòi hút số 1 của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移下相机1号吸嘴位置">Di chuyển trống ra khỏi vị trí hút số 1 của máy ảnh</Sys:String>
+    <Sys:String x:Key="设置下相机2号吸嘴坐标">Đặt tọa độ vòi hút số 2 của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移下相机2号吸嘴位置">Di chuyển trống ra khỏi vị trí hút số 2 của máy ảnh</Sys:String>
+    <Sys:String x:Key="设置下相机3号吸嘴坐标">Đặt tọa độ vòi hút số 3 của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移下相机3号吸嘴位置">Di chuyển trống ra khỏi vị trí hút số 3 của máy ảnh</Sys:String>
+    <Sys:String x:Key="设置下相机4号吸嘴坐标">Đặt tọa độ vòi hút số 4 của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移下相机4号吸嘴位置">Di chuyển trống ra khỏi vị trí hút số 4 của máy ảnh</Sys:String>
+
+
+    <Sys:String x:Key="设置12号吸嘴同取取料坐标">Set the No. 12 nozzle with the reclaim coordinates</Sys:String>
+    <Sys:String x:Key="空移12号吸嘴同取取料位置">Empty shift No. 12 nozzle with the same taking position</Sys:String>
+    <Sys:String x:Key="设置34号吸嘴同取取料坐标">Set the No. 34 nozzle with the reclaim coordinates</Sys:String>
+    <Sys:String x:Key="空移34号吸嘴同取取料位置">Empty shift No. 34 nozzle with the same taking position</Sys:String>
+
+    <Sys:String x:Key="设置NG料仓坐标">Đặt tọa độ kho NG</Sys:String>
+    <Sys:String x:Key="空移Ng料仓位置">Vị trí kho vật liệu rỗng</Sys:String>
+
+    <Sys:String x:Key="设置扫载具码坐标">Đặt tọa độ mã thiết bị quét</Sys:String>
+    <Sys:String x:Key="空移扫载具码位置">Không di chuyển vị trí mã thiết bị tải</Sys:String>
+
+    <Sys:String x:Key="设置上相机9点标定1号坐标">Đặt tọa độ số 1 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定1号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 1</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定2号坐标">Đặt tọa độ số 2 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定2号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 2</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定3号坐标">Đặt tọa độ số 3 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定3号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 3</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定4号坐标">Đặt tọa độ số 4 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定4号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 4</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定5号坐标">Đặt tọa độ số 5 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定5号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 5</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定6号坐标">Đặt tọa độ số 6 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定6号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 6</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定7号坐标">Đặt tọa độ số 7 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定7号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 7</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定8号坐标">Đặt tọa độ số 8 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定8号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 8</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定9号坐标">Đặt tọa độ số 9 hiệu chuẩn 9 điểm của máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定9号坐标">Máy ảnh di chuyển rỗng 9 điểm hiệu chuẩn tọa độ số 9</Sys:String>
+
+    <Sys:String x:Key="执行上相机9点标定">Thực hiện hiệu chuẩn 9 điểm trên máy ảnh</Sys:String>
+
+    <Sys:String x:Key="设置1号吸嘴下相机标定坐标">Đặt tọa độ hiệu chuẩn máy ảnh dưới vòi hút số 1</Sys:String>
+    <Sys:String x:Key="空移1号吸嘴下相机标定坐标">Máy ảnh hiệu chuẩn tọa độ dưới vòi hút số 1</Sys:String>
+    <Sys:String x:Key="执行1号吸嘴下相机11点标定">Thực hiện hiệu chuẩn 11 điểm của máy ảnh dưới vòi hút số 1</Sys:String>
+
+    <Sys:String x:Key="设置2号吸嘴下相机标定坐标">Đặt tọa độ hiệu chuẩn máy ảnh dưới vòi hút số 2</Sys:String>
+    <Sys:String x:Key="空移2号吸嘴下相机标定坐标">Máy ảnh hiệu chuẩn tọa độ dưới vòi hút số 2</Sys:String>
+    <Sys:String x:Key="执行2号吸嘴下相机11点标定">Thực hiện hiệu chuẩn 11 điểm của máy ảnh dưới vòi hút số 2</Sys:String>
+
+    <Sys:String x:Key="设置3号吸嘴下相机标定坐标">Đặt tọa độ hiệu chuẩn máy ảnh dưới vòi hút số 3</Sys:String>
+    <Sys:String x:Key="空移3号吸嘴下相机标定坐标">Máy ảnh hiệu chuẩn tọa độ dưới vòi hút số 3</Sys:String>
+    <Sys:String x:Key="执行3号吸嘴下相机11点标定">Thực hiện hiệu chuẩn 11 điểm của máy ảnh dưới vòi hút số 3</Sys:String>
+
+    <Sys:String x:Key="设置4号吸嘴下相机标定坐标">Đặt tọa độ hiệu chuẩn máy ảnh dưới vòi hút số 4</Sys:String>
+    <Sys:String x:Key="空移4号吸嘴下相机标定坐标">Máy ảnh hiệu chuẩn tọa độ dưới vòi hút số 4</Sys:String>
+    <Sys:String x:Key="执行4号吸嘴下相机11点标定">Thực hiện hiệu chuẩn 11 điểm của máy ảnh dưới vòi hút số 4</Sys:String>
+
+    <Sys:String x:Key="2号相机标定">Hiệu chuẩn máy ảnh số 2</Sys:String>
+    <Sys:String x:Key="标定结束">Hiệu chuẩn kết thúc</Sys:String>
+    <Sys:String x:Key="距离(mm)：">Khoảng cách (mm):</Sys:String>
+
+    <Sys:String x:Key="————————设置从固定点取标定标定片坐标————————">————————Đặt tọa độ phân đoạn hiệu chuẩn từ một điểm cố định————————</Sys:String>
+
+    <Sys:String x:Key="设置取标定片1号吸嘴坐标">Đặt tọa độ vòi hút số 1 của miếng chuẩn</Sys:String>
+    <Sys:String x:Key="空移取标定片1号坐标">Không di chuyển lấy tọa độ số 1 của miếng hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="设置取标定片2号吸嘴坐标">Đặt tọa độ vòi hút số 2 của miếng chuẩn</Sys:String>
+    <Sys:String x:Key="空移取标定片2号坐标">Không di chuyển lấy tọa độ số 2 của miếng hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="设置取标定片3号吸嘴坐标">Đặt tọa độ vòi hút số 3 của miếng chuẩn</Sys:String>
+    <Sys:String x:Key="空移取标定片3号坐标">Không di chuyển lấy tọa độ số 3 của miếng hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="设置取标定片4号吸嘴坐标">Đặt tọa độ vòi hút số 4 của miếng chuẩn</Sys:String>
+    <Sys:String x:Key="空移取标定片4号坐标">Không di chuyển lấy tọa độ số 4 của miếng hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="————————设置上相机定位标定片坐标————————">————————Đặt tọa độ hiệu chuẩn định vị máy ảnh trên————————</Sys:String>
+
+
+    <Sys:String x:Key="设置上相机载具标定片1号坐标">Đặt tọa độ số 1 của tấm hiệu chuẩn trên máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片1号坐标">Máy ảnh di chuyển trên không có tọa độ số 1 của hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="设置上相机载具标定片2号坐标">Đặt tọa độ số 2 của tấm hiệu chuẩn trên máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片2号坐标">Máy ảnh di chuyển trên không có tọa độ số 2 của hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="设置上相机载具标定片3号坐标">Đặt tọa độ số 3 của tấm hiệu chuẩn trên máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片3号坐标">Máy ảnh di chuyển trên không có tọa độ số 3 của hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="设置上相机载具标定片4号坐标">Đặt tọa độ số 4 của tấm hiệu chuẩn trên máy ảnh</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片4号坐标">Máy ảnh di chuyển trên không có tọa độ số 4 của hiệu chuẩn</Sys:String>
+
+
+    <Sys:String x:Key="————————设置从载具上吸嘴 吸取标定片坐标————————">————————Thiết lập tọa độ phân đoạn hiệu chuẩn từ vòi phun từ đầu máy bay————————</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片1号坐标">Miệng trống số 1 lấy tọa độ số 1 của tấm hiệu chuẩn</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片1号坐标">Thiết lập miệng số 1 để hấp thụ tọa độ số 1 của tấm hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片2号坐标">Miệng trống số 1 lấy tọa độ số 2 của tấm hiệu chuẩn</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片2号坐标">Thiết lập miệng số 1 để hấp thụ tọa độ số 2 của tấm hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片3号坐标">Miệng trống số 1 lấy tọa độ số 3 của tấm hiệu chuẩn</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片3号坐标">Thiết lập miệng số 1 để hấp thụ tọa độ số 3 của tấm hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片4号坐标">Miệng trống số 1 lấy tọa độ số 4 của tấm hiệu chuẩn</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片4号坐标">Thiết lập miệng số 1 để hấp thụ tọa độ số 4 của tấm hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="————————设置吸嘴吸取标定片到下视觉拍照坐标————————">————————Thiết lập vòi hút để lấy miếng hiệu chuẩn đến tọa độ chụp ảnh trực quan dưới————————</Sys:String>
+
+    <Sys:String x:Key="设置1号吸嘴标定坐标">Đặt tọa độ hiệu chuẩn vòi hút số 1</Sys:String>
+    <Sys:String x:Key="空移1号吸嘴标定坐标">Không di chuyển 1 ống hút hiệu chuẩn tọa độ</Sys:String>
+
+    <Sys:String x:Key="————————联合标定————————">————————Hiệu chuẩn chung————————</Sys:String>
+
+    <Sys:String x:Key="(1)上相机拍载具标定片">(1) Máy ảnh trên để chụp một hiệu chuẩn của thiết bị</Sys:String>
+    <Sys:String x:Key="(2)1号吸嘴吸取载具标定片到下相机走11点标定">(2) Vòi hút số 1 hấp thụ các bộ điều chỉnh tải xuống máy ảnh dưới để đi theo hiệu chuẩn 11 điểm</Sys:String>
+    <Sys:String x:Key="(3)吸嘴吸标定片移动到Feeder上，上相机拍标定片标定">(3) ống hút hiệu chuẩn di chuyển đến Feeder, máy ảnh trên chụp hiệu chuẩn hiệu chuẩn</Sys:String>
+
+    <Sys:String x:Key="自动联合标定">Hiệu chuẩn liên kết tự động</Sys:String>
+
+    <Sys:String x:Key="PLC设置">Cài đặt PLC</Sys:String>
+    <Sys:String x:Key="相机设置">Cài đặt máy ảnh</Sys:String>
+
+    <Sys:String x:Key="固高板卡设置">Cài đặt thẻ bảng cao rắn</Sys:String>
+    <Sys:String x:Key="其他设置">Các cài đặt khác</Sys:String>
+    <Sys:String x:Key="扫码枪设置">Cài đặt súng quét mã</Sys:String>
+
+
+    <Sys:String x:Key="配方名称">配方名称</Sys:String>
+
+    <Sys:String x:Key="起点X">Điểm khởi đầu X</Sys:String>
+    <Sys:String x:Key="起点Y">Điểm khởi đầu Y</Sys:String>
+    <Sys:String x:Key="终点X">Điểm cuối X</Sys:String>
+    <Sys:String x:Key="终点Y">Điểm cuối Y</Sys:String>
+
+    <Sys:String x:Key="选择拍照顺序阵列类型（将按此顺序生成各个点位）">Chọn loại mảng thứ tự chụp ảnh (các vị trí riêng lẻ sẽ được tạo theo thứ tự này)</Sys:String>
+    <Sys:String x:Key="横向">Ngang</Sys:String>
+    <Sys:String x:Key="纵向">Theo chiều dọc</Sys:String>
+    <Sys:String x:Key="纵向链式">Chuỗi dọc</Sys:String>
+
+    <Sys:String x:Key="选择序号顺序阵列类型（将按此顺序生成穴位号或吸嘴号）">Chọn loại mảng thứ tự số thứ tự (số huyệt hoặc số hút sẽ được tạo theo thứ tự này)</Sys:String>
+    <Sys:String x:Key="横向链式">Chuỗi ngang</Sys:String>
+    <Sys:String x:Key="输入阵列行数和列数">Nhập số hàng mảng và số cột</Sys:String>
+    <Sys:String x:Key="输入起点和终点坐标">Nhập tọa độ điểm bắt đầu và điểm kết thúc</Sys:String>
+
+    <Sys:String x:Key="行数">Số hàng</Sys:String>
+    <Sys:String x:Key="列数">Số cột</Sys:String>
+
+
+    <Sys:String x:Key="请先复位机台">Vui lòng đặt lại bàn trước</Sys:String>
+    <Sys:String x:Key="无法复位请关闭软件">Không thể đặt lại, vui lòng tắt phần mềm</Sys:String>
+
+    <Sys:String x:Key="点动(mm)">Điểm động (mm)</Sys:String>
+    <Sys:String x:Key="速度：">Tốc độ:</Sys:String>
+    <Sys:String x:Key="站别:">Tạm biệt:</Sys:String>
+    <Sys:String x:Key="权限">Quyền</Sys:String>
+    <Sys:String x:Key="修改">Sửa đổi</Sys:String>
+
+    <Sys:String x:Key="重置全部">Đặt lại tất cả</Sys:String>
+    <Sys:String x:Key="关闭">Tắt</Sys:String>
+
+    <Sys:String x:Key="清除报警">Xóa báo động</Sys:String>
+    <Sys:String x:Key="报警码">Mã báo động</Sys:String>
+    <Sys:String x:Key="返回">Quay lại</Sys:String>
+    <Sys:String x:Key="错误码">Mã lỗi</Sys:String>
+
+    <Sys:String x:Key="重复密码：">Lặp lại mật khẩu:</Sys:String>
+    <Sys:String x:Key="修改密码">Sửa đổi mật khẩu của bạn</Sys:String>
+
+    <Sys:String x:Key="设定">Cài đặt</Sys:String>
+
+    <Sys:String x:Key="机械臂1号吸嘴">Vòng tay robot số 1 hút</Sys:String>
+    <Sys:String x:Key="机械臂2号吸嘴">Vòng tay robot số 2 hút</Sys:String>
+    <Sys:String x:Key="机械臂3号吸嘴">Vòng tay robot số 3 hút</Sys:String>
+    <Sys:String x:Key="接驳搬运吸嘴">Kết nối với vòi hút di chuyển</Sys:String>
+
+    <Sys:String x:Key="上相机">Lên máy ảnh</Sys:String>
+    <Sys:String x:Key="下相机">Hạ máy ảnh</Sys:String>
+    <Sys:String x:Key="拍照次数">Số lần chụp ảnh</Sys:String>
+    <Sys:String x:Key="NG次数">SỐ NG</Sys:String>
+
+    <Sys:String x:Key="白班投入">Đầu vào ban trắng</Sys:String>
+    <Sys:String x:Key="白班产出">Đầu ra ban trắng</Sys:String>
+    <Sys:String x:Key="夜班投入">Ca đêm được đưa vào</Sys:String>
+    <Sys:String x:Key="夜班产出">Sản lượng ca đêm</Sys:String>
+
+    <Sys:String x:Key="启用:enable:Bật">Bật</Sys:String>
+    <Sys:String x:Key="启用ModbusTcp">Cho phép ModbusTcp</Sys:String>
+    <Sys:String x:Key="安全门:Security gate:Cửa an ninh">安全门:Security gate:Cửa an ninh</Sys:String>
+    <Sys:String x:Key="Modbus485通讯参数">Thông số giao tiếp Modbus485</Sys:String>
+    <Sys:String x:Key="串口号">Chuỗi khẩu hiệu</Sys:String>
+    <Sys:String x:Key="站号">Số trạm</Sys:String>
+    <Sys:String x:Key="IP">IP</Sys:String>
+    <Sys:String x:Key="端口">Cổng</Sys:String>
+    <Sys:String x:Key="缓冲区大小">Kích thước bộ đệm</Sys:String>
+    <Sys:String x:Key="超时">Hết thời gian chờ</Sys:String>
+    <Sys:String x:Key="读写通讯地址">Đọc địa chỉ gửi thư</Sys:String>
+    <Sys:String x:Key="读PLC-起始地址">Đọc PLC-Địa chỉ bắt đầu</Sys:String>
+    <Sys:String x:Key="读PLC-地址个数">Đọc PLC-Địa chỉ số</Sys:String>
+    <Sys:String x:Key="写PLC-心跳地址">Viết PLC-địa chỉ nhịp tim</Sys:String>
+    <Sys:String x:Key="读PLC-清载具指示地址">Đọc PLC-Sạch ghi chỉ địa chỉ</Sys:String>
+    <Sys:String x:Key="读写PLC-读取载具码标志">Đọc và viết PLC - Đọc dấu hiệu mã tải</Sys:String>
+    <Sys:String x:Key="写PLC-载具处理结果">Viết PLC - kết quả xử lý tải</Sys:String>
+    <Sys:String x:Key="读PLC-载具码起始地址">Đọc PLC - Địa chỉ bắt đầu của mã tải</Sys:String>
+    <Sys:String x:Key="读PLC-单个载具码使用地址个数">Đọc PLC- một mã tải duy nhất sử dụng số lượng địa chỉ</Sys:String>
+    <Sys:String x:Key="读PLC-载具中SIP码起始地址">Đọc địa chỉ bắt đầu mã SIP trong PLC-Tải</Sys:String>
+    <Sys:String x:Key="读PLC-单个载具中SIP码使用地址个数">Đọc PLC-Mã SIP trong một tải duy nhất sử dụng số lượng địa chỉ</Sys:String>
+    <Sys:String x:Key="读PLC-载具中物料使用哪个吸嘴起始地址">Đọc địa chỉ bắt đầu của vòi hút nào được sử dụng cho các mục trong tải PLC</Sys:String>
+    <Sys:String x:Key="读写PLC-吸嘴上SIP码标志位">Đọc và viết PLC-bit đánh dấu mã SIP trên vòi phun</Sys:String>
+    <Sys:String x:Key="读PLC-吸嘴上SIP码起始地址">Đọc địa chỉ bắt đầu mã SIP trên PLC-Hấp thụ</Sys:String>
+    <Sys:String x:Key="读PLC-单个吸嘴上SIP码使用地址个数">Đọc PLC- Mã SIP trên một vòi hút duy nhất sử dụng số lượng địa chỉ</Sys:String>
+    <Sys:String x:Key="读PLC-吸嘴上SIP板类型起始地址">Đọc địa chỉ bắt đầu loại bảng SIP trên PLC-Hấp thụ</Sys:String>
+    <Sys:String x:Key="读PLC-吸嘴产品状态起始地址">Đọc địa chỉ bắt đầu trạng thái sản phẩm PLC-hít</Sys:String>
+    <Sys:String x:Key="读PLC-增加OK产品地址">Đọc PLC - Thêm địa chỉ sản phẩm OK</Sys:String>
+    <Sys:String x:Key="读PLC-增加NG产品地址">Đọc PLC - Tăng địa chỉ sản phẩm NG</Sys:String>
+    <Sys:String x:Key="读通讯地址">Đọc địa chỉ gửi thư</Sys:String>
+    <Sys:String x:Key="读PLC-NG仓状态起始地址">Đọc địa chỉ bắt đầu trạng thái vị trí PLC-NG</Sys:String>
+    <Sys:String x:Key="连接参数">Tham số kết nối</Sys:String>
+    <Sys:String x:Key="写入超时">Viết thời gian chờ</Sys:String>
+    <Sys:String x:Key="读取超时">Đọc thời gian chờ</Sys:String>
+    <Sys:String x:Key="扫码设定">Cài đặt quét mã</Sys:String>
+    <Sys:String x:Key="触发扫码指令">Kích hoạt hướng dẫn quét mã</Sys:String>
+    <Sys:String x:Key="终止扫码指令">Chấm dứt hướng dẫn quét mã</Sys:String>
+    <Sys:String x:Key="启用结束标识符">Bật mã định danh kết thúc</Sys:String>
+    <Sys:String x:Key="未扫到码返回值">Không quét đến giá trị trả về mã</Sys:String>
+    <Sys:String x:Key="载具码最小长度">Chiều dài tối thiểu của mã tải</Sys:String>
+    <Sys:String x:Key="载具码最大长度">Chiều dài tối đa của mã tải</Sys:String>
+    <Sys:String x:Key="Tray">Tray</Sys:String>
+    <Sys:String x:Key="启用获取Tray信息">Bật lấy thông tin Trray</Sys:String>
+    <Sys:String x:Key="TrayIP">TrayIP</Sys:String>
+    <Sys:String x:Key="B2BTape相关">B2BTape liên quan</Sys:String>
+    <Sys:String x:Key="B2BTape 允许的IPN">B2BTape cho phép IPN</Sys:String>
+    <Sys:String x:Key="B2BTape SN位数">Chữ số B2BTape SN</Sys:String>
+    <Sys:String x:Key="B2BTape SN">B2BTape SN</Sys:String>
+    <Sys:String x:Key="B2BTape 单卷最大数目">Số lượng lớn nhất của một khối lượng duy nhất của B2BTape</Sys:String>
+    <Sys:String x:Key="Vendor">Vendor</Sys:String>
+    <Sys:String x:Key="B2BTape 物料数量">Số lượng vật liệu B2BTape</Sys:String>
+    <Sys:String x:Key="B2BTape 剩余预警">Cảnh báo còn lại của B2BTape</Sys:String>
+    <Sys:String x:Key="B2BTape 物料名称">Tên mục B2BTape</Sys:String>
+    <Sys:String x:Key="MES参数设定">Cài đặt tham số MES</Sys:String>
+    <Sys:String x:Key="MES上传类型">Loại tải lên MES</Sys:String>
+    <Sys:String x:Key="Line">Line</Sys:String>
+    <Sys:String x:Key="Station">Station</Sys:String>
+    <Sys:String x:Key="App">App</Sys:String>
+    <Sys:String x:Key="Hive参数">Tham số Hive</Sys:String>
+    <Sys:String x:Key="是否启用上传Hive状态到MES">Có bật tải lên trạng thái Hive vào MES hay không</Sys:String>
+    <Sys:String x:Key="是否机台进入维护阶段">Cho dù máy bay đang bước vào giai đoạn bảo trì</Sys:String>
+    <Sys:String x:Key="急停按下是否弹出Hive上传DT窗体">Dừng khẩn cấp để nhấn có bật lên Hive để tải lên biểu mẫu DT hay không</Sys:String>
+    <Sys:String x:Key="IP地址">Địa chỉ IP</Sys:String>
+    <Sys:String x:Key="Hive上传到Mes_IP">Hive được tải lên Mes_IP</Sys:String>
+    <Sys:String x:Key="端口号">Số cổng</Sys:String>
+    <Sys:String x:Key="工厂时区">Múi giờ nhà máy</Sys:String>
+    <Sys:String x:Key="机台处理中的整机或组件序列号">Số sê-ri toàn bộ máy hoặc thành phần trong quá trình xử lý bàn</Sys:String>
+    <Sys:String x:Key="是否启用自动上传Plandown功能">Có bật tính năng Tự động tải lên Plalandown hay không</Sys:String>
+    <Sys:String x:Key="Plandown持续时间">Plandown thời gian</Sys:String>
+    <Sys:String x:Key="是否启用长时间DT循环报警">Có bật báo động vòng lặp DT dài hay không</Sys:String>
+    <Sys:String x:Key="自动上传Plandown状态时间(7:45)">Thời gian trạng thái Plan tự động tải lên (7:45)</Sys:String>
+    <Sys:String x:Key="自动上传Plandown状态时间(19:45)">Thời gian trạng thái Plann tự động tải lên (19:45)</Sys:String>
+    <Sys:String x:Key="Hive版本号">Số phiên bản Hive</Sys:String>
+    <Sys:String x:Key="穴位排布方式开关:Acupuncture point arrangement mode switch:Công tắc phương pháp sắp xếp bấm huyệt">穴位排布方式开关:Acupuncture point arrangement mode switch:Công tắc phương pháp sắp xếp bấm huyệt</Sys:String>
+    <Sys:String x:Key="1.开启">1. Bật</Sys:String>
+    <Sys:String x:Key="语言">Ngôn ngữ</Sys:String>
+
+    <Sys:String x:Key="模块启用">Mô-đun được kích hoạt</Sys:String>
+    <Sys:String x:Key="通讯参数">Thông số giao tiếp</Sys:String>
+    <Sys:String x:Key="视觉软件参数配置">Cấu hình tham số phần mềm trực quan</Sys:String>
+    <Sys:String x:Key="图片存储路径">Đường dẫn lưu trữ hình ảnh</Sys:String>
+    <Sys:String x:Key="FTP图片上传">Hình ảnh FTP được tải lên</Sys:String>
+    <Sys:String x:Key="启用图片打包上传至服务器">Bật đóng gói hình ảnh để tải lên máy chủ</Sys:String>
+    <Sys:String x:Key="服务器IP">IP máy chủ</Sys:String>
+    <Sys:String x:Key="服务器端口">Cổng máy chủ</Sys:String>
+    <Sys:String x:Key="登录用户名">Đăng nhập vào tên người dùng</Sys:String>
+    <Sys:String x:Key="登陆密码">Mật khẩu đăng nhập</Sys:String>
+    <Sys:String x:Key="线别">Đường dây khác</Sys:String>
+    <Sys:String x:Key="工站">Trạm công nhân</Sys:String>
+    <Sys:String x:Key="B2BTape 单卷最大物料数">Số lượng vật liệu tối đa cho một cuộn duy nhất của B2BTape</Sys:String>
+    <Sys:String x:Key="本机是否绑定天线与SIP">Cho dù máy này bị ràng buộc với ăng-ten với SIP</Sys:String>
+    <Sys:String x:Key="Fixid">Fixid</Sys:String>
+
+    <Sys:String x:Key="德创视觉vps文件路径">Đường dẫn tệp VPS trực quan Decheng</Sys:String>
+    <Sys:String x:Key="登录设定">Cài đặt đăng nhập</Sys:String>
+    <Sys:String x:Key="允许使用用户名密码登录">Cho phép đăng nhập bằng mật khẩu tên người dùng</Sys:String>
+
+
+    <Sys:String x:Key="载具处理运行步骤">Các bước chạy xử lý nhà cung cấp dịch vụ</Sys:String>
+    <Sys:String x:Key="NG仓读取运行步骤">Các bước thao tác đọc kho NG</Sys:String>
+    <Sys:String x:Key="统计信息">Số liệu thống kê</Sys:String>
+    <Sys:String x:Key="B2B复检NG仓状态">B2B kiểm tra lại tình trạng kho NG</Sys:String>
+
+    <Sys:String x:Key="运行时间">giờ hoạt động</Sys:String>
+    <Sys:String x:Key="待料时间">Thời gian chờ</Sys:String>
+    <Sys:String x:Key="故障时间">thời gian thất bại</Sys:String>
+    <Sys:String x:Key="报警总数">tổng số cảnh báo</Sys:String>
+
+
+    <Sys:String x:Key="待料">chờ</Sys:String>
+    <Sys:String x:Key="空穴">hố</Sys:String>
+    <Sys:String x:Key="测高NG">phép đo độ cao NG</Sys:String>
+    <Sys:String x:Key="天线扫码NG">Mã quét anten NG</Sys:String>
+    <Sys:String x:Key="FCM扫码NG">Mã quét FCM NG</Sys:String>
+    <Sys:String x:Key="MES上传NG">MES tải lên NG</Sys:String>
+    <Sys:String x:Key="撕膜带料">Xé băng phim</Sys:String>
+    <Sys:String x:Key="未撕膜">phim chưa xé</Sys:String>
+    <Sys:String x:Key="贴装偏移">gắn bù đắp</Sys:String>
+    <Sys:String x:Key="等待处理">chưa giải quyết</Sys:String>
+    <Sys:String x:Key="测高失连">Máy đo độ cao bị mất kết nối</Sys:String>
+    <Sys:String x:Key="视觉失连">ngắt kết nối trực quan</Sys:String>
+    <Sys:String x:Key="未知状态">tình trạng không rõ</Sys:String>
+
+    <Sys:String x:Key="上料NG仓状态">Các bước thao tác đọc kho NG</Sys:String>
+    <Sys:String x:Key="HIVE状态：">Trạng thái HIVE:</Sys:String>
+    <Sys:String x:Key="计划停机：">Lên kế hoạch ngừng hoạt động:</Sys:String>
+    <Sys:String x:Key="图片上传">Hình ảnh được tải lên</Sys:String>
+
+    <Sys:String x:Key="自动上传图片">Tự động tải lên hình ảnh</Sys:String>
+    <Sys:String x:Key="服务器状态">Trạng thái máy chủ</Sys:String>
+    <Sys:String x:Key="当前上传本地文件夹路径">Đường dẫn thư mục cục bộ hiện đang được tải lên</Sys:String>
+    <Sys:String x:Key="选择文件夹">Chọn thư mục</Sys:String>
+    <Sys:String x:Key="上传单个文件夹">Tải lên một thư mục duy nhất</Sys:String>
+
+    <Sys:String x:Key="自动上传全部文件夹">Tự động tải lên tất cả các thư mục</Sys:String>
+    <Sys:String x:Key="打开FTP文件夹">Mở thư mục FTP</Sys:String>
+    <Sys:String x:Key="压缩进度">Nén tiến độ</Sys:String>
+    <Sys:String x:Key="上传进度">Tiến trình tải lên</Sys:String>
+
+
+
+
+
+    <Sys:String x:Key="ModbusTcp通讯">ModbusTcp Communications</Sys:String>
+    <Sys:String x:Key="读PLC-机台状态地址">Đọc địa chỉ trạng thái PLC-Bàn</Sys:String>
+    <Sys:String x:Key="读PLC-控制上位机状态地址">Đọc PLC-Kiểm soát địa chỉ trạng thái máy trên</Sys:String>
+    <Sys:String x:Key="读PLC-安全门报警地址">Đọc địa chỉ báo động PLC-An ninh</Sys:String>
+    <Sys:String x:Key="读PLC-报警地址">Đọc địa chỉ PLC-Báo động</Sys:String>
+    <Sys:String x:Key="读PLC-物料Ready触发加工标记">Đọc PLC-Vật liệu Ready kích hoạt thẻ xử lý</Sys:String>
+    <Sys:String x:Key="读PLC-触发扫码标记">Đọc PLC - Kích hoạt đánh dấu quét mã</Sys:String>
+    <Sys:String x:Key="读PLC-空跑模式标记">Đọc Pulk-Kagehoạtdtńłnntţttëk</Sys:String>
+    <Sys:String x:Key="读PLC-流线模式标记">Đọc đánh dấu chế độ PLC-dòng chảy</Sys:String>
+    <Sys:String x:Key="写PLC-飞达送料信号">Viết PLC-Flying Spy gửi tín hiệu</Sys:String>
+    <Sys:String x:Key="读PLC-飞达物料检测结果">Đọc kết quả kiểm tra vật liệu PLC-Flyda</Sys:String>
+    <Sys:String x:Key="写通讯地址">Viết địa chỉ gửi thư</Sys:String>
+    <Sys:String x:Key="写PLC-起始地址">Viết PLC-địa chỉ bắt đầu</Sys:String>
+    <Sys:String x:Key="写PLC-地址个数">Viết PLC-địa chỉ số</Sys:String>
+    <Sys:String x:Key="写PLC-工位运行状态地址">Viết địa chỉ trạng thái chạy PLC-bit</Sys:String>
+    <Sys:String x:Key="写PLC-报警地址">Viết địa chỉ PLC-báo động</Sys:String>
+    <Sys:String x:Key="写PLC-工作结果">Viết PLC - kết quả công việc</Sys:String>
+    <Sys:String x:Key="写PLC-扫码结果">Viết kết quả PLC-quét mã</Sys:String>
+    <Sys:String x:Key="写PLC-是否需要保压">Viết PLC - có cần giữ áp lực hay không</Sys:String>
+    <Sys:String x:Key="写PLC-上位机准备完成">Viết PLC-Up-Thượng Line đã sẵn sàng để hoàn thành</Sys:String>
+    <Sys:String x:Key="写PLC-让PLC复位">Viết PLC-Để PLC đặt lại</Sys:String>
+    <Sys:String x:Key="写PLC-心跳信号">Viết plc-tín hiệu nhịp tim</Sys:String>
+    <Sys:String x:Key="脉冲当量">Xung tương đương</Sys:String>
+    <Sys:String x:Key="X1脉冲当量">Xung X1 tương đương</Sys:String>
+    <Sys:String x:Key="Y1脉冲当量">Xung Y1 tương đương</Sys:String>
+    <Sys:String x:Key="X2脉冲当量">Xung X2 tương đương</Sys:String>
+    <Sys:String x:Key="Y2脉冲当量">Xung Y2 tương đương</Sys:String>
+    <Sys:String x:Key="Z2脉冲当量">Xung Z2 tương đương</Sys:String>
+
+
+    <Sys:String x:Key="R1脉冲当量">Xung R1 tương đương</Sys:String>
+    <Sys:String x:Key="R2脉冲当量">Xung R2 tương đương</Sys:String>
+    <Sys:String x:Key="R3脉冲当量">Xung R3 tương đương</Sys:String>
+    <Sys:String x:Key="R4脉冲当量">Xung R4 tương đương</Sys:String>
+    <Sys:String x:Key="工作速度">Tốc độ hoạt động</Sys:String>
+    <Sys:String x:Key="X1工作速度">Tốc độ hoạt động của X1</Sys:String>
+    <Sys:String x:Key="Y1工作速度">Tốc độ hoạt động của Y1</Sys:String>
+    <Sys:String x:Key="X2工作速度">Tốc độ hoạt động của X2</Sys:String>
+    <Sys:String x:Key="Y2工作速度">Tốc độ hoạt động của Y2</Sys:String>
+    <Sys:String x:Key="Z2工作速度">Tốc độ hoạt động của Z2</Sys:String>
+    <Sys:String x:Key="R1工作速度">Tốc độ hoạt động của R1</Sys:String>
+    <Sys:String x:Key="R2工作速度">Tốc độ hoạt động của R2</Sys:String>
+    <Sys:String x:Key="R3工作速度">Tốc độ hoạt động của R3</Sys:String>
+    <Sys:String x:Key="R4工作速度">Tốc độ hoạt động của R4</Sys:String>
+    <Sys:String x:Key="复位速度">Tốc độ đặt lại</Sys:String>
+
+    <Sys:String x:Key="X1复位速度">Tốc độ đặt lại X1</Sys:String>
+    <Sys:String x:Key="Y1复位速度">Tốc độ đặt lại Y1</Sys:String>
+    <Sys:String x:Key="X2复位速度">Tốc độ đặt lại X2</Sys:String>
+    <Sys:String x:Key="Y2复位速度">Tốc độ đặt lại Y2</Sys:String>
+    <Sys:String x:Key="Z2复位速度">Tốc độ đặt lại Z2</Sys:String>
+    <Sys:String x:Key="R1复位速度">Tốc độ đặt lại R1</Sys:String>
+    <Sys:String x:Key="R2复位速度">Tốc độ đặt lại R2</Sys:String>
+    <Sys:String x:Key="R3复位速度">Tốc độ đặt lại R3</Sys:String>
+    <Sys:String x:Key="R4复位速度">Tốc độ đặt lại R4</Sys:String>
+
+    <Sys:String x:Key="示教低速">Hướng dẫn tốc độ thấp</Sys:String>
+    <Sys:String x:Key="X1示教低速">X1 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="Y1示教低速">Y1 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="X2示教低速">X2 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="Y2示教低速">Y2 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="Z2示教低速">Z2 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="R1示教低速">R1 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="R2示教低速">R2 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="R3示教低速">R3 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="R4示教低速">R4 dạy tốc độ thấp</Sys:String>
+    <Sys:String x:Key="示教中速">Hiệu giáo tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="X1示教中速">X1 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="Y1示教中速">Y1 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="X2示教中速">X2 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="Y2示教中速">Y2 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="Z2示教中速">Z2 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="R1示教中速">R1 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="R2示教中速">R2 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="R3示教中速">R3 hướng dẫn tốc độ trung bình</Sys:String>
+    <Sys:String x:Key="R4示教中速">R4 hướng dẫn tốc độ trung bình</Sys:String>
+
+    <Sys:String x:Key="示教高速">Hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="X1示教高速">X1 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="Y1示教高速">Y1 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="X2示教高速">X2 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="Y2示教高速">Y2 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="Z2示教高速">Z2 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="R1示教高速">R1 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="R2示教高速">R2 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="R3示教高速">R3 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="R4示教高速">R4 hướng dẫn tốc độ cao</Sys:String>
+    <Sys:String x:Key="端口配置">Cấu hình cổng</Sys:String>
+    <Sys:String x:Key="核心参数勿动">Các thông số cốt lõi không được di chuyển</Sys:String>
+    <Sys:String x:Key="是否为双控气缸机台">Cho dù đó là một máy xi lanh điều khiển kép</Sys:String>
+    <Sys:String x:Key="贴装轴安全X（相机右避让阈值）">Bảo mật trục dán X (ngưỡng tránh phải của máy ảnh)</Sys:String>
+    <Sys:String x:Key="贴装轴安全Y（距原点最大安全距离）">Bảo mật trục dán Y (khoảng cách an toàn tối đa từ nguồn gốc)</Sys:String>
+    <Sys:String x:Key="相机轴X最大值（略小于最大行程）">Giá trị tối đa X của trục máy ảnh (nhỏ hơn một chút so với hành trình tối đa)</Sys:String>
+    <Sys:String x:Key="相机轴Y最大值（略小于最大行程）">Giá trị tối đa Y của trục máy ảnh (nhỏ hơn một chút so với hành trình tối đa)</Sys:String>
+    <Sys:String x:Key="贴装轴X最大值（略小于最大行程）">Giá trị tối đa X của trục dán (nhỏ hơn một chút so với hành trình tối đa)</Sys:String>
+    <Sys:String x:Key="贴装轴Y最大值（略小于最大行程）">Giá trị tối đa của trục dán Y (nhỏ hơn một chút so với hành trình tối đa)</Sys:String>
+    <Sys:String x:Key="贴装轴Z最大值（略小于最大行程）">Giá trị tối đa Z của trục dán (nhỏ hơn một chút so với hành trình tối đa)</Sys:String>
+    <Sys:String x:Key="启用扫码枪扫描排线码">Bật súng quét mã quét mã số dòng</Sys:String>
+    <Sys:String x:Key="最小长度">Chiều dài tối thiểu</Sys:String>
+    <Sys:String x:Key="最大长度">Chiều dài tối đa</Sys:String>
+    <Sys:String x:Key="启用相机扫描天线码">Bật máy ảnh để quét mã ăng-ten</Sys:String>
+    <Sys:String x:Key="视觉相关设置">Cài đặt liên quan đến trực quan</Sys:String>
+    <Sys:String x:Key="上相机拍照前等待时间">Cài đặt liên quan đến trực quan</Sys:String>
+    <Sys:String x:Key="下相机拍照前等待时间">Chờ thời gian trước khi máy ảnh xuống để chụp ảnh</Sys:String>
+    <Sys:String x:Key="吸取物料">Hấp thụ vật liệu</Sys:String>
+    <Sys:String x:Key="目标物料">Mục mục tiêu</Sys:String>
+    <Sys:String x:Key="SPP视觉exe文件路径">SpP Vision exe đường dẫn tập tin</Sys:String>
+    <Sys:String x:Key="启用启动时上传Alarm信息">启用启动时上传Alarm信息</Sys:String>
+    <Sys:String x:Key="B2BTapeSN位数">Chữ số B2BTapeSN</Sys:String>
+    <Sys:String x:Key="所有B2BTapeIPN">Tất cả B2BTapeIPN</Sys:String>
+    <Sys:String x:Key="所有调机B2BTapeSN">Tất cả các điều chỉnh B2BTapeSN</Sys:String>
+    <Sys:String x:Key="B2BTapeSN">B2BTapeSN</Sys:String>
+    <Sys:String x:Key="B2BTapeVendor">B2BTapeVendor</Sys:String>
+    <Sys:String x:Key="B2BTape单卷最大物料数">Số lượng vật liệu tối đa cho một cuộn duy nhất của B2BTape</Sys:String>
+    <Sys:String x:Key="B2BTape剩余预警物料数">Số lượng vật liệu cảnh báo sớm còn lại cho B2BTape</Sys:String>
+    <Sys:String x:Key="B2BTape物料名称">Tên mục B2BTape</Sys:String>
+    <Sys:String x:Key="其他">Những người khác</Sys:String>
+    <Sys:String x:Key="Site">Site</Sys:String>
+    <Sys:String x:Key="软件版本号">Số phiên bản phần mềm</Sys:String>
+    <Sys:String x:Key="吸嘴Z高度相对补偿">Vòi phun Z chiều cao tương đối bù</Sys:String>
+    <Sys:String x:Key="2#相对于1#补偿">2 # bồi thường liên quan đến 1 #</Sys:String>
+    <Sys:String x:Key="3#相对于1#补偿">3 # so với 1 #bồi thường</Sys:String>
+    <Sys:String x:Key="4#相对于1#补偿">4# liên quan đến 1 #bồi thường</Sys:String>
+    <Sys:String x:Key="吸嘴取料清料设定">Ống hút lấy nguyên liệu để thiết lập vật liệu rõ ràng</Sys:String>
+    <Sys:String x:Key="吸嘴取料停留时间">Thời gian lưu trú của vật liệu hút</Sys:String>
+    <Sys:String x:Key="吸嘴清料吹气时间">Thời gian thổi hơi của vật liệu sạch miệng hút</Sys:String>
+    <Sys:String x:Key="单吸嘴连续取料失败报警次数">Số lần báo động thất bại trong việc lấy vật liệu liên tục của một vòi hút duy nhất</Sys:String>
+    <Sys:String x:Key="所有吸嘴取料失败报警次数">Số lần báo động thất bại của tất cả các vật liệu hút</Sys:String>
+
+    <Sys:String x:Key="料卷特征码">料卷特征码（以,分隔）</Sys:String>
+    <Sys:String x:Key="调机料卷SN">调机料卷SN（以,分隔）</Sys:String>
+    <Sys:String x:Key="批量绑定">批量绑定</Sys:String>
+
+    <Sys:String x:Key="使用新视觉指令">使用新视觉指令</Sys:String>
+    <Sys:String x:Key="所有天线特征码">所有天线特征码</Sys:String>
+    <Sys:String x:Key="B2B Station">B2B Station</Sys:String>
+    <Sys:String x:Key="Unload Station">Unload Station</Sys:String>
+
+    <Sys:String x:Key="X补偿">X补偿（mm）：</Sys:String>
+    <Sys:String x:Key="Y补偿">Y补偿（mm）：</Sys:String>
+    <Sys:String x:Key="Z补偿">Z补偿（mm）：</Sys:String>
+    <Sys:String x:Key="R补偿1">R补偿1（°）：</Sys:String>
+    <Sys:String x:Key="R补偿2">R补偿2（°）：</Sys:String>
+    <Sys:String x:Key="移动">移动</Sys:String>
+    <Sys:String x:Key="补偿">补偿</Sys:String>
+    <Sys:String x:Key="吸嘴1左取料">吸嘴1左取料</Sys:String>
+    <Sys:String x:Key="吸嘴1右取料">吸嘴1右取料</Sys:String>
+    <Sys:String x:Key="吸嘴2左取料">吸嘴2左取料</Sys:String>
+    <Sys:String x:Key="吸嘴2右取料">吸嘴2右取料</Sys:String>
+    <Sys:String x:Key="吸嘴3左取料">吸嘴3左取料</Sys:String>
+    <Sys:String x:Key="吸嘴3右取料">吸嘴3右取料</Sys:String>
+    <Sys:String x:Key="吸嘴4左取料">吸嘴4左取料</Sys:String>
+    <Sys:String x:Key="吸嘴4右取料">吸嘴4右取料</Sys:String>
+    <Sys:String x:Key="吸嘴13同时取料">吸嘴13同时取料</Sys:String>
+    <Sys:String x:Key="吸嘴24同时取料">吸嘴24同时取料</Sys:String>
+    <Sys:String x:Key="吸嘴1下视觉">吸嘴1下视觉</Sys:String>
+    <Sys:String x:Key="吸嘴2下视觉">吸嘴2下视觉</Sys:String>
+    <Sys:String x:Key="吸嘴3下视觉">吸嘴3下视觉</Sys:String>
+    <Sys:String x:Key="吸嘴4下视觉">吸嘴4下视觉</Sys:String>
+    <Sys:String x:Key="NG物料抛料">NG物料抛料</Sys:String>
+    <Sys:String x:Key="吸嘴1左取料测试">吸嘴1左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴1右取料测试">吸嘴1右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴2左取料测试">吸嘴2左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴2右取料测试">吸嘴2右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴3左取料测试">吸嘴3左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴3右取料测试">吸嘴3右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴4左取料测试">吸嘴4左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴4右取料测试">吸嘴4右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴13同取测试">吸嘴13同取测试</Sys:String>
+    <Sys:String x:Key="吸嘴24同取测试">吸嘴24同取测试</Sys:String>
+    <Sys:String x:Key="开始单取测试">开始单取测试</Sys:String>
+    <Sys:String x:Key="停止单取测试">停止单取测试</Sys:String>
+
+    <Sys:String x:Key="吸嘴取料后检测真空吸等待时间">吸嘴取料后检测真空吸等待时间</Sys:String>
+    <Sys:String x:Key="手动设定软件版本号">手动设定软件版本号</Sys:String>
+
+    <Sys:String x:Key="MesIP">MesIP</Sys:String>
+    <Sys:String x:Key="操作人员编号">操作人员编号</Sys:String>
+
+    <Sys:String x:Key="小视野相机拍照整个sip板">小视野相机拍照整个sip板</Sys:String>
+
+
+    <Sys:String x:Key="定位上相机光源">定位上相机光源</Sys:String>
+
+    <Sys:String x:Key="X1+X2轴最大值(略小于轴带机构相撞距离)">X1+X2轴最大值(略小于轴带机构相撞距离)</Sys:String>
+    <Sys:String x:Key="Y1+Y2轴最大值(略小于轴带机构相撞距离)">Y1+Y2轴最大值(略小于轴带机构相撞距离)</Sys:String>
+    <Sys:String x:Key="Y1轴+Y2轴带机构最大值(略小于轴带机构相撞距离)">Y1轴+Y2轴带机构最大值(略小于轴带机构相撞距离)</Sys:String>
+    <Sys:String x:Key="Y2轴与Feeder相机柱最小值(略大于Y2轴与Feeder相机柱相撞距离)">Y2轴与Feeder相机柱最小值(略大于Y2轴与Feeder相机柱相撞距离)</Sys:String>
+    <Sys:String x:Key="X2轴与Feeder相机柱最大值(略小于X2轴与Feeder相机柱相撞距离)">X2轴与Feeder相机柱最大值(略小于X2轴与Feeder相机柱相撞距离)</Sys:String>
+
+    <Sys:String x:Key="Y1轴带机构+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴带机构相撞）">Y1轴带机构+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="X1轴带机构+X2轴带机构（略小于贴装X轴带机构与相机X轴带机构相撞）">X1轴带机构+X2轴带机构（略小于贴装X轴带机构与相机X轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="Y1轴+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴相撞）">Y1轴+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴相撞）</Sys:String>
+
+    <Sys:String x:Key="写PLC-相机启动">写PLC-相机启动</Sys:String>
+    <Sys:String x:Key="写PLC-相机拍照完成">写PLC-相机拍照完成</Sys:String>
+    <Sys:String x:Key="写PLC-保压偏移位置">写PLC-保压偏移位置</Sys:String>
+    <Sys:String x:Key="Y1轴带机构+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴带机构相撞）">Y1轴带机构+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="X1轴带机构+X2轴带机构最大值（略小于贴装X轴带机构与相机X轴带机构相撞）">X1轴带机构+X2轴带机构最大值（略小于贴装X轴带机构与相机X轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="Y1轴+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴相撞）">Y1轴+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴相撞）</Sys:String>
+
+    <Sys:String x:Key="贴装轴Z安全高度（在任何位置都处于绝对安全的一个高度）">贴装轴Z安全高度（在任何位置都处于绝对安全的一个高度）</Sys:String>
+
+    <Sys:String x:Key="读PLC-相机启动">读PLC-相机启动</Sys:String>
+    <Sys:String x:Key="读PLC-X轴坐标">读PLC-X轴坐标</Sys:String>
+
+    <Sys:String x:Key="飞达上相机光源">飞达上相机光源</Sys:String>
+    <Sys:String x:Key="保压上相机光源">保压上相机光源</Sys:String>
+
+    <Sys:String x:Key="启用保压相机">启用保压相机</Sys:String>
+
+    <Sys:String x:Key="保压X轴偏移基准值">保压X轴偏移基准值</Sys:String>
+
+    <Sys:String x:Key="写PLC-移动到保压动静态位置">写PLC-移动到保压动静态位置</Sys:String>
+
+
+    <Sys:String x:Key="吸嘴取料偏移"></Sys:String>
+    <Sys:String x:Key="是否启用偏移"></Sys:String>
+    <Sys:String x:Key="吸嘴1-X"></Sys:String>
+    <Sys:String x:Key="吸嘴1-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴1-R"></Sys:String>
+    <Sys:String x:Key="吸嘴2-X"></Sys:String>
+    <Sys:String x:Key="吸嘴2-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴2-R"></Sys:String>
+    <Sys:String x:Key="吸嘴3-X"></Sys:String>
+    <Sys:String x:Key="吸嘴3-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴3-R"></Sys:String>
+    <Sys:String x:Key="吸嘴4-X"></Sys:String>
+    <Sys:String x:Key="吸嘴4-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴4-R"></Sys:String>
+
+
+    <Sys:String x:Key="读PLC-空载具强制加工标记"></Sys:String>
+
+    <Sys:String x:Key="视觉NG自动重拍次数(0次为不重拍)"></Sys:String>
+    <Sys:String x:Key="Feeder相机"></Sys:String>
+    <Sys:String x:Key="保压相机"></Sys:String>
+
+
+
+    <Sys:String x:Key="视觉防呆-上相机定位"></Sys:String>
+    <Sys:String x:Key="是否启用"></Sys:String>
+    <Sys:String x:Key="穴位1基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位1偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位1基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位1偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位2基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位2偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位2基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位2偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位3基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位3偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位3基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位3偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位4基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位4偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位4基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位4偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位5基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位5偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位5基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位5偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位6基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位6偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位6基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位6偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位7基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位7偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位7基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位7偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位8基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位8偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位8基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位8偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位9基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位9偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位9基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位9偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位10基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位10偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位10基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位10偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位11基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位11偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位11基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位11偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="穴位12基准值-X"></Sys:String>
+    <Sys:String x:Key="穴位12偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="穴位12基准值-Y"></Sys:String>
+    <Sys:String x:Key="穴位12偏移量-Y(±)"></Sys:String>
+
+    <Sys:String x:Key="写PLC-控制PLC按钮"></Sys:String>
+    <Sys:String x:Key="核心参数设定"></Sys:String>
+    <Sys:String x:Key="贴合物料名称"></Sys:String>
+    <Sys:String x:Key="检测Bumper"></Sys:String>
+    <Sys:String x:Key="BumperSN"></Sys:String>
+    <Sys:String x:Key="GNDTape相关"></Sys:String>
+    <Sys:String x:Key="所有TapeIPN"></Sys:String>
+    <Sys:String x:Key="所有调机TapeSN"></Sys:String>
+    <Sys:String x:Key="GNDTapeSN"></Sys:String>
+    <Sys:String x:Key="GNDTapeVendor"></Sys:String>
+    <Sys:String x:Key="GNDTape单卷最大物料数"></Sys:String>
+    <Sys:String x:Key="GNDTape剩余预警物料数"></Sys:String>
+    <Sys:String x:Key="GNDTape物料名称"></Sys:String>
+    <Sys:String x:Key="视觉防呆-下相机定位"></Sys:String>
+    <Sys:String x:Key="防呆基准值"></Sys:String>
+    <Sys:String x:Key="X1距离基准值"></Sys:String>
+    <Sys:String x:Key="X2距离基准值"></Sys:String>
+    <Sys:String x:Key="Y1距离基准值"></Sys:String>
+    <Sys:String x:Key="Angle基准值"></Sys:String>
+    <Sys:String x:Key="穴位角度基准值-A"></Sys:String>
+    <Sys:String x:Key="穴位角度偏移量-A(±)"></Sys:String>
+    <Sys:String x:Key="角度基准值-A"></Sys:String>
+    <Sys:String x:Key="角度偏移量-A(±)"></Sys:String>
+    <Sys:String x:Key="吸嘴1基准值-X"></Sys:String>
+    <Sys:String x:Key="吸嘴1基准值-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴3基准值-X"></Sys:String>
+    <Sys:String x:Key="吸嘴3基准值-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴X偏移量-X(±)"></Sys:String>
+    <Sys:String x:Key="吸嘴Y偏移量-Y(±)"></Sys:String>
+    <Sys:String x:Key="视觉补偿-Feed相机定位"></Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X1"></Sys:String>
+    <Sys:String x:Key="左取料X补偿值-Y1"></Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R1"></Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X1"></Sys:String>
+    <Sys:String x:Key="右取料X补偿值-Y1"></Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R1"></Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X2"></Sys:String>
+    <Sys:String x:Key="左取料X补偿值-Y2"></Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R2"></Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X2"></Sys:String>
+    <Sys:String x:Key="右取料X补偿值-Y2"></Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R2"></Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X3"></Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y3"></Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R3"></Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X3"></Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y3"></Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R3"></Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X4"></Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y4"></Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R4"></Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X4"></Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y4"></Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R4"></Sys:String>
+    <Sys:String x:Key="Tape相关"></Sys:String>
+    <Sys:String x:Key="TapeSN位数"></Sys:String>
+    <Sys:String x:Key="TapeSN"></Sys:String>
+    <Sys:String x:Key="TapeVendor"></Sys:String>
+    <Sys:String x:Key="Tape单卷最大物料数"></Sys:String>
+    <Sys:String x:Key="Tape剩余预警物料数"></Sys:String>
+    <Sys:String x:Key="Tape物料名称"></Sys:String>
+    <Sys:String x:Key="是否为大线"></Sys:String>
+    <Sys:String x:Key="是否为量产"></Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y1"></Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y1"></Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y2"></Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y2"></Sys:String>
+    <Sys:String x:Key="吸嘴2基准值-X"></Sys:String>
+    <Sys:String x:Key="吸嘴2基准值-Y"></Sys:String>
+    <Sys:String x:Key="吸嘴4基准值-X"></Sys:String>
+    <Sys:String x:Key="吸嘴4基准值-Y"></Sys:String>
+    <Sys:String x:Key="1号吸嘴左取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="1号吸嘴左取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="1号吸嘴左取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="1号吸嘴右取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="1号吸嘴右取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="1号吸嘴右取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="2号吸嘴左取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="2号吸嘴左取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="2号吸嘴左取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="2号吸嘴右取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="2号吸嘴右取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="2号吸嘴右取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="3号吸嘴左取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="3号吸嘴左取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="3号吸嘴左取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="3号吸嘴右取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="3号吸嘴右取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="3号吸嘴右取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="4号吸嘴左取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="4号吸嘴左取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="4号吸嘴左取料R补偿值-R"></Sys:String>
+    <Sys:String x:Key="4号吸嘴右取料X补偿值-X"></Sys:String>
+    <Sys:String x:Key="4号吸嘴右取料Y补偿值-Y"></Sys:String>
+    <Sys:String x:Key="4号吸嘴右取料R补偿值-R"></Sys:String>
+
+    <Sys:String x:Key="飞达左吹气">飞达左吹气</Sys:String>
+    <Sys:String x:Key="飞达右吹气">飞达右吹气</Sys:String>
+    <Sys:String x:Key="飞达左吹气延时">飞达左吹气延时</Sys:String>
+    <Sys:String x:Key="飞达右吹气延时">飞达右吹气延时</Sys:String>
+</ResourceDictionary>

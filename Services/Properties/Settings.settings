@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QA.Business.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="QA_Business_WebReference_LinkSF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.55.4.101/Automation_Sub/LinkSF.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

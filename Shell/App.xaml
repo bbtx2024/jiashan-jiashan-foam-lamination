@@ -1,0 +1,38 @@
+﻿<Application x:Class="QA.IntelligentEquipment.App" 
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                        
+                      xmlns:local="clr-namespace:QA.IntelligentEquipment"
+                      xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--设置主题，可以切换明暗主题，把Light改成Dark就可以换成暗色了--><!--
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                --><!--引用所有默认的控件样式--><!--
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                --><!--设置主颜色，选择了库自带的DeepPurple--><!--
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.green.xaml" />
+                --><!--设置次颜色，选择了库自带的Lime--><!--
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <!--<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDark.xaml"/>-->
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <local:MyBootstrapper x:Key="bootstrapper" />
+                </ResourceDictionary>
+
+                <!--<ResourceDictionary Source="/QA.IntelligentEquipment;component/Language/zh-cn.xaml"/>-->
+                <ResourceDictionary Source="D:/QKProject/Language/zh-cn.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application >  
+    
+    

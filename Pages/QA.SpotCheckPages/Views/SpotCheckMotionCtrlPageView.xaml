@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Views.SpotCheckMotionCtrlPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:local="clr-namespace:QA.SpotCheckPages.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White" Margin="0,15">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ItemsControl Grid.Column="0" ItemsSource="{Binding ExtOutputs}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox  Content="{Binding Name}" FontSize="18" IsChecked="{Binding ExtBool}"
+                      cal:Message.Attach="[Event Click] = [Action ClickExtOutput($dataContext)]"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ItemsControl Grid.Column="1" ItemsSource="{Binding ExtInputs}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Grid.Column="2" Grid.Row="0" Content="{Binding Name}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtBool}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!--<CheckBox Grid.Column="0" Grid.Row="0" Content="{DynamicResource 定位上相机环形光源}" FontSize="18" IsChecked="{Binding ExtOutput[0]}"
+                      cal:Message.Attach="[Event Click] = [Action ClickExtOutput(0)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="1" Content="{DynamicResource 飞达上相机光源}" FontSize="18" IsChecked="{Binding ExtOutput[2]}"
+                  cal:Message.Attach="[Event Click] = [Action ClickExtOutput(2)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="2" Content="{DynamicResource 下相机光源}" FontSize="18" IsChecked="{Binding ExtOutput[3]}"
+                      cal:Message.Attach="[Event Click] = [Action ClickExtOutput(3)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="3" Content="{DynamicResource 保压上相机光源}" FontSize="18" IsChecked="{Binding ExtOutput[4]}"
+          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(4)]"/>
+
+        <CheckBox Grid.Column="1" Grid.Row="0" Content="{DynamicResource 飞达左吹气}" FontSize="18" IsChecked="{Binding ExtOutput[21]}"
+                  cal:Message.Attach="[Event Click] = [Action ClickExtOutput(21)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="1" Content="{DynamicResource 飞达右吹气}" FontSize="18" IsChecked="{Binding ExtOutput[22]}"
+                  cal:Message.Attach="[Event Click] = [Action ClickExtOutput(22)]"/>
+
+        <CheckBox Grid.Column="0" Grid.Row="4" Content="{DynamicResource 1#真空吸}" FontSize="18" IsChecked="{Binding ExtOutput[5]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(5)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="5" Content="{DynamicResource 1#真空破}" FontSize="18" IsChecked="{Binding ExtOutput[6]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(6)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="6" Content="{DynamicResource 1#气缸上}" FontSize="18" IsChecked="{Binding ExtOutput[7]}" Visibility="{Binding Visible}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(7)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="7" Content="{DynamicResource 1#气缸下}" FontSize="18" IsChecked="{Binding ExtOutput[8]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(8)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="8" Content="{DynamicResource 2#真空吸}" FontSize="18" IsChecked="{Binding ExtOutput[9]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(9)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="9" Content="{DynamicResource 2#真空破}" FontSize="18" IsChecked="{Binding ExtOutput[10]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(10)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="10" Content="{DynamicResource 2#气缸上}" FontSize="18" IsChecked="{Binding ExtOutput[11]}" Visibility="{Binding Visible}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(11)]"/>
+        <CheckBox Grid.Column="0" Grid.Row="11" Content="{DynamicResource 2#气缸下}" FontSize="18" IsChecked="{Binding ExtOutput[12]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(12)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="4" Content="{DynamicResource 3#真空吸}" FontSize="18" IsChecked="{Binding ExtOutput[13]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(13)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="5" Content="{DynamicResource 3#真空破}" FontSize="18" IsChecked="{Binding ExtOutput[14]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(14)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="6" Content="{DynamicResource 3#气缸上}" FontSize="18" IsChecked="{Binding ExtOutput[15]}" Visibility="{Binding Visible}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(15)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="7" Content="{DynamicResource 3#气缸下}" FontSize="18" IsChecked="{Binding ExtOutput[16]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(16)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="8" Content="{DynamicResource 4#真空吸}" FontSize="18" IsChecked="{Binding ExtOutput[17]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(17)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="9" Content="{DynamicResource 4#真空破}" FontSize="18" IsChecked="{Binding ExtOutput[18]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(18)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="10" Content="{DynamicResource 4#气缸上}" FontSize="18" IsChecked="{Binding ExtOutput[19]}" Visibility="{Binding Visible}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(19)]"/>
+        <CheckBox Grid.Column="1" Grid.Row="11" Content="{DynamicResource 4#气缸下}" FontSize="18" IsChecked="{Binding ExtOutput[20]}"
+                          cal:Message.Attach="[Event Click] = [Action ClickExtOutput(20)]"/>
+
+        <CheckBox Grid.Column="2" Grid.Row="0" Content="{DynamicResource 1#取料OK}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[0]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="1" Content="{DynamicResource 1#气缸上到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[1]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="2" Content="{DynamicResource 1#气缸下到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[2]}" Visibility="{Binding Visible}"/>
+        <CheckBox Grid.Column="2" Grid.Row="3" Content="{DynamicResource 2#取料OK}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[3]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="4" Content="{DynamicResource 2#气缸上到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[4]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="5" Content="{DynamicResource 2#气缸下到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[5]}" Visibility="{Binding Visible}"/>
+        <CheckBox Grid.Column="2" Grid.Row="6" Content="{DynamicResource 3#取料OK}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[6]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="7" Content="{DynamicResource 3#气缸上到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[7]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="8" Content="{DynamicResource 3#气缸下到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[8]}" Visibility="{Binding Visible}"/>
+        <CheckBox Grid.Column="2" Grid.Row="9" Content="{DynamicResource 4#取料OK}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[9]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="10" Content="{DynamicResource 4#气缸上到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[10]}"/>
+        <CheckBox Grid.Column="2" Grid.Row="11" Content="{DynamicResource 4#气缸下到位}" FontSize="18" IsEnabled="False" IsChecked="{Binding ExtInput[11]}" Visibility="{Binding Visible}"/>-->
+    </Grid>
+</UserControl>

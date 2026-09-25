@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="QA.Pages.Views.LoginPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.Pages.Views"
+             mc:Ignorable="d" 
+             xmlns:hc="https://handyorg.github.io/handycontrol" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:convert="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             d:DesignHeight="900" d:DesignWidth="1280" FontFamily="微软雅黑">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/LoginFontStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/TextPasswordStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <convert:BoolToVisibleHiddenConvert x:Key="BoolToVisibleHiddenConvert"></convert:BoolToVisibleHiddenConvert>
+            <convert:UserInfoToUserNameConvert x:Key="UserInfoToUserNameConvert"></convert:UserInfoToUserNameConvert>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--这个页面的焦点用不了-->
+    <!--<Grid FocusManager.FocusedElement="{Binding ElementName=tbxPassword}">-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--登录、注销、账号管理-->
+        <Grid Grid.Column="0" Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--图标显示-->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Text="&#xF2BC;" Style="{DynamicResource LoginFont}" Padding="0,20,0,0"/>
+                <TextBlock Grid.Row="2" Text="{Binding LoginUserName}" FontSize="26" HorizontalAlignment="Center"/>
+            </Grid>
+            <!--登录、账号管理按钮-->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--登录按钮、刷卡登录提示-->
+                <Grid Grid.Row="1">
+                    <Grid Visibility="{Binding CommonLoginVisiable, Converter={StaticResource BoolToVisibleHiddenConvert}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="11*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Content="{DynamicResource 用户：}" MinWidth="130"
+                                   Background="Transparent" BorderThickness="0" FontSize="18"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <ComboBox Grid.Column="2" FontSize="18"
+                                      ItemsSource="{Binding UserInfos}" DisplayMemberPath="UserName"
+                                      Text="{Binding UserName}" SelectedIndex="{Binding UserIndex}"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="11*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Content="{DynamicResource 密码：}" MinWidth="130"
+                                   Background="Transparent" BorderThickness="0" FontSize="18" HorizontalAlignment="Center"/>
+                            <TextBox x:Name="tbxPassword" Grid.Column="2" Height="auto" Style="{StaticResource TxtPwd}"
+                                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
+                                     VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
+                                     cal:Message.Attach="[Event KeyDown] = [Action HandleInput($eventArgs)]"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="1" x:Name="DoLogin" Content="{DynamicResource 登录}"
+                                    FontSize="18" Background="#008D86" Height="auto"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Visibility="{Binding BC750LoginVisiable, Converter={StaticResource BoolToVisibleHiddenConvert}}">
+                        <Label Content="{DynamicResource 请刷卡！}" FontSize="28" Background="AliceBlue" BorderThickness="0"/>
+                    </Grid>
+                </Grid>
+                <!--账号管理-->
+                <Grid Grid.Row="2" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" x:Name="OpenUserManager" Content="{DynamicResource 账号管理}"
+                            FontSize="18" Background="Orange" Height="auto"
+                            Visibility="{Binding UserManagerVaisiable, Converter={StaticResource BoolToVisibleHiddenConvert}}"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--切换语言-->
+        <Grid Grid.Column="1" Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <RadioButton Grid.Row="1" Content="简体中文" FontSize="20" Width="150" Height="40"
+                         IsChecked="{Binding SelectedLanguage0}"
+                         cal:Message.Attach="[Event Click] = [Action SwitchLanguage('0')]"/>
+            <RadioButton Grid.Row="3" Content="English" FontSize="20" Width="150" Height="40"
+                         IsChecked="{Binding SelectedLanguage1}"
+                         cal:Message.Attach="[Event Click] = [Action SwitchLanguage('1')]"/>
+            <RadioButton Grid.Row="5" Content="Tiếng Việt" FontSize="20" Width="150" Height="40"
+                         IsChecked="{Binding SelectedLanguage2}"
+                         cal:Message.Attach="[Event Click] = [Action SwitchLanguage('2')]"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,535 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Calibration.Views.FindCameraCenterCalibView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:local="clr-namespace:QA.SpotCheckPages.Calibration.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource X补偿}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding XOffset}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="{DynamicResource Y补偿}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="4" Text="{Binding YOffset}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="6" Text="{DynamicResource Z补偿}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="7" Text="{Binding ZOffset}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource R补偿1}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ROffset1}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="3" Text="{DynamicResource R补偿2}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding ROffset2}" FontSize="18" Height="auto"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--飞达1-->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource 左飞达吸嘴1左取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding PosStrs[0]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="0" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(0)]"/>
+            <Button Grid.Row="0" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(0)]"/>
+            <Button Grid.Row="0" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(0)]"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource 左飞达吸嘴1右取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding PosStrs[1]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="2" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(1)]"/>
+            <Button Grid.Row="2" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(1)]"/>
+            <Button Grid.Row="2" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(1)]"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource 左飞达吸嘴2左取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding PosStrs[2]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="4" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(2)]"/>
+            <Button Grid.Row="4" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(2)]"/>
+            <Button Grid.Row="4" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(2)]"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource 左飞达吸嘴2右取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding PosStrs[3]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="6" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(3)]"/>
+            <Button Grid.Row="6" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(3)]"/>
+            <Button Grid.Row="6" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(3)]"/>
+
+            <!--飞达2-->
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="{DynamicResource 右飞达吸嘴1左取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="8" Grid.Column="2" Text="{Binding PosStrs[19]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="8" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(19)]"/>
+            <Button Grid.Row="8" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(19)]"/>
+            <Button Grid.Row="8" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(19)]"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="{DynamicResource 右飞达吸嘴1右取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding PosStrs[20]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="10" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(20)]"/>
+            <Button Grid.Row="10" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(20)]"/>
+            <Button Grid.Row="10" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(20)]"/>
+            <TextBlock Grid.Row="12" Grid.Column="0" Text="{DynamicResource 右飞达吸嘴2左取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="12" Grid.Column="2" Text="{Binding PosStrs[21]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="12" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(21)]"/>
+            <Button Grid.Row="12" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(21)]"/>
+            <Button Grid.Row="12" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(21)]"/>
+            <TextBlock Grid.Row="14" Grid.Column="0" Text="{DynamicResource 右飞达吸嘴2右取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="14" Grid.Column="2" Text="{Binding PosStrs[22]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="14" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(22)]"/>
+            <Button Grid.Row="14" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(22)]"/>
+            <Button Grid.Row="14" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(22)]"/>
+            
+            
+            <TextBlock Grid.Row="16" Grid.Column="0" Text="{DynamicResource 下视觉拍照}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="16" Grid.Column="2" Text="{Binding PosStrs[18]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="16" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(18)]"/>
+            <Button Grid.Row="16" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(18)]"/>
+            <Button Grid.Row="16" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(18)]"/>
+
+            <TextBlock Grid.Row="20" Grid.Column="0" Text="{DynamicResource 吸嘴1下视觉}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="20" Grid.Column="2" Text="{Binding PosStrs[10]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="20" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(10)]"/>
+            <Button Grid.Row="20" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(10)]"/>
+            <Button Grid.Row="20" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(10)]"/>
+            <TextBlock Grid.Row="22" Grid.Column="0" Text="{DynamicResource 吸嘴2下视觉}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="22" Grid.Column="2" Text="{Binding PosStrs[11]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="22" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(11)]"/>
+            <Button Grid.Row="22" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(11)]"/>
+            <Button Grid.Row="22" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(11)]"/>
+
+            <!--<TextBlock Grid.Row="8" Grid.Column="0" Text="{DynamicResource 吸嘴3左取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="8" Grid.Column="2" Text="{Binding PosStrs[4]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="8" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(4)]"/>
+            <Button Grid.Row="8" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(4)]"/>
+            <Button Grid.Row="8" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(4)]"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="{DynamicResource 吸嘴3右取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding PosStrs[5]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="10" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(5)]"/>
+            <Button Grid.Row="10" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(5)]"/>
+            <Button Grid.Row="10" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(5)]"/>
+            <TextBlock Grid.Row="12" Grid.Column="0" Text="{DynamicResource 吸嘴4左取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="12" Grid.Column="2" Text="{Binding PosStrs[6]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="12" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(6)]"/>
+            <Button Grid.Row="12" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(6)]"/>
+            <Button Grid.Row="12" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(6)]"/>
+            <TextBlock Grid.Row="14" Grid.Column="0" Text="{DynamicResource 吸嘴4右取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="14" Grid.Column="2" Text="{Binding PosStrs[7]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="14" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(7)]"/>
+            <Button Grid.Row="14" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(7)]"/>
+            <Button Grid.Row="14" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(7)]"/>
+
+            <TextBlock Grid.Row="16" Grid.Column="0" Text="{DynamicResource 吸嘴13同时取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="16" Grid.Column="2" Text="{Binding PosStrs[8]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="16" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(8)]"/>
+            <Button Grid.Row="16" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(8)]"/>
+            <Button Grid.Row="16" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(8)]"/>
+            <TextBlock Grid.Row="18" Grid.Column="0" Text="{DynamicResource 吸嘴24同时取料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="18" Grid.Column="2" Text="{Binding PosStrs[9]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="18" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(9)]"/>
+            <Button Grid.Row="18" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(9)]"/>
+            <Button Grid.Row="18" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(9)]"/>
+
+            <TextBlock Grid.Row="20" Grid.Column="0" Text="{DynamicResource 吸嘴1下视觉}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="20" Grid.Column="2" Text="{Binding PosStrs[10]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="20" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(10)]"/>
+            <Button Grid.Row="20" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(10)]"/>
+            <Button Grid.Row="20" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(10)]"/>
+            <TextBlock Grid.Row="22" Grid.Column="0" Text="{DynamicResource 吸嘴2下视觉}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="22" Grid.Column="2" Text="{Binding PosStrs[11]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="22" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(11)]"/>
+            <Button Grid.Row="22" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(11)]"/>
+            <Button Grid.Row="22" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(11)]"/>
+            <TextBlock Grid.Row="24" Grid.Column="0" Text="{DynamicResource 吸嘴3下视觉}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="24" Grid.Column="2" Text="{Binding PosStrs[12]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="24" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(12)]"/>
+            <Button Grid.Row="24" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(12)]"/>
+            <Button Grid.Row="24" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(12)]"/>
+            <TextBlock Grid.Row="26" Grid.Column="0" Text="{DynamicResource 吸嘴4下视觉}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="26" Grid.Column="2" Text="{Binding PosStrs[13]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="26" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(13)]"/>
+            <Button Grid.Row="26" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(13)]"/>
+            <Button Grid.Row="26" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(13)]"/>-->
+
+            <TextBlock Grid.Row="28" Grid.Column="0" Text="{DynamicResource 扫载具码}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="28" Grid.Column="2" Text="{Binding PosStrs[14]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="28" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(14)]"/>
+            <Button Grid.Row="28" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(14)]"/>
+            <Button Grid.Row="28" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(14)]"/>
+
+            <TextBlock Grid.Row="30" Grid.Column="0" Text="{DynamicResource 1号吸嘴NG物料抛料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="30" Grid.Column="2" Text="{Binding PosStrs[15]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="30" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(15)]"/>
+            <Button Grid.Row="30" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(15)]"/>
+            <Button Grid.Row="30" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(15)]"/>
+
+            <TextBlock Grid.Row="32" Grid.Column="0" Text="{DynamicResource 2号吸嘴NG物料抛料}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="32" Grid.Column="2" Text="{Binding PosStrs[23]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="32" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(23)]"/>
+            <Button Grid.Row="32" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(23)]"/>
+            <Button Grid.Row="32" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(23)]"/>
+
+
+            <TextBlock Grid.Row="34" Grid.Column="0" Text="{DynamicResource 左飞达拍照位}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="34" Grid.Column="2" Text="{Binding PosStrs[16]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="34" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(16)]"/>
+            <Button Grid.Row="34" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(16)]"/>
+            <Button Grid.Row="34" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(16)]"/>
+
+            <TextBlock Grid.Row="36" Grid.Column="0" Text="{DynamicResource 右飞达拍照位}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="36" Grid.Column="2" Text="{Binding PosStrs[17]}" FontSize="18" Height="auto"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Row="36" Grid.Column="4" Content="{DynamicResource 设置}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action SetAsCurrentPos(17)]"/>
+            <Button Grid.Row="36" Grid.Column="6" Content="{DynamicResource 移动}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons2}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action MoveToPos(17)]"/>
+            <Button Grid.Row="36" Grid.Column="8" Content="{DynamicResource 补偿}" FontSize="18" Height="auto" IsEnabled="{Binding EnableButtons}"
+                    Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AddOffset(17)]"/>
+
+
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Content="{DynamicResource 吸嘴1左取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(0)]"/>
+            <Button Grid.Row="0" Grid.Column="2" Content="{DynamicResource 吸嘴1右取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(1)]"/>
+            <Button Grid.Row="0" Grid.Column="4" Content="{DynamicResource 吸嘴2左取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(2)]"/>
+            <Button Grid.Row="0" Grid.Column="6" Content="{DynamicResource 吸嘴2右取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(3)]"/>
+            <!--<Button Grid.Row="2" Grid.Column="0" Content="{DynamicResource 吸嘴3左取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(4)]"/>
+            <Button Grid.Row="2" Grid.Column="2" Content="{DynamicResource 吸嘴3右取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(5)]"/>
+            <Button Grid.Row="2" Grid.Column="4" Content="{DynamicResource 吸嘴4左取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(6)]"/>
+            <Button Grid.Row="2" Grid.Column="6" Content="{DynamicResource 吸嘴4右取料测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(7)]"/>
+            <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Content="{DynamicResource 吸嘴13同取测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(8)]"/>
+            <Button Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="3" Content="{DynamicResource 吸嘴24同取测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action NozzlePickTest(9)]"/>-->
+            <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Content="{DynamicResource 开始单取测试}" FontSize="18" IsEnabled="{Binding EnableButtons2}"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action AllNozzlesPickTest]"/>
+            <Button Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3" Content="{DynamicResource 停止单取测试}" FontSize="18"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action StopAllNozzlesPickTest]"/>
+            <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Content="测试" FontSize="18"
+                    Height="auto" Style="{DynamicResource ButtonPrimary}" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    cal:Message.Attach ="[Event Click] = [Action Test]"/>
+        </Grid>
+    </Grid>
+</UserControl>

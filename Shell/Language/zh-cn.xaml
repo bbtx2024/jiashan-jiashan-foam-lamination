@@ -1,0 +1,1106 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Sys="clr-namespace:System;assembly=mscorlib">
+
+
+    <Sys:String x:Key="设置扫载具码坐标">设置扫载具码坐标</Sys:String>
+    <Sys:String x:Key="空移扫载具码位置">空移扫载具码位置</Sys:String>
+    <Sys:String x:Key="Hive系统设置">Hive系统设置</Sys:String>
+
+    <Sys:String x:Key="扫码与MES">扫码与MES</Sys:String>
+    <Sys:String x:Key="载具码：">载具码：</Sys:String>
+    <Sys:String x:Key="扫载具码">扫载具码</Sys:String>
+    <Sys:String x:Key="获取SIP码">获取SIP码</Sys:String>
+    <Sys:String x:Key="查询路由及穴位">查询路由及穴位</Sys:String>
+    <Sys:String x:Key="绑定MES">绑定MES</Sys:String>
+    <Sys:String x:Key="一键查询绑定">一键查询绑定</Sys:String>
+    <Sys:String x:Key="卷料SN：">卷料SN：</Sys:String>
+    <Sys:String x:Key="查询次数">查询次数</Sys:String>
+    <Sys:String x:Key="使用次数：">使用次数：</Sys:String>
+
+    <Sys:String x:Key="应力测试保压时间(ms)：">应力测试保压时间(ms)：</Sys:String>
+    <Sys:String x:Key="应力测试">应力测试</Sys:String>
+    <Sys:String x:Key="设置应力测试起始点">设置应力测试起始点</Sys:String>
+    <Sys:String x:Key="设置应力测试结束点">设置应力测试结束点</Sys:String>
+
+    <Sys:String x:Key="机头选择：">机头选择：</Sys:String>
+    <Sys:String x:Key="当前压力（非实时）：">当前压力（非实时）：</Sys:String>
+    <Sys:String x:Key="低压校准">低压校准</Sys:String>
+    <Sys:String x:Key="高压校准">高压校准</Sys:String>
+    <Sys:String x:Key="设置动压力点位">设置动压力点位</Sys:String>
+
+    <Sys:String x:Key="空移XY">空移XY</Sys:String>
+    <Sys:String x:Key="空移Z">空移Z</Sys:String>
+    <Sys:String x:Key="空压目标位置(mm)：">空压目标位置(mm)：</Sys:String>
+    <Sys:String x:Key="空压目标压力(N)：">空压目标压力(N)：</Sys:String>
+    <Sys:String x:Key="空压速度(mm/s)：">空压速度(mm/s)：</Sys:String>
+    <Sys:String x:Key="超时时间(ms)：">超时时间(ms)：</Sys:String>
+    <Sys:String x:Key="上抬距离(mm)：">上抬距离(mm)：</Sys:String>
+    <Sys:String x:Key="执行一次空压">执行一次空压</Sys:String>
+    <Sys:String x:Key="停止空压">停止空压</Sys:String>
+    <Sys:String x:Key="保存压力参数">保存压力参数</Sys:String>
+    <Sys:String x:Key="获取当前压力">获取当前压力</Sys:String>
+
+    <Sys:String x:Key="刷新读取地址">刷新读取地址</Sys:String>
+    <Sys:String x:Key="刷新写入地址">刷新写入地址</Sys:String>
+    <Sys:String x:Key="重新连接PLC">重新连接PLC</Sys:String>
+
+    <Sys:String x:Key="读取地址">读取地址</Sys:String>
+    <Sys:String x:Key="写入地址">写入地址</Sys:String>
+    <Sys:String x:Key="写入PLC当前地址">写入PLC当前地址</Sys:String>
+
+    <Sys:String x:Key="物料数量：">物料数量：</Sys:String>
+    <Sys:String x:Key="剩余预警：">剩余预警：</Sys:String>
+    <Sys:String x:Key="左飞达当前数量：">飞达左当前数量：</Sys:String>
+    <Sys:String x:Key="右飞达当前数量：">飞达右当前数量：</Sys:String>
+    <Sys:String x:Key="重置当前数量">重置当前数量</Sys:String>
+    <Sys:String x:Key="物料名称：">物料名称：</Sys:String>
+
+
+    <Sys:String x:Key="允许修改参数">允许修改参数</Sys:String>
+    <Sys:String x:Key="保存参数">保存参数</Sys:String>
+    <Sys:String x:Key="手动检查">手动检查</Sys:String>
+    <Sys:String x:Key="料卷特征码(逗号分割)">料卷特征码(逗号分割)</Sys:String>
+    <Sys:String x:Key="调机料卷SN(以逗号分隔)">调机料卷SN(以逗号分隔)</Sys:String>
+
+    <Sys:String x:Key="料卷长度：">料卷长度：</Sys:String>
+    <Sys:String x:Key="Vendor（物料厂商）：">Vendor（物料厂商）：</Sys:String>
+
+    <Sys:String x:Key="工单号：">工单号：</Sys:String>
+    <Sys:String x:Key="工单数量：">工单数量：</Sys:String>
+
+
+    <Sys:String x:Key="停止测试">停止测试</Sys:String>
+    <Sys:String x:Key="查看数据">查看数据</Sys:String>
+
+    <Sys:String x:Key="设置定位上相机静态测试位置">设置定位上相机静态测试位置</Sys:String>
+    <Sys:String x:Key="Feeder上相机静态测试">Feeder上相机静态测试</Sys:String>
+    <Sys:String x:Key="保压相机静态测试">保压相机静态测试</Sys:String>
+    <Sys:String x:Key="保压相机动态测试">保压相机动态测试</Sys:String>
+    <Sys:String x:Key="穴位定位拍照测试">穴位定位拍照测试</Sys:String>
+    <Sys:String x:Key="保压相机轴精度测试">保压相机轴精度测试</Sys:String>
+    <Sys:String x:Key="空移">空移</Sys:String>
+    <Sys:String x:Key="静态测试">静态测试</Sys:String>
+    <Sys:String x:Key="设置下相机静态测试位置">设置下相机静态测试位置</Sys:String>
+
+    <Sys:String x:Key="设置上相机动态测试静点">设置上相机动态测试静点</Sys:String>
+    <Sys:String x:Key="动态测试">动态测试</Sys:String>
+
+    <Sys:String x:Key="设置上相机动态测试动点">设置上相机动态测试动点</Sys:String>
+    <Sys:String x:Key="下相机轴精度测试">下相机轴精度测试</Sys:String>
+    <Sys:String x:Key="上相机轴精度测试">上相机轴精度测试</Sys:String>
+
+    <Sys:String x:Key="设置下相机动态测试静点">设置下相机动态测试静点</Sys:String>
+    <Sys:String x:Key="设置下相机动态测试动点">设置下相机动态测试动点</Sys:String>
+
+    <Sys:String x:Key="轴精度停顿时间：">轴精度停顿时间：</Sys:String>
+    <Sys:String x:Key="轴精度停顿时间(s)：">轴精度停顿时间(s)：</Sys:String>
+    <Sys:String x:Key="次数：">次数：</Sys:String>
+    <Sys:String x:Key="上一步">上一步</Sys:String>
+    <Sys:String x:Key="下一步">下一步</Sys:String>
+    <Sys:String x:Key="标定结束">标定结束</Sys:String>
+    <Sys:String x:Key="距离(mm)：">距离(mm)：</Sys:String>
+
+    <Sys:String x:Key="1号相机标定">1号相机标定</Sys:String>
+    <Sys:String x:Key="2号相机标定">2号相机标定</Sys:String>
+
+    <Sys:String x:Key="设置飞达取料坐标">设置飞达取料坐标</Sys:String>
+    <Sys:String x:Key="空移飞达取料位置">空移飞达取料位置</Sys:String>
+
+    <Sys:String x:Key="设置1号吸嘴下相机标定坐标">设置1号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="空移1号吸嘴下相机标定坐标">空移1号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="执行1号吸嘴下相机11点标定">执行1号吸嘴下相机11点标定</Sys:String>
+
+    <Sys:String x:Key="设置2号吸嘴下相机标定坐标">设置2号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="空移2号吸嘴下相机标定坐标">空移2号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="执行2号吸嘴下相机11点标定">执行2号吸嘴下相机11点标定</Sys:String>
+
+    <Sys:String x:Key="设置3号吸嘴下相机标定坐标">设置3号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="空移3号吸嘴下相机标定坐标">空移3号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="执行3号吸嘴下相机11点标定">执行3号吸嘴下相机11点标定</Sys:String>
+
+    <Sys:String x:Key="设置4号吸嘴下相机标定坐标">设置4号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="空移4号吸嘴下相机标定坐标">空移4号吸嘴下相机标定坐标</Sys:String>
+    <Sys:String x:Key="执行4号吸嘴下相机11点标定">执行4号吸嘴下相机11点标定</Sys:String>
+
+
+
+    <Sys:String x:Key="执行上相机9点标定">执行上相机9点标定</Sys:String>
+    <Sys:String x:Key="执行保压定位标定">执行保压定位标定</Sys:String>
+
+    <Sys:String x:Key="设置上相机9点标定1号坐标">设置上相机9点标定1号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定1号坐标">空移上相机9点标定1号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定2号坐标">设置上相机9点标定2号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定2号坐标">空移上相机9点标定2号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定3号坐标">设置上相机9点标定3号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定3号坐标">空移上相机9点标定3号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定4号坐标">设置上相机9点标定4号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定4号坐标">空移上相机9点标定4号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定5号坐标">设置上相机9点标定5号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定5号坐标">空移上相机9点标定5号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定6号坐标">设置上相机9点标定6号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定6号坐标">空移上相机9点标定6号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定7号坐标">设置上相机9点标定7号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定7号坐标">空移上相机9点标定7号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定8号坐标">设置上相机9点标定8号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定8号坐标">空移上相机9点标定8号坐标</Sys:String>
+    <Sys:String x:Key="设置上相机9点标定9号坐标">设置上相机9点标定9号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机9点标定9号坐标">空移上相机9点标定9号坐标</Sys:String>
+
+    <Sys:String x:Key="自动联合标定">自动联合标定</Sys:String>
+
+    <Sys:String x:Key="(1)穴位上相机拍载具标定片">(1)穴位上相机拍载具标定片</Sys:String>
+    <Sys:String x:Key="(2)1号吸嘴吸取载具标定片到下相机走11点标定">(2)1号吸嘴吸取载具标定片到下相机走11点标定</Sys:String>
+    <Sys:String x:Key="(3)吸嘴吸标定片移动到Feeder上，Feeder上相机拍标定片标定">(3)吸嘴吸标定片移动到Feeder上，Feeder上相机拍标定片标定</Sys:String>
+
+
+    <Sys:String x:Key="设置1号吸嘴标定坐标">设置1号吸嘴标定坐标</Sys:String>
+    <Sys:String x:Key="空移1号吸嘴标定坐标">空移1号吸嘴标定坐标</Sys:String>
+
+    <Sys:String x:Key="设置Feeder相机标定坐标">设置Feeder相机标定坐标</Sys:String>
+    <Sys:String x:Key="空移Feeder相机标定坐标">空移Feeder相机标定坐标</Sys:String>
+
+    <Sys:String x:Key="————————设置从载具上吸嘴 吸取标定片坐标————————">————————设置从载具上吸嘴 吸取标定片坐标————————</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片1号坐标">空移1号嘴吸取标定片1号坐标</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片1号坐标">设置1号嘴吸取标定片1号坐标</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片2号坐标">空移1号嘴吸取标定片2号坐标</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片2号坐标">设置1号嘴吸取标定片2号坐标</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片3号坐标">空移1号嘴吸取标定片3号坐标</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片3号坐标">设置1号嘴吸取标定片3号坐标</Sys:String>
+
+    <Sys:String x:Key="空移1号嘴吸取标定片4号坐标">空移1号嘴吸取标定片4号坐标</Sys:String>
+    <Sys:String x:Key="设置1号嘴吸取标定片4号坐标">设置1号嘴吸取标定片4号坐标</Sys:String>
+
+
+    <Sys:String x:Key="————————设置上相机定位标定片坐标————————">————————设置上相机定位标定片坐标————————</Sys:String>
+
+
+    <Sys:String x:Key="设置上相机载具标定片1号坐标">设置上相机载具标定片1号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片1号坐标">空移上相机载具标定片1号坐标</Sys:String>
+
+    <Sys:String x:Key="设置上相机载具标定片2号坐标">设置上相机载具标定片2号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片2号坐标">空移上相机载具标定片2号坐标</Sys:String>
+
+    <Sys:String x:Key="设置上相机载具标定片3号坐标">设置上相机载具标定片3号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片3号坐标">空移上相机载具标定片3号坐标</Sys:String>
+
+    <Sys:String x:Key="设置上相机载具标定片4号坐标">设置上相机载具标定片4号坐标</Sys:String>
+    <Sys:String x:Key="空移上相机载具标定片4号坐标">空移上相机载具标定片4号坐标</Sys:String>
+
+
+
+
+    <Sys:String x:Key="设置NG料仓坐标">设置NG料仓坐标</Sys:String>
+    <Sys:String x:Key="空移Ng料仓位置">空移Ng料仓位置</Sys:String>
+
+    <Sys:String x:Key="设置1号吸嘴取料坐标">设置1号吸嘴取料坐标</Sys:String>
+    <Sys:String x:Key="空移1号吸嘴取料位置">空移1号吸嘴取料位置</Sys:String>
+    <Sys:String x:Key="设置2号吸嘴取料坐标">设置2号吸嘴取料坐标</Sys:String>
+    <Sys:String x:Key="空移2号吸嘴取料位置">空移2号吸嘴取料位置</Sys:String>
+    <Sys:String x:Key="设置3号吸嘴取料坐标">设置3号吸嘴取料坐标</Sys:String>
+    <Sys:String x:Key="空移3号吸嘴取料位置">空移3号吸嘴取料位置</Sys:String>
+    <Sys:String x:Key="设置4号吸嘴取料坐标">设置4号吸嘴取料坐标</Sys:String>
+    <Sys:String x:Key="空移4号吸嘴取料位置">空移4号吸嘴取料位置</Sys:String>
+
+    <Sys:String x:Key="设置下相机1号吸嘴坐标">设置下相机1号吸嘴坐标</Sys:String>
+    <Sys:String x:Key="空移下相机1号吸嘴位置">空移下相机1号吸嘴位置</Sys:String>
+    <Sys:String x:Key="设置下相机2号吸嘴坐标">设置下相机2号吸嘴坐标</Sys:String>
+    <Sys:String x:Key="空移下相机2号吸嘴位置">空移下相机2号吸嘴位置</Sys:String>
+    <Sys:String x:Key="设置下相机3号吸嘴坐标">设置下相机3号吸嘴坐标</Sys:String>
+    <Sys:String x:Key="空移下相机3号吸嘴位置">空移下相机3号吸嘴位置</Sys:String>
+    <Sys:String x:Key="设置下相机4号吸嘴坐标">设置下相机4号吸嘴坐标</Sys:String>
+    <Sys:String x:Key="空移下相机4号吸嘴位置">空移下相机4号吸嘴位置</Sys:String>
+
+    <Sys:String x:Key="设置12号吸嘴同取取料坐标">设置12号吸嘴同取取料坐标</Sys:String>
+    <Sys:String x:Key="空移12号吸嘴同取取料位置">空移12号吸嘴同取取料位置</Sys:String>
+    <Sys:String x:Key="设置34号吸嘴同取取料坐标">设置34号吸嘴同取取料坐标</Sys:String>
+    <Sys:String x:Key="空移34号吸嘴同取取料位置">空移34号吸嘴同取取料位置</Sys:String>
+
+
+    <Sys:String x:Key="Z设置为当前坐标">Z设置为当前坐标</Sys:String>
+    <Sys:String x:Key="Z设置为当前坐标（全部修改）">Z设置为当前坐标（全部修改）</Sys:String>
+    <Sys:String x:Key="备份">备份</Sys:String>
+
+
+    <Sys:String x:Key="吸嘴编号">吸嘴编号</Sys:String>
+
+    <Sys:String x:Key="X贴合补偿">X贴合补偿</Sys:String>
+    <Sys:String x:Key="Y贴合补偿">Y贴合补偿</Sys:String>
+    <Sys:String x:Key="XY设置为当前坐标">XY设置为当前坐标</Sys:String>
+    <Sys:String x:Key="移动到点位坐标">移动到点位坐标</Sys:String>
+    <Sys:String x:Key="当前位置视觉定位Mark">当前位置视觉定位Mark</Sys:String>
+    <Sys:String x:Key="当前位置视觉获取二维码">当前位置视觉获取二维码</Sys:String>
+
+    <Sys:String x:Key="点检日志">点检日志</Sys:String>
+    <Sys:String x:Key="显示主板点检IO控制区域">显示主板点检IO控制区域</Sys:String>
+    <Sys:String x:Key="视觉加载">视觉加载</Sys:String>
+    <Sys:String x:Key="MES设置">MES设置</Sys:String>
+    <Sys:String x:Key="扫码与绑定">扫码与绑定</Sys:String>
+    <Sys:String x:Key="点位与标定">点位与标定</Sys:String>
+
+    <Sys:String x:Key="主板点检">主板点检</Sys:String>
+    <Sys:String x:Key="示教面板">示教面板</Sys:String>
+    <Sys:String x:Key="点检项目">点检项目</Sys:String>
+    <Sys:String x:Key="相机标定">相机标定</Sys:String>
+    <Sys:String x:Key="扫码点检">扫码点检</Sys:String>
+    <Sys:String x:Key="压力点检">压力点检</Sys:String>
+    <Sys:String x:Key="PLC点检">PLC点检</Sys:String>
+    <Sys:String x:Key="相机点检">相机点检</Sys:String>
+
+
+    <Sys:String x:Key="点检">点检</Sys:String>
+    <Sys:String x:Key="制程">制程</Sys:String>
+
+    <Sys:String x:Key="穴位号">穴位号</Sys:String>
+    <Sys:String x:Key="吸嘴号">吸嘴号</Sys:String>
+    <Sys:String x:Key="初始化步骤">初始化步骤</Sys:String>
+    <Sys:String x:Key="第一步 飞达取料">第一步 飞达取料</Sys:String>
+    <Sys:String x:Key="第二步 下相机定位">第二步 下相机定位</Sys:String>
+    <Sys:String x:Key="第三步 上相机定位">第三步 上相机定位</Sys:String>
+    <Sys:String x:Key="第四步 贴合产品">第四步 贴合产品</Sys:String>
+
+
+
+    <Sys:String x:Key="LineName（线别）：">LineName（线别）：</Sys:String>
+    <Sys:String x:Key="抛料率">抛料率</Sys:String>
+    <Sys:String x:Key="良率">良率</Sys:String>
+    <Sys:String x:Key="清零">清零</Sys:String>
+    <Sys:String x:Key="全部清零">全部清零</Sys:String>
+    <Sys:String x:Key="计数">计数</Sys:String>
+
+
+    <Sys:String x:Key="1号吸嘴">1号吸嘴</Sys:String>
+    <Sys:String x:Key="2号吸嘴">2号吸嘴</Sys:String>
+    <Sys:String x:Key="3号吸嘴">3号吸嘴</Sys:String>
+    <Sys:String x:Key="4号吸嘴">4号吸嘴</Sys:String>
+    <Sys:String x:Key="检测真空吸">检测真空吸</Sys:String>
+    <Sys:String x:Key="Feeder盲取">Feeder盲取</Sys:String>
+    <Sys:String x:Key="相机只定位">相机只定位</Sys:String>
+
+    <Sys:String x:Key="日期">日期</Sys:String>
+    <Sys:String x:Key="占比(%)">占比(%)</Sys:String>
+    <Sys:String x:Key="起始日期">起始日期</Sys:String>
+    <Sys:String x:Key="结束日期">结束日期</Sys:String>
+    <Sys:String x:Key="查询">查询</Sys:String>
+    <Sys:String x:Key="次数">次数</Sys:String>
+    <Sys:String x:Key="错误类型">错误类型</Sys:String>
+
+    <Sys:String x:Key="HIVE状态：">HIVE状态：</Sys:String>
+    <Sys:String x:Key="计划停机：">计划停机：</Sys:String>
+    <Sys:String x:Key="运行信息">运行信息</Sys:String>
+    <Sys:String x:Key="时间">时间</Sys:String>
+    <Sys:String x:Key="信息">信息</Sys:String>
+    <Sys:String x:Key="状态统计">状态统计</Sys:String>
+
+    <Sys:String x:Key="StationName（站别）：">StationName（站别）：</Sys:String>
+    <Sys:String x:Key="是否在当前站绑定MES：">是否在当前站绑定MES：</Sys:String>
+    <Sys:String x:Key="左飞达料卷SN：">左飞达料卷SN：</Sys:String>
+    <Sys:String x:Key="右飞达料卷SN：">右飞达料卷SN：</Sys:String>	
+    <Sys:String x:Key="是否为调机料：">是否为调机料：</Sys:String>
+    <Sys:String x:Key="最大使用数量：">最大使用数量：</Sys:String>
+    <Sys:String x:Key="剩余预警数量：">剩余预警数量：</Sys:String>
+    <Sys:String x:Key="左飞达当前使用数量：">左飞达当前使用数量：</Sys:String>
+	<Sys:String x:Key="右飞达当前使用数量：">右飞达当前使用数量：</Sys:String>
+    <Sys:String x:Key="左飞达当前剩余数量：">左飞达当前剩余数量：</Sys:String>
+	<Sys:String x:Key="右飞达当前剩余数量：">右飞达当前剩余数量：</Sys:String>
+    <Sys:String x:Key="清除所有吸嘴吸取的物料">清除所有吸嘴吸取的物料</Sys:String>
+    <Sys:String x:Key="清空运行日志">清空运行日志</Sys:String>
+
+    <Sys:String x:Key="吸嘴使用次数">吸嘴使用次数</Sys:String>
+    <Sys:String x:Key="取料NG">取料NG</Sys:String>
+    <Sys:String x:Key="拍照NG">拍照NG</Sys:String>
+    <Sys:String x:Key="上视觉拍照NG">上视觉拍照NG</Sys:String>
+    <Sys:String x:Key="下视觉拍照NG">下视觉拍照NG</Sys:String>
+
+    <Sys:String x:Key="Tape良率">Tape良率</Sys:String>
+    <Sys:String x:Key="运行时间">运行时间</Sys:String>
+    <Sys:String x:Key="待料时间">待料时间</Sys:String>
+    <Sys:String x:Key="故障时间">故障时间</Sys:String>
+    <Sys:String x:Key="报警总数">报警总数</Sys:String>
+
+    <Sys:String x:Key="开始时间">开始时间</Sys:String>
+    <Sys:String x:Key="结束时间">结束时间</Sys:String>
+    <Sys:String x:Key="导出">导出</Sys:String>
+    <Sys:String x:Key="当前报警">当前报警</Sys:String>
+    <Sys:String x:Key="序号">序号</Sys:String>
+    <Sys:String x:Key="级别">级别</Sys:String>
+    <Sys:String x:Key="模块">模块</Sys:String>
+
+    <Sys:String x:Key="历史报警">历史报警</Sys:String>
+    <Sys:String x:Key="清空历史记录">清空历史记录</Sys:String>
+    <Sys:String x:Key="请刷卡！">请刷卡！</Sys:String>
+    <Sys:String x:Key="账号管理">账号管理</Sys:String>
+    <Sys:String x:Key="简体中文">简体中文</Sys:String>
+    <Sys:String x:Key="视觉界面">视觉界面</Sys:String>
+    <Sys:String x:Key="MES相关">MES相关</Sys:String>
+    <Sys:String x:Key="相机轴运行步骤">相机轴运行步骤</Sys:String>
+
+    <Sys:String x:Key="吸嘴轴运行步骤">吸嘴轴运行步骤</Sys:String>
+    <Sys:String x:Key="保压轴运行步骤">保压轴运行步骤</Sys:String>
+    <Sys:String x:Key="统计信息">统计信息</Sys:String>
+    <Sys:String x:Key="图表">图表</Sys:String>
+    <Sys:String x:Key="一天产量">一天产量</Sys:String>
+    <Sys:String x:Key="选择日期">选择日期</Sys:String>
+
+    <Sys:String x:Key="小时">小时</Sys:String>
+    <Sys:String x:Key="产量(Pcs)">产量(Pcs)</Sys:String>
+    <Sys:String x:Key="一段时间内产量">一段时间内产量</Sys:String>
+    <Sys:String x:Key="天">天</Sys:String>
+    <Sys:String x:Key="生产数据">生产数据</Sys:String>
+    <Sys:String x:Key="调试数据">调试数据</Sys:String>
+    <Sys:String x:Key="当前产量">当前产量</Sys:String>
+    <Sys:String x:Key="重置">重置</Sys:String>
+    <Sys:String x:Key="目标产量">目标产量</Sys:String>
+    <Sys:String x:Key="吸嘴">吸嘴</Sys:String>
+    <Sys:String x:Key="总计">总计</Sys:String>
+    <Sys:String x:Key="使用次数">使用次数</Sys:String>
+
+
+
+
+    <Sys:String x:Key="PLCParam">PLC</Sys:String>
+    <Sys:String x:Key="MotionGoogolParam">固高</Sys:String>
+    <Sys:String x:Key="ScannerParam">扫码</Sys:String>
+    <Sys:String x:Key="CameraParam">相机</Sys:String>
+    <Sys:String x:Key="LaserHeightSensorParam">测高</Sys:String>
+    <Sys:String x:Key="MESParam">MES</Sys:String>
+    <Sys:String x:Key="PDCAParam">PDCA</Sys:String>
+    <Sys:String x:Key="HiveParam">HIVE</Sys:String>
+    <Sys:String x:Key="OtherSettingParam">其他</Sys:String>
+
+    <Sys:String x:Key="你好">你好</Sys:String>
+
+    <Sys:String x:Key="系统设置">系统设置</Sys:String>
+    <Sys:String x:Key="切换语言">切换语言</Sys:String>
+    <Sys:String x:Key="中文">中文</Sys:String>
+    <Sys:String x:Key="英语">英语</Sys:String>
+    <Sys:String x:Key="生产模式">生产模式</Sys:String>
+    <Sys:String x:Key="调试模式">调试模式</Sys:String>
+    <Sys:String x:Key="计划停机模式">计划停机模式</Sys:String>
+
+    <Sys:String x:Key="生产信息">生产信息</Sys:String>
+    <Sys:String x:Key="模块信息">模块信息</Sys:String>
+    <Sys:String x:Key="操作面板">操作面板</Sys:String>
+    <Sys:String x:Key="运行日志">运行日志</Sys:String>
+    <Sys:String x:Key="视觉日志">视觉日志</Sys:String>
+    <Sys:String x:Key="快捷开关">快捷开关</Sys:String>
+    <Sys:String x:Key="报警信息">报警信息</Sys:String>
+    <Sys:String x:Key="图像界面">图像界面</Sys:String>
+    <Sys:String x:Key="取料时机">取料时机</Sys:String>
+    <Sys:String x:Key="启动后">启动后</Sys:String>
+    <Sys:String x:Key="上视觉结束后">上视觉结束后</Sys:String>
+    <Sys:String x:Key="同时取料数目">同时取料数目</Sys:String>
+    <Sys:String x:Key="保持平台无料">保持平台无料</Sys:String>
+    <Sys:String x:Key="复位自动清料">复位自动清料</Sys:String>
+
+    <Sys:String x:Key="穴位信息">穴位信息</Sys:String>
+    <Sys:String x:Key="PLC信号">PLC信号</Sys:String>
+    <Sys:String x:Key="上相机轴系运行步骤">上相机轴系运行步骤</Sys:String>
+    <Sys:String x:Key="吸嘴轴系运行步骤">吸嘴轴系运行步骤</Sys:String>
+
+    <Sys:String x:Key="白班总产量">白班总产量</Sys:String>
+    <Sys:String x:Key="白班OK数量">白班OK数量</Sys:String>
+    <Sys:String x:Key="白班NG数量">白班NG数量</Sys:String>
+    <Sys:String x:Key="白班良率">白班良率</Sys:String>
+    <Sys:String x:Key="白班清零">白班清零</Sys:String>
+    <Sys:String x:Key="夜班总产量">夜班总产量</Sys:String>
+    <Sys:String x:Key="夜班OK数量">夜班OK数量</Sys:String>
+    <Sys:String x:Key="夜班NG数量">夜班NG数量</Sys:String>
+    <Sys:String x:Key="夜班良率">夜班良率</Sys:String>
+    <Sys:String x:Key="夜班清零">夜班清零</Sys:String>
+    <Sys:String x:Key="左拍照CT">左拍照CT</Sys:String>
+    <Sys:String x:Key="左测高CT">左测高CT</Sys:String>
+    <Sys:String x:Key="左焊接CT">左焊接CT</Sys:String>
+    <Sys:String x:Key="左总CT">左总CT</Sys:String>
+    <Sys:String x:Key="左循环CT">左循环CT</Sys:String>
+    <Sys:String x:Key="右拍照CT">右拍照CT</Sys:String>
+    <Sys:String x:Key="右测高CT">右测高CT</Sys:String>
+    <Sys:String x:Key="右焊接CT">右焊接CT</Sys:String>
+    <Sys:String x:Key="右总CT">右总CT</Sys:String>
+    <Sys:String x:Key="右循环CT">右循环CT</Sys:String>
+    <Sys:String x:Key="PLC">PLC</Sys:String>
+    <Sys:String x:Key="Motion">Motion</Sys:String>
+    <Sys:String x:Key="视觉软件">视觉软件</Sys:String>
+    <Sys:String x:Key="电动滑台">电动滑台</Sys:String>
+    <Sys:String x:Key="激光器">激光器</Sys:String>
+    <Sys:String x:Key="激光测高">激光测高</Sys:String>
+    <Sys:String x:Key="PDCA">PDCA</Sys:String>
+    <Sys:String x:Key="MES">MES</Sys:String>
+    <Sys:String x:Key="固高">固高</Sys:String>
+    <Sys:String x:Key="扫码枪">扫码枪</Sys:String>
+    <Sys:String x:Key="视觉">视觉</Sys:String>
+    <Sys:String x:Key="手动清料">手动清料</Sys:String>
+    <Sys:String x:Key="喷咀管理">喷咀管理</Sys:String>
+    <Sys:String x:Key="锡球管理">锡球管理</Sys:String>
+    <Sys:String x:Key="老化模式">老化模式</Sys:String>
+    <Sys:String x:Key="MES启用">MES启用</Sys:String>
+    <Sys:String x:Key="MES数据模拟启用">MES数据模拟启用</Sys:String>
+    <Sys:String x:Key="MES过站检查启用">MES过站检查启用</Sys:String>
+    <Sys:String x:Key="安全门">安全门</Sys:String>
+    <Sys:String x:Key="PDCA启用">PDCA启用</Sys:String>
+    <Sys:String x:Key="出锡功能">出锡功能</Sys:String>
+    <Sys:String x:Key="复检启用">复检启用</Sys:String>
+    <Sys:String x:Key="空闲清洗启用">空闲清洗启用</Sys:String>
+    <Sys:String x:Key="定时关闭焊台启用">定时关闭焊台启用</Sys:String>
+    <Sys:String x:Key="循环老化模式启用">循环老化模式启用</Sys:String>
+    <Sys:String x:Key="定时切换生产模式启用">定时切换生产模式启用</Sys:String>
+
+    <Sys:String x:Key="连接">连接</Sys:String>
+    <Sys:String x:Key="断开">断开</Sys:String>
+    <Sys:String x:Key="启用">启用</Sys:String>
+    <Sys:String x:Key="模块启用">模块启用</Sys:String>
+    <Sys:String x:Key="禁用">禁用</Sys:String>
+
+    <Sys:String x:Key="新建制程">新建制程</Sys:String>
+    <Sys:String x:Key="复制制程">复制制程</Sys:String>
+    <Sys:String x:Key="加载制程">加载制程</Sys:String>
+    <Sys:String x:Key="删除制程">删除制程</Sys:String>
+    <Sys:String x:Key="保存制程">保存制程</Sys:String>
+    <Sys:String x:Key="制程名称">制程名称</Sys:String>
+    <Sys:String x:Key="打开示教">打开示教</Sys:String>
+    <Sys:String x:Key="选择制程">选择制程</Sys:String>
+    <Sys:String x:Key="通用制程参数设置">通用制程参数设置</Sys:String>
+    <Sys:String x:Key="拍照位置">拍照位置</Sys:String>
+    <Sys:String x:Key="贴合位置">贴合位置</Sys:String>
+    <Sys:String x:Key="贴合配方">贴合配方</Sys:String>
+    <Sys:String x:Key="添加">添加</Sys:String>
+    <Sys:String x:Key="删除">删除</Sys:String>
+    <Sys:String x:Key="上移">上移</Sys:String>
+    <Sys:String x:Key="下移">下移</Sys:String>
+    <Sys:String x:Key="阵列">阵列</Sys:String>
+    <Sys:String x:Key="保存">保存</Sys:String>
+    <Sys:String x:Key="保存全部">保存全部</Sys:String>
+    <Sys:String x:Key="视觉点名称">视觉点名称</Sys:String>
+    <Sys:String x:Key="视觉模板">视觉模板</Sys:String>
+    <Sys:String x:Key="贴合点名称">贴合点名称</Sys:String>
+    <Sys:String x:Key="启用测高">启用测高</Sys:String>
+    <Sys:String x:Key="启用贴合">启用贴合</Sys:String>
+
+    <Sys:String x:Key="用户：">用户：</Sys:String>
+    <Sys:String x:Key="密码：">密码：</Sys:String>
+    <Sys:String x:Key="确定">确定</Sys:String>
+    <Sys:String x:Key="取消">取消</Sys:String>
+    <Sys:String x:Key="登录">登录</Sys:String>
+    <Sys:String x:Key="注销">注销</Sys:String>
+
+    <Sys:String x:Key="启用ModbusTcp">启用ModbusTcp</Sys:String>
+    <Sys:String x:Key="Modbus485通讯参数">Modbus485通讯参数</Sys:String>
+    <Sys:String x:Key="串口号">串口号</Sys:String>
+    <Sys:String x:Key="站号">站号</Sys:String>
+    <Sys:String x:Key="ModbusTcp通讯">ModbusTcp通讯</Sys:String>
+    <Sys:String x:Key="IP">IP</Sys:String>
+    <Sys:String x:Key="端口">端口</Sys:String>
+    <Sys:String x:Key="缓冲区大小">缓冲区大小</Sys:String>
+    <Sys:String x:Key="超时">超时</Sys:String>
+    <Sys:String x:Key="读通讯地址">读通讯地址</Sys:String>
+    <Sys:String x:Key="读PLC-起始地址">读PLC-起始地址</Sys:String>
+    <Sys:String x:Key="读PLC-地址个数">读PLC-地址个数</Sys:String>
+    <Sys:String x:Key="读PLC-机台状态地址">读PLC-机台状态地址</Sys:String>
+    <Sys:String x:Key="读PLC-控制上位机状态地址">读PLC-控制上位机状态地址</Sys:String>
+    <Sys:String x:Key="读PLC-安全门报警地址">读PLC-安全门报警地址</Sys:String>
+    <Sys:String x:Key="读PLC-报警地址">读PLC-报警地址</Sys:String>
+    <Sys:String x:Key="读PLC-物料Ready触发加工标记">读PLC-物料Ready触发加工标记</Sys:String>
+    <Sys:String x:Key="读PLC-触发扫码标记">读PLC-触发扫码标记</Sys:String>
+    <Sys:String x:Key="读PLC-空跑模式标记">读PLC-空跑模式标记</Sys:String>
+    <Sys:String x:Key="写PLC-飞达送料信号">写PLC-飞达送料信号</Sys:String>
+    <Sys:String x:Key="写通讯地址">写通讯地址</Sys:String>
+    <Sys:String x:Key="写PLC-起始地址">写PLC-起始地址</Sys:String>
+    <Sys:String x:Key="写PLC-地址个数">写PLC-地址个数</Sys:String>
+    <Sys:String x:Key="写PLC-工位运行状态地址">写PLC-工位运行状态地址</Sys:String>
+    <Sys:String x:Key="写PLC-报警地址">写PLC-报警地址</Sys:String>
+    <Sys:String x:Key="写PLC-工作结果">写PLC-工作结果</Sys:String>
+    <Sys:String x:Key="写PLC-扫码结果">写PLC-扫码结果</Sys:String>
+    <Sys:String x:Key="写PLC-是否需要保压">写PLC-是否需要保压</Sys:String>
+    <Sys:String x:Key="写PLC-上位机准备完成">写PLC-上位机准备完成</Sys:String>
+    <Sys:String x:Key="读PLC-飞达物料检测结果">读PLC-飞达物料检测结果</Sys:String>
+    <Sys:String x:Key="写PLC-让PLC复位">写PLC-让PLC复位</Sys:String>
+    <Sys:String x:Key="写PLC-心跳信号">写PLC-心跳信号</Sys:String>
+    <Sys:String x:Key="脉冲当量">脉冲当量</Sys:String>
+    <Sys:String x:Key="X1脉冲当量">X1脉冲当量</Sys:String>
+    <Sys:String x:Key="Y1脉冲当量">Y1脉冲当量</Sys:String>
+    <Sys:String x:Key="X2脉冲当量">X2脉冲当量</Sys:String>
+    <Sys:String x:Key="Y2脉冲当量">Y2脉冲当量</Sys:String>
+    <Sys:String x:Key="Z2脉冲当量">Z2脉冲当量</Sys:String>
+    <Sys:String x:Key="R1脉冲当量">R1脉冲当量</Sys:String>
+    <Sys:String x:Key="R2脉冲当量">R2脉冲当量</Sys:String>
+    <Sys:String x:Key="R3脉冲当量">R3脉冲当量</Sys:String>
+    <Sys:String x:Key="R4脉冲当量">R4脉冲当量</Sys:String>
+    <Sys:String x:Key="工作速度">工作速度</Sys:String>
+    <Sys:String x:Key="X1工作速度">X1工作速度</Sys:String>
+    <Sys:String x:Key="Y1工作速度">Y1工作速度</Sys:String>
+    <Sys:String x:Key="X2工作速度">X2工作速度</Sys:String>
+    <Sys:String x:Key="Y2工作速度">Y2工作速度</Sys:String>
+    <Sys:String x:Key="Z2工作速度">Z2工作速度</Sys:String>
+    <Sys:String x:Key="R1工作速度">R1工作速度</Sys:String>
+    <Sys:String x:Key="R2工作速度">R2工作速度</Sys:String>
+    <Sys:String x:Key="R3工作速度">R3工作速度</Sys:String>
+    <Sys:String x:Key="R4工作速度">R4工作速度</Sys:String>
+    <Sys:String x:Key="示教低速">示教低速</Sys:String>
+    <Sys:String x:Key="X1示教低速">X1示教低速</Sys:String>
+    <Sys:String x:Key="Y1示教低速">Y1示教低速</Sys:String>
+    <Sys:String x:Key="X2示教低速">X2示教低速</Sys:String>
+    <Sys:String x:Key="Y2示教低速">Y2示教低速</Sys:String>
+    <Sys:String x:Key="Z2示教低速">Z2示教低速</Sys:String>
+    <Sys:String x:Key="R1示教低速">R1示教低速</Sys:String>
+    <Sys:String x:Key="R2示教低速">R2示教低速</Sys:String>
+    <Sys:String x:Key="R3示教低速">R3示教低速</Sys:String>
+    <Sys:String x:Key="R4示教低速">R4示教低速</Sys:String>
+    <Sys:String x:Key="示教中速">示教中速</Sys:String>
+    <Sys:String x:Key="X1示教中速">X1示教中速</Sys:String>
+    <Sys:String x:Key="Y1示教中速">Y1示教中速</Sys:String>
+    <Sys:String x:Key="X2示教中速">X2示教中速</Sys:String>
+    <Sys:String x:Key="Y2示教中速">Y2示教中速</Sys:String>
+    <Sys:String x:Key="Z2示教中速">Z2示教中速</Sys:String>
+    <Sys:String x:Key="R1示教中速">R1示教中速</Sys:String>
+    <Sys:String x:Key="R2示教中速">R2示教中速</Sys:String>
+    <Sys:String x:Key="R3示教中速">R3示教中速</Sys:String>
+    <Sys:String x:Key="R4示教中速">R4示教中速</Sys:String>
+    <Sys:String x:Key="示教高速">示教高速</Sys:String>
+    <Sys:String x:Key="X1示教高速">X1示教高速</Sys:String>
+    <Sys:String x:Key="Y1示教高速">Y1示教高速</Sys:String>
+    <Sys:String x:Key="X2示教高速">X2示教高速</Sys:String>
+    <Sys:String x:Key="Y2示教高速">Y2示教高速</Sys:String>
+    <Sys:String x:Key="Z2示教高速">Z2示教高速</Sys:String>
+    <Sys:String x:Key="R1示教高速">R1示教高速</Sys:String>
+    <Sys:String x:Key="R2示教高速">R2示教高速</Sys:String>
+    <Sys:String x:Key="R3示教高速">R3示教高速</Sys:String>
+    <Sys:String x:Key="R4示教高速">R4示教高速</Sys:String>
+    <Sys:String x:Key="端口配置">端口配置</Sys:String>
+    <Sys:String x:Key="定位上相机环形光源">定位上相机环形光源</Sys:String>
+    <Sys:String x:Key="定位上相机同轴光源">定位上相机同轴光源</Sys:String>
+    <Sys:String x:Key="飞达上相机光源">飞达上相机光源</Sys:String>
+    <Sys:String x:Key="下相机光源">下相机光源</Sys:String>
+    <Sys:String x:Key="保压上相机光源">保压上相机光源</Sys:String>
+    <Sys:String x:Key="1#气缸上">1#气缸上</Sys:String>
+    <Sys:String x:Key="2#气缸上">2#气缸上</Sys:String>
+    <Sys:String x:Key="3#气缸上">3#气缸上</Sys:String>
+    <Sys:String x:Key="4#气缸上">4#气缸上</Sys:String>
+    <Sys:String x:Key="1#气缸下">1#气缸下</Sys:String>
+    <Sys:String x:Key="2#气缸下">2#气缸下</Sys:String>
+    <Sys:String x:Key="3#气缸下">3#气缸下</Sys:String>
+    <Sys:String x:Key="4#气缸下">4#气缸下</Sys:String>
+    <Sys:String x:Key="1#真空吸">1#真空吸</Sys:String>
+    <Sys:String x:Key="2#真空吸">2#真空吸</Sys:String>
+    <Sys:String x:Key="3#真空吸">3#真空吸</Sys:String>
+    <Sys:String x:Key="4#真空吸">4#真空吸</Sys:String>
+    <Sys:String x:Key="1#真空破">1#真空破</Sys:String>
+    <Sys:String x:Key="2#真空破">2#真空破</Sys:String>
+    <Sys:String x:Key="3#真空破">3#真空破</Sys:String>
+    <Sys:String x:Key="4#真空破">4#真空破</Sys:String>
+    <Sys:String x:Key="1#气缸上到位">1#气缸上到位</Sys:String>
+    <Sys:String x:Key="2#气缸上到位">2#气缸上到位</Sys:String>
+    <Sys:String x:Key="3#气缸上到位">3#气缸上到位</Sys:String>
+    <Sys:String x:Key="4#气缸上到位">4#气缸上到位</Sys:String>
+    <Sys:String x:Key="1#气缸下到位">1#气缸下到位</Sys:String>
+    <Sys:String x:Key="2#气缸下到位">2#气缸下到位</Sys:String>
+    <Sys:String x:Key="3#气缸下到位">3#气缸下到位</Sys:String>
+    <Sys:String x:Key="4#气缸下到位">4#气缸下到位</Sys:String>
+    <Sys:String x:Key="1#物料OK">1#物料OK</Sys:String>
+    <Sys:String x:Key="2#物料OK">2#物料OK</Sys:String>
+    <Sys:String x:Key="3#物料OK">3#物料OK</Sys:String>
+    <Sys:String x:Key="4#物料OK">4#物料OK</Sys:String>
+
+    <Sys:String x:Key="1#取料OK">1#取料OK</Sys:String>
+    <Sys:String x:Key="2#取料OK">2#取料OK</Sys:String>
+    <Sys:String x:Key="3#取料OK">3#取料OK</Sys:String>
+    <Sys:String x:Key="4#取料OK">4#取料OK</Sys:String>
+
+    <Sys:String x:Key="防撞核心参数勿动">防撞核心参数勿动</Sys:String>
+    <Sys:String x:Key="贴装轴X（相机右避让阈值）">贴装轴X（相机右避让阈值）</Sys:String>
+    <Sys:String x:Key="贴装轴Y（距原点最大安全距离）">贴装轴Y（距原点最大安全距离）</Sys:String>
+    <Sys:String x:Key="启用扫码枪扫描排线码">启用扫码枪扫描排线码</Sys:String>
+    <Sys:String x:Key="连接参数">连接参数</Sys:String>
+    <Sys:String x:Key="写入超时">写入超时</Sys:String>
+    <Sys:String x:Key="读取超时">读取超时</Sys:String>
+    <Sys:String x:Key="最大重试次数">最大重试次数</Sys:String>
+    <Sys:String x:Key="扫码设定">扫码设定</Sys:String>
+    <Sys:String x:Key="触发扫码指令">触发扫码指令</Sys:String>
+    <Sys:String x:Key="终止扫码指令">终止扫码指令</Sys:String>
+    <Sys:String x:Key="启用结束标识符">启用结束标识符</Sys:String>
+    <Sys:String x:Key="未扫到码返回值">未扫到码返回值</Sys:String>
+    <Sys:String x:Key="最小长度">最小长度</Sys:String>
+    <Sys:String x:Key="最大长度">最大长度</Sys:String>
+    <Sys:String x:Key="启用相机扫描天线码">启用相机扫描天线码</Sys:String>
+    <Sys:String x:Key="启用测量钢片右端到mark距离">启用测量钢片右端到mark距离</Sys:String>
+    <Sys:String x:Key="启用复检">启用复检</Sys:String>
+    <Sys:String x:Key="通讯参数">通讯参数</Sys:String>
+    <Sys:String x:Key="视觉软件参数配置">视觉软件参数配置</Sys:String>
+    <Sys:String x:Key="吸取物料">吸取物料</Sys:String>
+    <Sys:String x:Key="目标物料">目标物料</Sys:String>
+    <Sys:String x:Key="图片存储路径">图片存储路径</Sys:String>
+    <Sys:String x:Key="复检测量基准值">复检测量基准值</Sys:String>
+    <Sys:String x:Key="复检X基准值">复检X基准值</Sys:String>
+    <Sys:String x:Key="复检Y基准值">复检Y基准值</Sys:String>
+    <Sys:String x:Key="B2BTape相关">B2BTape相关</Sys:String>
+    <Sys:String x:Key="绑定B2BTape">绑定B2BTape</Sys:String>
+    <Sys:String x:Key="B2BTape 允许的IPN">B2BTape 允许的IPN</Sys:String>
+    <Sys:String x:Key="B2BTape SN位数">B2BTape SN位数</Sys:String>
+    <Sys:String x:Key="B2BTape SN">B2BTape SN</Sys:String>
+    <Sys:String x:Key="B2BTape 单卷最大数目">B2BTape 单卷最大数目</Sys:String>
+    <Sys:String x:Key="Vendor">Vendor</Sys:String>
+    <Sys:String x:Key="B2BTape 物料数量">B2BTape 物料数量</Sys:String>
+    <Sys:String x:Key="B2BTape 剩余预警">B2BTape 剩余预警</Sys:String>
+    <Sys:String x:Key="B2BTape 物料名称">B2BTape 物料名称</Sys:String>
+    <Sys:String x:Key="MES参数设定">MES参数设定</Sys:String>
+    <Sys:String x:Key="Line">Line</Sys:String>
+    <Sys:String x:Key="Station">Station</Sys:String>
+    <Sys:String x:Key="App">App</Sys:String>
+    <Sys:String x:Key="吸嘴Z高度相对补偿">吸嘴Z高度相对补偿</Sys:String>
+    <Sys:String x:Key="2#相对于1#补偿">2#相对于1#补偿</Sys:String>
+    <Sys:String x:Key="3#相对于1#补偿">3#相对于1#补偿</Sys:String>
+    <Sys:String x:Key="4#相对于1#补偿">4#相对于1#补偿</Sys:String>
+    <Sys:String x:Key="吸嘴取料清料设定">吸嘴取料清料设定</Sys:String>
+    <Sys:String x:Key="吸嘴取料停留时间">吸嘴取料停留时间</Sys:String>
+    <Sys:String x:Key="吸嘴清料吹气时间">吸嘴清料吹气时间</Sys:String>
+    <Sys:String x:Key="单吸嘴连续取料失败报警次数">单吸嘴连续取料失败报警次数</Sys:String>
+    <Sys:String x:Key="所有吸嘴取料失败报警次数">所有吸嘴取料失败报警次数</Sys:String>
+    <Sys:String x:Key="杂项">杂项</Sys:String>
+    <Sys:String x:Key="是否为小线量产机">是否为小线量产机</Sys:String>
+    <Sys:String x:Key="启用根据复检修改制程">启用根据复检修改制程</Sys:String>
+
+    <Sys:String x:Key="Tray">Tray</Sys:String>
+    <Sys:String x:Key="启用获取Tray信息">启用获取Tray信息</Sys:String>
+    <Sys:String x:Key="TrayIP">TrayIP</Sys:String>
+    <Sys:String x:Key="MES上传类型">MES上传类型</Sys:String>
+
+    <Sys:String x:Key="核心参数勿动">核心参数勿动</Sys:String>
+    <Sys:String x:Key="是否为双控气缸机台">是否为双控气缸机台</Sys:String>
+
+    <Sys:String x:Key="Fixid">Fixid</Sys:String>
+
+    <Sys:String x:Key="Hive参数">Hive参数</Sys:String>
+    <Sys:String x:Key="是否启用上传Hive状态到MES">是否启用上传Hive状态到MES</Sys:String>
+    <Sys:String x:Key="是否机台进入维护阶段">是否机台进入维护阶段</Sys:String>
+    <Sys:String x:Key="急停按下是否弹出Hive上传DT窗体">急停按下是否弹出Hive上传DT窗体</Sys:String>
+    <Sys:String x:Key="IP地址">IP地址</Sys:String>
+    <Sys:String x:Key="Hive上传到Mes_IP">Hive上传到Mes_IP</Sys:String>
+    <Sys:String x:Key="端口号">端口号</Sys:String>
+    <Sys:String x:Key="工厂时区">工厂时区</Sys:String>
+    <Sys:String x:Key="机台处理中的整机或组件序列号">机台处理中的整机或组件序列号</Sys:String>
+    <Sys:String x:Key="是否启用自动上传Plandown功能">是否启用自动上传Plandown功能</Sys:String>
+    <Sys:String x:Key="Plandown持续时间">Plandown持续时间</Sys:String>
+    <Sys:String x:Key="是否启用长时间DT循环报警">是否启用长时间DT循环报警</Sys:String>
+    <Sys:String x:Key="自动上传Plandown状态时间(7:45)">自动上传Plandown状态时间(7:45)</Sys:String>
+    <Sys:String x:Key="自动上传Plandown状态时间(19:45)">自动上传Plandown状态时间(19:45)</Sys:String>
+    <Sys:String x:Key="Hive版本号">Hive版本号</Sys:String>
+
+    <Sys:String x:Key="读PLC-流线模式标记">读PLC-流线模式标记</Sys:String>
+
+    <Sys:String x:Key="FTP图片上传">FTP图片上传</Sys:String>
+    <Sys:String x:Key="启用图片打包上传至服务器">启用图片打包上传至服务器</Sys:String>
+    <Sys:String x:Key="服务器IP">服务器IP</Sys:String>
+    <Sys:String x:Key="服务器端口">服务器端口</Sys:String>
+    <Sys:String x:Key="登录用户名">登录用户名</Sys:String>
+    <Sys:String x:Key="登陆密码">登陆密码</Sys:String>
+    <Sys:String x:Key="线别">线别</Sys:String>
+    <Sys:String x:Key="工站">工站</Sys:String>
+    <Sys:String x:Key="是否绑定天线与SIP">是否绑定天线与SIP</Sys:String>
+
+    <Sys:String x:Key="B2BTape 单卷最大物料数">B2BTape 单卷最大物料数</Sys:String>
+    <Sys:String x:Key="本机是否绑定天线与SIP">本机是否绑定天线与SIP</Sys:String>
+
+    <Sys:String x:Key="贴装轴安全X（相机右避让阈值）">贴装轴安全X（相机右避让阈值）</Sys:String>
+    <Sys:String x:Key="贴装轴安全Y（距原点最大安全距离）">贴装轴安全Y（距原点最大安全距离）</Sys:String>
+    <Sys:String x:Key="相机轴X最大值（略小于最大行程）">相机轴X最大值（略小于最大行程）</Sys:String>
+    <Sys:String x:Key="相机轴Y最大值（略小于最大行程）">相机轴Y最大值（略小于最大行程）</Sys:String>
+    <Sys:String x:Key="贴装轴X最大值（略小于最大行程）">贴装轴X最大值（略小于最大行程）</Sys:String>
+    <Sys:String x:Key="贴装轴Y最大值（略小于最大行程）">贴装轴Y最大值（略小于最大行程）</Sys:String>
+    <Sys:String x:Key="贴装轴Z最大值（略小于最大行程）">贴装轴Z最大值（略小于最大行程）</Sys:String>
+
+    <Sys:String x:Key="语言">语言</Sys:String>
+    <Sys:String x:Key="登录设定">登录设定</Sys:String>
+    <Sys:String x:Key="允许使用用户名密码登录">允许使用用户名密码登录</Sys:String>
+
+    <Sys:String x:Key="复位速度">复位速度</Sys:String>
+    <Sys:String x:Key="X1复位速度">X1复位速度</Sys:String>
+    <Sys:String x:Key="Y1复位速度">Y1复位速度</Sys:String>
+    <Sys:String x:Key="X2复位速度">X2复位速度</Sys:String>
+    <Sys:String x:Key="Y2复位速度">Y2复位速度</Sys:String>
+    <Sys:String x:Key="Z2复位速度">Z2复位速度</Sys:String>
+    <Sys:String x:Key="R1复位速度">R1复位速度</Sys:String>
+    <Sys:String x:Key="R2复位速度">R2复位速度</Sys:String>
+    <Sys:String x:Key="R3复位速度">R3复位速度</Sys:String>
+    <Sys:String x:Key="R4复位速度">R4复位速度</Sys:String>
+
+    <Sys:String x:Key="视觉相关设置">视觉相关设置</Sys:String>
+    <Sys:String x:Key="上相机拍照前等待时间">上相机拍照前等待时间</Sys:String>
+    <Sys:String x:Key="下相机拍照前等待时间">下相机拍照前等待时间</Sys:String>
+
+    <Sys:String x:Key="B2BTapeSN位数">B2BTapeSN位数</Sys:String>
+    <Sys:String x:Key="所有B2BTapeIPN">所有B2BTapeIPN</Sys:String>
+    <Sys:String x:Key="所有调机B2BTapeSN">所有调机B2BTapeSN</Sys:String>
+    <Sys:String x:Key="B2BTapeSN">B2BTapeSN</Sys:String>
+    <Sys:String x:Key="B2BTapeVendor">B2BTapeVendor</Sys:String>
+    <Sys:String x:Key="B2BTape单卷最大物料数">B2BTape单卷最大物料数</Sys:String>
+    <Sys:String x:Key="B2BTape剩余预警物料数">B2BTape剩余预警物料数</Sys:String>
+    <Sys:String x:Key="B2BTape物料名称">B2BTape物料名称</Sys:String>
+
+    <Sys:String x:Key="报警信息上传">报警信息上传</Sys:String>
+    <Sys:String x:Key="软件版本号">软件版本号</Sys:String>
+
+    <Sys:String x:Key="启用启动时上传Alarm信息">启用启动时上传Alarm信息</Sys:String>
+    <Sys:String x:Key="其他设置">其他设置</Sys:String>
+
+    <Sys:String x:Key="HIVE界面">HIVE界面</Sys:String>
+    <Sys:String x:Key="其他">其他</Sys:String>
+    <Sys:String x:Key="Site">Site</Sys:String>
+    <Sys:String x:Key="料卷特征码">料卷特征码（以,分隔）</Sys:String>
+    <Sys:String x:Key="调机料卷SN">调机料卷SN（以,分隔）</Sys:String>
+
+    <Sys:String x:Key="SPP视觉exe文件路径">SPP视觉exe文件路径</Sys:String>
+    <Sys:String x:Key="清空报警信息">清空报警信息</Sys:String>
+
+    <Sys:String x:Key="使用新视觉指令">使用新视觉指令</Sys:String>
+    <Sys:String x:Key="所有天线特征码">所有天线特征码</Sys:String>
+    <Sys:String x:Key="B2B Station">B2B Station</Sys:String>
+    <Sys:String x:Key="Unload Station">Unload Station</Sys:String>
+    <Sys:String x:Key="图片上传">图片上传</Sys:String>
+
+    <Sys:String x:Key="X补偿">X补偿（mm）：</Sys:String>
+    <Sys:String x:Key="Y补偿">Y补偿（mm）：</Sys:String>
+    <Sys:String x:Key="Z补偿">Z补偿（mm）：</Sys:String>
+    <Sys:String x:Key="R补偿1">R补偿1（°）：</Sys:String>
+    <Sys:String x:Key="R补偿2">R补偿2（°）：</Sys:String>
+    <Sys:String x:Key="设置">设置</Sys:String>
+    <Sys:String x:Key="移动">移动</Sys:String>
+    <Sys:String x:Key="补偿">补偿</Sys:String>
+    <Sys:String x:Key="吸嘴1左取料">吸嘴1左取料</Sys:String>
+    <Sys:String x:Key="吸嘴1右取料">吸嘴1右取料</Sys:String>
+    <Sys:String x:Key="吸嘴2左取料">吸嘴2左取料</Sys:String>
+    <Sys:String x:Key="吸嘴2右取料">吸嘴2右取料</Sys:String>
+    <Sys:String x:Key="吸嘴3左取料">吸嘴3左取料</Sys:String>
+    <Sys:String x:Key="吸嘴3右取料">吸嘴3右取料</Sys:String>
+    <Sys:String x:Key="吸嘴4左取料">吸嘴4左取料</Sys:String>
+    <Sys:String x:Key="吸嘴4右取料">吸嘴4右取料</Sys:String>
+    <Sys:String x:Key="吸嘴13同时取料">吸嘴13同时取料</Sys:String>
+    <Sys:String x:Key="吸嘴24同时取料">吸嘴24同时取料</Sys:String>
+    <Sys:String x:Key="吸嘴1下视觉">吸嘴1下视觉</Sys:String>
+    <Sys:String x:Key="吸嘴2下视觉">吸嘴2下视觉</Sys:String>
+    <Sys:String x:Key="吸嘴3下视觉">吸嘴3下视觉</Sys:String>
+    <Sys:String x:Key="吸嘴4下视觉">吸嘴4下视觉</Sys:String>
+
+    <Sys:String x:Key="左飞达拍照位">左飞达拍照位</Sys:String>
+    <Sys:String x:Key="右飞达拍照位">右飞达拍照位</Sys:String>
+    <Sys:String x:Key="NG物料抛料">NG物料抛料</Sys:String>
+    <Sys:String x:Key="吸嘴1左取料测试">吸嘴1左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴1右取料测试">吸嘴1右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴2左取料测试">吸嘴2左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴2右取料测试">吸嘴2右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴3左取料测试">吸嘴3左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴3右取料测试">吸嘴3右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴4左取料测试">吸嘴4左取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴4右取料测试">吸嘴4右取料测试</Sys:String>
+    <Sys:String x:Key="吸嘴13同取测试">吸嘴13同取测试</Sys:String>
+    <Sys:String x:Key="吸嘴24同取测试">吸嘴24同取测试</Sys:String>
+    <Sys:String x:Key="开始单取测试">开始单取测试</Sys:String>
+    <Sys:String x:Key="停止单取测试">停止单取测试</Sys:String>
+
+    <Sys:String x:Key="吸嘴取料后检测真空吸等待时间">吸嘴取料后检测真空吸等待时间</Sys:String>
+    <Sys:String x:Key="手动设定软件版本号">手动设定软件版本号</Sys:String>
+
+    <Sys:String x:Key="MesIP">MesIP</Sys:String>
+    <Sys:String x:Key="操作人员编号">操作人员编号</Sys:String>
+
+    <Sys:String x:Key="小视野相机拍照整个sip板">小视野相机拍照整个sip板</Sys:String>
+
+    <Sys:String x:Key="定位上相机光源">定位上相机光源</Sys:String>
+    <Sys:String x:Key="Y1轴带机构+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴带机构相撞）">Y1轴带机构+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="X1轴带机构+X2轴带机构（略小于贴装X轴带机构与相机X轴带机构相撞）">X1轴带机构+X2轴带机构（略小于贴装X轴带机构与相机X轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="Y1轴+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴相撞）">Y1轴+Y2轴带机构（略小于贴装Y轴带机构与相机Y轴相撞）</Sys:String>
+    <Sys:String x:Key="Y2轴与Feeder相机柱最小值(略大于Y2轴与Feeder相机柱相撞距离)">Y2轴与Feeder相机柱最小值(略大于Y2轴与Feeder相机柱相撞距离)</Sys:String>
+    <Sys:String x:Key="X2轴与Feeder相机柱最大值(略小于X2轴与Feeder相机柱相撞距离)">X2轴与Feeder相机柱最大值(略小于X2轴与Feeder相机柱相撞距离)</Sys:String>
+    <Sys:String x:Key="写PLC-相机启动">写PLC-相机启动</Sys:String>
+    <Sys:String x:Key="写PLC-相机拍照完成">写PLC-相机拍照完成</Sys:String>
+    <Sys:String x:Key="写PLC-保压偏移位置">写PLC-保压偏移位置</Sys:String>
+    <Sys:String x:Key="Y1轴带机构+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴带机构相撞）">Y1轴带机构+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="X1轴带机构+X2轴带机构最大值（略小于贴装X轴带机构与相机X轴带机构相撞）">X1轴带机构+X2轴带机构最大值（略小于贴装X轴带机构与相机X轴带机构相撞）</Sys:String>
+    <Sys:String x:Key="Y1轴+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴相撞）">Y1轴+Y2轴带机构最大值（略小于贴装Y轴带机构与相机Y轴相撞）</Sys:String>
+    <Sys:String x:Key="贴装轴Z安全高度（在任何位置都处于绝对安全的一个高度）">贴装轴Z安全高度（在任何位置都处于绝对安全的一个高度）</Sys:String>
+
+
+    <Sys:String x:Key="读PLC-相机启动">读PLC-相机启动</Sys:String>
+    <Sys:String x:Key="读PLC-X轴坐标">读PLC-X轴坐标</Sys:String>
+
+
+    <Sys:String x:Key="启用保压相机">启用保压相机</Sys:String>
+
+
+    <Sys:String x:Key="保压X轴偏移基准值">保压X轴偏移基准值</Sys:String>
+
+
+
+    <Sys:String x:Key="写PLC-移动到保压动静态位置">写PLC-移动到保压动静态位置</Sys:String>
+
+
+
+
+    <Sys:String x:Key="吸嘴取料偏移">吸嘴取料偏移</Sys:String>
+    <Sys:String x:Key="是否启用偏移">是否启用偏移</Sys:String>
+    <Sys:String x:Key="吸嘴1-X">吸嘴1-X</Sys:String>
+    <Sys:String x:Key="吸嘴1-Y">吸嘴1-Y</Sys:String>
+    <Sys:String x:Key="吸嘴1-R">吸嘴1-R</Sys:String>
+    <Sys:String x:Key="吸嘴2-X">吸嘴2-X</Sys:String>
+    <Sys:String x:Key="吸嘴2-Y">吸嘴2-Y</Sys:String>
+    <Sys:String x:Key="吸嘴2-R">吸嘴2-R</Sys:String>
+    <Sys:String x:Key="吸嘴3-X">吸嘴3-X</Sys:String>
+    <Sys:String x:Key="吸嘴3-Y">吸嘴3-Y</Sys:String>
+    <Sys:String x:Key="吸嘴3-R">吸嘴3-R</Sys:String>
+    <Sys:String x:Key="吸嘴4-X">吸嘴4-X</Sys:String>
+    <Sys:String x:Key="吸嘴4-Y">吸嘴4-Y</Sys:String>
+    <Sys:String x:Key="吸嘴4-R">吸嘴4-R</Sys:String>
+
+
+    <Sys:String x:Key="读PLC-空载具强制加工标记">读PLC-空载具强制加工标记</Sys:String>
+
+
+    <Sys:String x:Key="视觉NG自动重拍次数(0次为不重拍)">视觉NG自动重拍次数(0次为不重拍)</Sys:String>
+    <Sys:String x:Key="Feeder相机">Feeder相机</Sys:String>
+    <Sys:String x:Key="保压相机">保压相机</Sys:String>
+
+
+
+
+    <Sys:String x:Key="视觉防呆-上相机定位">视觉防呆-上相机定位</Sys:String>
+    <Sys:String x:Key="是否启用">是否启用</Sys:String>
+    <Sys:String x:Key="穴位1基准值-X">穴位1基准值-X</Sys:String>
+    <Sys:String x:Key="穴位1偏移量-X(±)">穴位1偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位1基准值-Y">穴位1基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位1偏移量-Y(±)">穴位1偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位2基准值-X">穴位2基准值-X</Sys:String>
+    <Sys:String x:Key="穴位2偏移量-X(±)">穴位2偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位2基准值-Y">穴位2基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位2偏移量-Y(±)">穴位2偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位3基准值-X">穴位3基准值-X</Sys:String>
+    <Sys:String x:Key="穴位3偏移量-X(±)">穴位3偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位3基准值-Y">穴位3基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位3偏移量-Y(±)">穴位3偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位4基准值-X">穴位4基准值-X</Sys:String>
+    <Sys:String x:Key="穴位4偏移量-X(±)">穴位4偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位4基准值-Y">穴位4基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位4偏移量-Y(±)">穴位4偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位5基准值-X">穴位5基准值-X</Sys:String>
+    <Sys:String x:Key="穴位5偏移量-X(±)">穴位5偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位5基准值-Y">穴位5基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位5偏移量-Y(±)">穴位5偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位6基准值-X">穴位6基准值-X</Sys:String>
+    <Sys:String x:Key="穴位6偏移量-X(±)">穴位6偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位6基准值-Y">穴位6基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位6偏移量-Y(±)">穴位6偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位7基准值-X">穴位7基准值-X</Sys:String>
+    <Sys:String x:Key="穴位7偏移量-X(±)">穴位7偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位7基准值-Y">穴位7基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位7偏移量-Y(±)">穴位7偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位8基准值-X">穴位8基准值-X</Sys:String>
+    <Sys:String x:Key="穴位8偏移量-X(±)">穴位8偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位8基准值-Y">穴位8基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位8偏移量-Y(±)">穴位8偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位9基准值-X">穴位9基准值-X</Sys:String>
+    <Sys:String x:Key="穴位9偏移量-X(±)">穴位9偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位9基准值-Y">穴位9基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位9偏移量-Y(±)">穴位9偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位10基准值-X">穴位10基准值-X</Sys:String>
+    <Sys:String x:Key="穴位10偏移量-X(±)">穴位10偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位10基准值-Y">穴位10基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位10偏移量-Y(±)">穴位10偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位11基准值-X">穴位11基准值-X</Sys:String>
+    <Sys:String x:Key="穴位11偏移量-X(±)">穴位11偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位11基准值-Y">穴位11基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位11偏移量-Y(±)">穴位11偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="穴位12基准值-X">穴位12基准值-X</Sys:String>
+    <Sys:String x:Key="穴位12偏移量-X(±)">穴位12偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="穴位12基准值-Y">穴位12基准值-Y</Sys:String>
+    <Sys:String x:Key="穴位12偏移量-Y(±)">穴位12偏移量-Y(±)</Sys:String>
+
+    <Sys:String x:Key="写PLC-控制PLC按钮">写PLC-控制PLC按钮</Sys:String>
+    <Sys:String x:Key="核心参数设定">核心参数设定</Sys:String>
+    <Sys:String x:Key="贴合物料名称">贴合物料名称</Sys:String>
+    <Sys:String x:Key="检测Bumper">检测Bumper</Sys:String>
+    <Sys:String x:Key="BumperSN">BumperSN</Sys:String>
+    <Sys:String x:Key="GNDTape相关">GNDTape相关</Sys:String>
+    <Sys:String x:Key="所有TapeIPN">所有TapeIPN</Sys:String>
+    <Sys:String x:Key="所有调机TapeSN">所有调机TapeSN</Sys:String>
+    <Sys:String x:Key="GNDTapeSN">GNDTapeSN</Sys:String>
+    <Sys:String x:Key="GNDTapeVendor">GNDTapeVendor</Sys:String>
+    <Sys:String x:Key="GNDTape单卷最大物料数">GNDTape单卷最大物料数</Sys:String>
+    <Sys:String x:Key="GNDTape剩余预警物料数">GNDTape剩余预警物料数</Sys:String>
+    <Sys:String x:Key="GNDTape物料名称">GNDTape物料名称</Sys:String>
+    <Sys:String x:Key="视觉防呆-下相机定位">视觉防呆-下相机定位</Sys:String>
+    <Sys:String x:Key="防呆基准值">防呆基准值</Sys:String>
+    <Sys:String x:Key="X1距离基准值">X1距离基准值</Sys:String>
+    <Sys:String x:Key="X2距离基准值">X2距离基准值</Sys:String>
+    <Sys:String x:Key="Y1距离基准值">Y1距离基准值</Sys:String>
+    <Sys:String x:Key="Angle基准值">Angle基准值</Sys:String>
+    <Sys:String x:Key="穴位角度基准值-A">穴位角度基准值-A</Sys:String>
+    <Sys:String x:Key="穴位角度偏移量-A(±)">穴位角度偏移量-A(±)</Sys:String>
+    <Sys:String x:Key="角度基准值-A">角度基准值-A</Sys:String>
+    <Sys:String x:Key="角度偏移量-A(±)">角度偏移量-A(±)</Sys:String>
+    <Sys:String x:Key="吸嘴1基准值-X">吸嘴1基准值-X</Sys:String>
+    <Sys:String x:Key="吸嘴1基准值-Y">吸嘴1基准值-Y</Sys:String>
+    <Sys:String x:Key="吸嘴3基准值-X">吸嘴3基准值-X</Sys:String>
+    <Sys:String x:Key="吸嘴3基准值-Y">吸嘴3基准值-Y</Sys:String>
+    <Sys:String x:Key="吸嘴X偏移量-X(±)">吸嘴X偏移量-X(±)</Sys:String>
+    <Sys:String x:Key="吸嘴Y偏移量-Y(±)">吸嘴Y偏移量-Y(±)</Sys:String>
+    <Sys:String x:Key="视觉补偿-Feed相机定位">视觉补偿-Feed相机定位</Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X1">左取料X补偿值-X1</Sys:String>
+    <Sys:String x:Key="左取料X补偿值-Y1">左取料X补偿值-Y1</Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R1">左取料R补偿值-R1</Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X1">右取料X补偿值-X1</Sys:String>
+    <Sys:String x:Key="右取料X补偿值-Y1">右取料X补偿值-Y1</Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R1">右取料R补偿值-R1</Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X2">左取料X补偿值-X2</Sys:String>
+    <Sys:String x:Key="左取料X补偿值-Y2">左取料X补偿值-Y2</Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R2">左取料R补偿值-R2</Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X2">右取料X补偿值-X2</Sys:String>
+    <Sys:String x:Key="右取料X补偿值-Y2">右取料X补偿值-Y2</Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R2">右取料R补偿值-R2</Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X3">左取料X补偿值-X3</Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y3">左取料Y补偿值-Y3</Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R3">左取料R补偿值-R3</Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X3">右取料X补偿值-X3</Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y3">右取料Y补偿值-Y3</Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R3">右取料R补偿值-R3</Sys:String>
+    <Sys:String x:Key="左取料X补偿值-X4">左取料X补偿值-X4</Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y4">左取料Y补偿值-Y4</Sys:String>
+    <Sys:String x:Key="左取料R补偿值-R4">左取料R补偿值-R4</Sys:String>
+    <Sys:String x:Key="右取料X补偿值-X4">右取料X补偿值-X4</Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y4">右取料Y补偿值-Y4</Sys:String>
+    <Sys:String x:Key="右取料R补偿值-R4">右取料R补偿值-R4</Sys:String>
+    <Sys:String x:Key="Tape相关">Tape相关</Sys:String>
+    <Sys:String x:Key="TapeSN位数">TapeSN位数</Sys:String>
+    <Sys:String x:Key="TapeSN">TapeSN</Sys:String>
+    <Sys:String x:Key="TapeVendor">TapeVendor</Sys:String>
+    <Sys:String x:Key="Tape单卷最大物料数">Tape单卷最大物料数</Sys:String>
+    <Sys:String x:Key="Tape剩余预警物料数">Tape剩余预警物料数</Sys:String>
+    <Sys:String x:Key="Tape物料名称">Tape物料名称</Sys:String>
+    <Sys:String x:Key="是否为大线">是否为大线</Sys:String>
+    <Sys:String x:Key="是否为量产">是否为量产</Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y1">左取料Y补偿值-Y1</Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y1">右取料Y补偿值-Y1</Sys:String>
+    <Sys:String x:Key="左取料Y补偿值-Y2">左取料Y补偿值-Y2</Sys:String>
+    <Sys:String x:Key="右取料Y补偿值-Y2">右取料Y补偿值-Y2</Sys:String>
+    <Sys:String x:Key="吸嘴2基准值-X">吸嘴2基准值-X</Sys:String>
+    <Sys:String x:Key="吸嘴2基准值-Y">吸嘴2基准值-Y</Sys:String>
+    <Sys:String x:Key="吸嘴4基准值-X">吸嘴4基准值-X</Sys:String>
+    <Sys:String x:Key="吸嘴4基准值-Y">吸嘴4基准值-Y</Sys:String>
+    <Sys:String x:Key="1号吸嘴左取料X补偿值-X">1号吸嘴左取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="1号吸嘴左取料Y补偿值-Y">1号吸嘴左取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="1号吸嘴左取料R补偿值-R">1号吸嘴左取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="1号吸嘴右取料X补偿值-X">1号吸嘴右取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="1号吸嘴右取料Y补偿值-Y">1号吸嘴右取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="1号吸嘴右取料R补偿值-R">1号吸嘴右取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="2号吸嘴左取料X补偿值-X">2号吸嘴左取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="2号吸嘴左取料Y补偿值-Y">2号吸嘴左取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="2号吸嘴左取料R补偿值-R">2号吸嘴左取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="2号吸嘴右取料X补偿值-X">2号吸嘴右取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="2号吸嘴右取料Y补偿值-Y">2号吸嘴右取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="2号吸嘴右取料R补偿值-R">2号吸嘴右取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="3号吸嘴左取料X补偿值-X">3号吸嘴左取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="3号吸嘴左取料Y补偿值-Y">3号吸嘴左取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="3号吸嘴左取料R补偿值-R">3号吸嘴左取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="3号吸嘴右取料X补偿值-X">3号吸嘴右取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="3号吸嘴右取料Y补偿值-Y">3号吸嘴右取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="3号吸嘴右取料R补偿值-R">3号吸嘴右取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="4号吸嘴左取料X补偿值-X">4号吸嘴左取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="4号吸嘴左取料Y补偿值-Y">4号吸嘴左取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="4号吸嘴左取料R补偿值-R">4号吸嘴左取料R补偿值-R</Sys:String>
+    <Sys:String x:Key="4号吸嘴右取料X补偿值-X">4号吸嘴右取料X补偿值-X</Sys:String>
+    <Sys:String x:Key="4号吸嘴右取料Y补偿值-Y">4号吸嘴右取料Y补偿值-Y</Sys:String>
+    <Sys:String x:Key="4号吸嘴右取料R补偿值-R">4号吸嘴右取料R补偿值-R</Sys:String>
+
+    <Sys:String x:Key="飞达左吹气">飞达左吹气</Sys:String>
+    <Sys:String x:Key="飞达右吹气">飞达右吹气</Sys:String>
+    <Sys:String x:Key="飞达左吹气延时">飞达左吹气延时</Sys:String>
+    <Sys:String x:Key="飞达右吹气延时">飞达右吹气延时</Sys:String>
+
+    <Sys:String x:Key="下视觉拍照">下视觉拍照</Sys:String>
+
+    <Sys:String x:Key="设置Feeder吸嘴取放标定片位置">设置Feeder吸嘴取放标定片位置</Sys:String>
+    <Sys:String x:Key="设置Feeder1取放标定片位置">设置Feeder1取放标定片位置</Sys:String>
+    <Sys:String x:Key="空移Feeder1取放标定片位置">空移Feeder1取放标定片位置</Sys:String>
+    <Sys:String x:Key="设置Feeder2取放标定片位置">设置Feeder2取放标定片位置</Sys:String>
+    <Sys:String x:Key="空移Feeder2取放标定片位置">空移Feeder2取放标定片位置</Sys:String>
+
+    <Sys:String x:Key="设置载具取放标定片位置">设置载具取放标定片位置</Sys:String>
+    <Sys:String x:Key="空移载具取放标定片位置">空移载具取放标定片位置</Sys:String>
+    <Sys:String x:Key="设置载具拍照位置">设置载具拍照位置</Sys:String>
+    <Sys:String x:Key="空移载具拍照位置">空移载具拍照位置</Sys:String>
+
+
+
+    <Sys:String x:Key="设置吸嘴下视觉拍照位置">设置吸嘴下视觉拍照位置</Sys:String>
+    <Sys:String x:Key="空移吸嘴下视觉拍照位置">空移吸嘴下视觉拍照位置</Sys:String>
+
+
+
+
+
+    <Sys:String x:Key="(1)Feeder上相机拍标定片标定">(1)Feeder上相机拍标定片标定</Sys:String>
+    <Sys:String x:Key="(2)穴位上相机拍载具标定片">(2)穴位上相机拍载具标定片</Sys:String>
+    <Sys:String x:Key="(3)吸嘴吸取载具标定片到下相机走12点标定">(3)吸嘴吸取载具标定片到下相机走12点标定</Sys:String>
+    <Sys:String x:Key="一键联合标定">一键联合标定</Sys:String>
+
+
+    <Sys:String x:Key="取料Feeder">取料Feeder</Sys:String>
+
+    <Sys:String x:Key="左飞达吸嘴1左取料">左飞达吸嘴1左取料</Sys:String>
+    <Sys:String x:Key="左飞达吸嘴2左取料">左飞达吸嘴2左取料</Sys:String>
+    <Sys:String x:Key="左飞达吸嘴1右取料">左飞达吸嘴1右取料</Sys:String>
+    <Sys:String x:Key="左飞达吸嘴2右取料">左飞达吸嘴2右取料</Sys:String>
+
+
+    <Sys:String x:Key="右飞达吸嘴1左取料">右飞达吸嘴1左取料</Sys:String>
+    <Sys:String x:Key="右飞达吸嘴2左取料">右飞达吸嘴2左取料</Sys:String>
+    <Sys:String x:Key="右飞达吸嘴1右取料">右飞达吸嘴1右取料</Sys:String>
+    <Sys:String x:Key="右飞达吸嘴2右取料">右飞达吸嘴2右取料</Sys:String>
+
+
+
+    <Sys:String x:Key="左飞达上相机静态测试">左飞达上相机静态测试</Sys:String>
+    <Sys:String x:Key="左飞达上相机动态测试">左飞达上相机动态测试</Sys:String>
+    <Sys:String x:Key="左飞达上相机气缸精度">左飞达上相机气缸精度</Sys:String>
+    <Sys:String x:Key="右飞达上相机静态测试">右飞达上相机静态测试</Sys:String>
+    <Sys:String x:Key="右飞达上相机动态测试">右飞达上相机动态测试</Sys:String>
+    <Sys:String x:Key="右飞达上相机气缸精度">右飞达上相机气缸精度</Sys:String>
+    <Sys:String x:Key="设置上相机静态点位">设置上相机静态点位</Sys:String>
+    <Sys:String x:Key="设置上相机动态点位">设置上相机动态点位</Sys:String>
+    <Sys:String x:Key="设置下相机静态点位">设置下相机静态点位</Sys:String>
+    <Sys:String x:Key="设置下相机动态点位">设置下相机动态点位</Sys:String>
+
+    <Sys:String x:Key="设置上相机轴轴精度起始点位">设置上相机轴轴精度起始点位</Sys:String>
+    <Sys:String x:Key="设置上相机轴轴精度结束点位">设置上相机轴轴精度结束点位</Sys:String>
+    <Sys:String x:Key="设置下相机轴轴精度起始点位">设置下相机轴轴精度起始点位</Sys:String>
+    <Sys:String x:Key="设置下相机轴轴精度结束点位">设置下相机轴轴精度结束点位</Sys:String>
+
+    <Sys:String x:Key="吸嘴1静态">吸嘴1静态</Sys:String>
+    <Sys:String x:Key="吸嘴2静态">吸嘴2静态</Sys:String>
+    <Sys:String x:Key="吸嘴1动态">吸嘴1动态</Sys:String>
+    <Sys:String x:Key="吸嘴2动态">吸嘴2动态</Sys:String>
+    <Sys:String x:Key="吸嘴轴轴精度测试">吸嘴轴轴精度测试</Sys:String>
+
+
+
+    <Sys:String x:Key="相机到位左飞达">相机到位左飞达</Sys:String>
+    <Sys:String x:Key="相机到位右飞达">相机到位右飞达</Sys:String>
+    <Sys:String x:Key="左飞达有料">左飞达有料</Sys:String>
+    <Sys:String x:Key="左飞达到位">左飞达到位</Sys:String>
+    <Sys:String x:Key="右飞达有料">右飞达有料</Sys:String>
+    <Sys:String x:Key="右飞达到位">右飞达到位</Sys:String>
+    <Sys:String x:Key="吸废料开关">吸废料开关</Sys:String>
+    <Sys:String x:Key="飞达送料">飞达送料</Sys:String>
+
+    <Sys:String x:Key="发送测试">发送测试</Sys:String>
+    <Sys:String x:Key="取料抛料测试">取料抛料测试</Sys:String>
+
+    <Sys:String x:Key="训练吸嘴">训练吸嘴</Sys:String>
+    <Sys:String x:Key="设置训练吸嘴位置">设置训练吸嘴位置</Sys:String>
+    <Sys:String x:Key="空移训练吸嘴位置">空移训练吸嘴位置</Sys:String>
+    <Sys:String x:Key="开始训练吸嘴">开始训练吸嘴</Sys:String>
+
+
+    <Sys:String x:Key="1号吸嘴NG物料抛料">1号吸嘴NG物料抛料</Sys:String>
+    <Sys:String x:Key="2号吸嘴NG物料抛料">2号吸嘴NG物料抛料</Sys:String>
+
+</ResourceDictionary>

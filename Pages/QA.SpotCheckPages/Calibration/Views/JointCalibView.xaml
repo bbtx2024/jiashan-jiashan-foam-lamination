@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Calibration.Views.JointCalibView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:local="clr-namespace:QA.SpotCheckPages.Calibration.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <ItemsControl  ItemsSource="{Binding NozzleCalibModelList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <GroupBox   Header="{Binding NozzleId}" FontSize="20"  FontFamily="微软雅黑">
+                        <TabControl>
+                            <TabItem Header="{DynamicResource 设置Feeder吸嘴取放标定片位置}" Width="auto" Height="auto" FontSize="18">
+                                <UniformGrid Columns="1" TextBlock.Foreground="Black">
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 设置Feeder1取放标定片位置}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetFeeder1CalibPos($dataContext)]"/>
+                                        <Button   Content="{DynamicResource 空移Feeder1取放标定片位置}" Margin="8" FontSize="18"
+                Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action MoveSpaceFeeder1CalibPos($dataContext)]"/>
+                                        <TextBlock Text="{Binding CurFeeder1JointCalibPos}" Margin="8" FontSize="18"
+                   Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 设置Feeder2取放标定片位置}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetFeeder2CalibPos($dataContext)]"/>
+                                        <Button  Content="{DynamicResource 空移Feeder2取放标定片位置}" Margin="8" FontSize="18"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action MoveSpaceFeeder2CalibPos($dataContext)]"/>
+                                        <TextBlock  Text="{Binding CurFeeder2JointCalibPos}" Margin="8" FontSize="18"
+                   Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 设置载具取放标定片位置}" Width="auto" Height="auto" FontSize="18">
+                                <UniformGrid Columns="1" TextBlock.Foreground="Black">
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 设置载具取放标定片位置}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetNozzleNo1SucPieceCalibPos($dataContext)]" />
+                                        <Button Grid.Row="26" Grid.Column="2" Content="{DynamicResource 空移载具取放标定片位置}" Margin="8" FontSize="18"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action MoveSpaceNozzleNo1SucPieceCalibPos($dataContext)]" />
+                                        <TextBlock Grid.Row="26" Grid.Column="4" Text="{Binding CurNozzleNo1SucPiecePos}" Margin="8" FontSize="18"
+                   Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 设置载具拍照位置}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetFovPlateInCarrierPosToUpCamera($dataContext)]" />
+                                        <Button Grid.Row="26" Grid.Column="2" Content="{DynamicResource 空移载具拍照位置}" Margin="8" FontSize="18"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action MoveSpaceFovPlateInCarrierPosToUpCamera($dataContext)]" />
+                                        <TextBlock Grid.Row="26" Grid.Column="4" Text="{Binding CurCarrierJointCalibPos}" Margin="8" FontSize="18"
+                   Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 设置吸嘴下视觉拍照位置}" Width="auto" Height="auto" FontSize="18">
+                                <UniformGrid Columns="1" TextBlock.Foreground="Black">
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 设置吸嘴下视觉拍照位置}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetNozzleNo1CalibPos($dataContext)]" />
+                                        <Button Grid.Row="26" Grid.Column="2" Content="{DynamicResource 空移吸嘴下视觉拍照位置}" Margin="8" FontSize="18"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}"  cal:Message.Attach="[Event Click] = [Action MoveSpaceNozzleCalibPos($dataContext)]"/>
+                                        <TextBlock Grid.Row="26" Grid.Column="4" Text="{Binding AxisCalibJoint_NozzleNoPos}" Margin="8" FontSize="18"
+                   Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </UniformGrid>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 一键联合标定}" Width="auto" Height="auto" FontSize="18">
+                                <UniformGrid Columns="1" TextBlock.Foreground="Black">
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <TextBlock   Text="{DynamicResource (1)Feeder上相机拍标定片标定}" Margin="8" FontSize="18"
+                   Height="auto" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <TextBlock   Text="{DynamicResource (2)穴位上相机拍载具标定片}" Margin="8" FontSize="18"
+                   Height="auto" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <TextBlock   Text="{DynamicResource (3)吸嘴吸取载具标定片到下相机走12点标定}" Margin="8" FontSize="18"
+                   Height="auto" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 一键联合标定}" FontSize="18" Margin="8" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetAutoJointCalib($dataContext)]" />
+                                    </StackPanel>
+                                </UniformGrid>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource 训练吸嘴}" Width="auto" Height="auto" FontSize="18">
+                                <UniformGrid Columns="1" TextBlock.Foreground="Black">
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 设置训练吸嘴位置}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action SetTTNNozzlePos($dataContext)]" />
+                                        <Button Grid.Row="26" Grid.Column="2" Content="{DynamicResource 空移训练吸嘴位置}" Margin="8" FontSize="18"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action MoveSpaceTTNNozzlePos($dataContext)]" />
+                                        <TextBlock Grid.Row="26" Grid.Column="4" Text="{Binding TTNNozzleNoPos}" Margin="8" FontSize="18"
+                   Width="auto" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="8" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                        <Button  Content="{DynamicResource 开始训练吸嘴}" Margin="8" FontSize="18" IsEnabled="{Binding EnableButtons}"
+                Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                Style="{DynamicResource ButtonPrimary}" cal:Message.Attach="[Event Click] = [Action StarTTN($dataContext)]" />
+                                    </StackPanel>
+                                </UniformGrid>
+                            </TabItem>
+                        </TabControl>
+                    </GroupBox>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

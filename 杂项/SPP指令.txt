@@ -1,0 +1,64 @@
+﻿1) 
+   Received:
+      TLN,n,CamID
+        ,SN1; SN11;...; SN1m,NozzleID1,MaterialTypeN1,CaveID1,MaterialType1,X1,Y1,A1
+        ,...
+        ,SNn;SNn1;...; SNnm,NozzleIDn,MaterialTypeN1,CaveIDn,MaterialTypen,Xn,Yn,An\r\n
+   Send Option3:
+      TLN,n,ErrCode1,PartX1,PartY1,PartA1,Data1,X1,Y1,A1,...,ErrCoden,PartXn,PartYn,PartAn,Datan,Xn,Yn,An\r\n
+2) 
+   Received:
+      TTN,n,CamID
+        ,SN1,NozzleID1,MaterialType1,X1,Y1,A1
+        ,...
+        ,SNn,NozzleIDn,MaterialTypem,Xn,Yn,An\r\n
+   Send Option3:
+      TTN,Num,ErrCode1,PartX1,PartY1,PartA1,Data1,...,ErrCoden,PartXn,PartYn,PartAn,Datan\r\n
+3) 
+   Received:
+      TLT,n,CamID
+        ,SN1; SN11;...;SN1m,NozzleID1,MaterialTypeN1,CaveID1,MaterialType1,X1,Y1,A1
+        ,...
+        ,SNn; SNn1;...; SNnm,NozzleIDn,MaterialTypeNn,CaveIDn,MaterialTypen,Xn,Yn,An\r\n
+   Send Option3:
+      TLT,n
+        ,ErrCode1,PartX11,PartY11,PartA11,...,PartX1m,PartY1m,PartA1m,Data1,X11,Y11,A11
+        ,...
+        ,ErrCoden,PartXn1,PartYn1,PartAn1,...,PartXnm,PartYnm,PartAnm,Datan,Xn1,Yn1,An1,...,Xnm,Ynm,Anm\r\n
+4) 
+   Received:
+      GT,n
+        ,NozzleID1,CaveID1,MaterialType1
+        ,...
+        ,NozzleIDn,CaveIDn,MaterialTypem\r\n
+   Send:
+      GT,n,ErrCode1,X1,Y1,A1,...,ErrCoden,Xn,Yn,An\r\n
+5) 
+   Received:
+      TFC,n,CamID
+        ,SN1; SN11;...; SN1m,NozzleID1,MaterialTypeN1,CaveID1,MaterialType1,X1,Y1,A1
+        ,...
+        ,SNn; SNn1;...; SNnm, NozzleIDn,MaterialTypenNn,CaveIDn,MaterialTypen,Xn,Yn,An\r\n
+   Send Option3:
+      TFC,n,ErrCode1,Data1,...,ErrCoden,Datan\r\n
+6) 
+   Received:
+      CP,ID\r\n
+   Send:
+      CP,0/1\r\n
+7) 
+   Received:
+      CC,n
+        ,TaskName1,MaterialType1,ID1
+        ,...
+        ,TaskNamen,MaterialTypen,IDn\r\n
+   Send:
+      CC,0/1\r\n
+8) 
+   Received:
+      Group, ProductionNum
+        ,ImageFoldeName1,Num1,SN11,...,SN1m
+        ,...
+        ,ImageFoldeNamen,Numn,SNn1,...,SNnm\r\n
+   Send:
+      Group, Flag, FolderPath1,..,FolderPathn\r\n

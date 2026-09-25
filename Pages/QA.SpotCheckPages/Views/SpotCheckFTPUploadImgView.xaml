@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Views.SpotCheckFTPUploadImgView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.SpotCheckPages.Views"
+             xmlns:convert="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:uc="clr-namespace:QA.UserControls;assembly=QA.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <convert:InfoLevelToColorConvert x:Key="InfoLevelToColorConvert"/>
+            <convert:BoolToEnableStringConvert x:Key="BoolToEnableStringConvert"/>
+            <convert:BoolToConnectStringConvert x:Key="BoolToConnectStringConvert"/>
+            <convert:BoolToBackgroundConvert x:Key="BoolToBackgroundConvert"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="自动上传图片"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Label Grid.Column="1"
+                                   Content="{Binding AutoUploadImg, Converter={StaticResource BoolToEnableStringConvert}}"
+                                   Background="{Binding AutoUploadImg, Converter={StaticResource BoolToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Label Grid.Column="2" Content="服务器状态"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Label Grid.Column="3"
+                                   Content="{Binding IsServerConnected, Converter={StaticResource BoolToConnectStringConvert}}"
+                                   Background="{Binding IsServerConnected, Converter={StaticResource BoolToBackgroundConvert}}"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="当前上传本地文件夹路径"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Label Grid.Column="1" Content="{Binding UploadDir}"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+        </Grid>
+        <Grid Grid.Row="2" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="ChooseDir" Content="选择文件夹" IsEnabled="{Binding ButtonEnabled}" Height="auto"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Button Grid.Column="1" Content="上传单个文件夹" IsEnabled="{Binding ButtonEnabled}" Height="auto"
+                       cal:Message.Attach="[Event Click]=[Action AutoZipAndUpload('true')]" 
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Button Grid.Column="2" Content="自动上传全部文件夹" IsEnabled="{Binding ButtonEnabled}" Height="auto"
+                       cal:Message.Attach="[Event Click]=[Action AutoZipAndUpload('false')]" 
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <Button Grid.Column="3" x:Name="OpenFTPDir" Content="打开FTP文件夹" IsEnabled="{Binding ButtonEnabled}" Height="auto"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+        </Grid>
+        <Grid Grid.Row="3" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="压缩进度"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <ProgressBar Grid.Column="1" Value="{Binding ZipProgress}" Minimum="0" Maximum="1" Height="auto"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+        </Grid>
+        <Grid Grid.Row="4" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="上传进度"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+            <ProgressBar Grid.Column="1" Value="{Binding UploadProgress}" Minimum="0" Maximum="1" Height="auto"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18"/>
+        </Grid>
+        <Grid Grid.Row="5" Margin="0,5,0,0">
+            <uc:ScrollingListBox Style="{x:Null}" ItemsSource="{Binding Logs}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DispMsg}" FontSize="18" Foreground="{Binding RunLevel,Converter={StaticResource InfoLevelToColorConvert}}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="清空日志" cal:Message.Attach="[Event Click]=[Action ClearLogs]"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </uc:ScrollingListBox>
+        </Grid>
+    </Grid>
+</UserControl>

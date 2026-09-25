@@ -1,0 +1,142 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol">
+
+    <!--导航栏RadioButton-->
+    <Style x:Key="NavigateButtonStyle" TargetType="{x:Type RadioButton}">
+        <Setter Property="ToggleButton.FontFamily" Value="pack://application:,,,/Resources/#FontAwesome"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Border BorderBrush="Transparent" BorderThickness="0" CornerRadius="0">
+                            <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Path x:Name="PathMain" Data="{TemplateBinding hc:IconElement.Geometry}" Fill="{TemplateBinding Foreground}" Height="{TemplateBinding hc:IconElement.Height}" Stretch="Uniform" SnapsToDevicePixels="True" Width="{TemplateBinding hc:IconElement.Width}"/>
+                                <ContentPresenter x:Name="ContentPresenterMain" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Margin="6,0,0,0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PathMain" Value="Collapsed"/>
+                            <Setter Property="Margin" TargetName="ContentPresenterMain" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#008D86"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="#008D86"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Foreground" Value="Gold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--导航栏RadioButton2-->
+    <Style x:Key="NavigateButtonStyle2" TargetType="{x:Type RadioButton}">
+        <Setter Property="ToggleButton.FontFamily" Value="pack://application:,,,/Resources/#iconfont"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Border BorderBrush="Transparent" BorderThickness="0" CornerRadius="0">
+                            <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Path x:Name="PathMain" Data="{TemplateBinding hc:IconElement.Geometry}" Fill="{TemplateBinding Foreground}" Height="{TemplateBinding hc:IconElement.Height}" Stretch="Uniform" SnapsToDevicePixels="True" Width="{TemplateBinding hc:IconElement.Width}"/>
+                                <ContentPresenter x:Name="ContentPresenterMain" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Margin="6,0,0,0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </hc:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PathMain" Value="Collapsed"/>
+                            <Setter Property="Margin" TargetName="ContentPresenterMain" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#008D86"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="#008D86"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Foreground" Value="Gold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--导航栏TextBlock-->
+    <Style x:Key="NavigateTextStyle" TargetType="TextBlock">
+        <Setter Property="TextBlock.FontFamily" Value="pack://WPFFrame:,,,/Resources/#FontAwesome"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        <Setter Property="TextBlock.FontSize" Value="30"/>
+        <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+        <Setter Property="TextBlock.Foreground" Value= "White"/>
+        <Style.Triggers>
+            <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                <Setter Property="TextBlock.Background" Value="#008d86"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--导航栏TextBlock2-->
+    <Style x:Key="NavigateTextStyle2" TargetType="TextBlock">
+        <Setter Property="ToggleButton.FontFamily" Value="pack://application:,,,/Resources/#iconfont"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        <Setter Property="TextBlock.FontSize" Value="30"/>
+        <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+        <Setter Property="TextBlock.Foreground" Value= "White"/>
+        <Style.Triggers>
+            <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                <Setter Property="TextBlock.Background" Value="#008d86"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--窗口最小化、最大化、关闭-->
+    <Style x:Key="WindowStateTextBlockStyle" TargetType="TextBlock">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#008d86"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--工作模式/调试模式-->
+    <Style x:Key="WorkModeTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/#FontAwesome"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        <Setter Property="TextBlock.Padding" Value="15,18"/>
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        <Setter Property="TextBlock.FontSize" Value="30"/>
+        <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+        <Setter Property="TextBlock.Foreground" Value= "White"/>
+        <Style.Triggers>
+            <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                <Setter Property="TextBlock.Background" Value="#008d86"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+</ResourceDictionary>

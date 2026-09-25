@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="QA.Pages.OtherViews.Views.MesInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.Pages.OtherViews.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="LineName："
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Grid.Column="1" Content="{Binding Line}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="StationName："
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Station}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Fixid："
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Fixid}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="{DynamicResource 左飞达料卷SN：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="{Binding Feeder1TapeSN}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="{DynamicResource 右飞达料卷SN：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="1" Content="{Binding Feeder2TapeSN}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="{DynamicResource 最大使用数量：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="1" Content="{Binding TapeAlarmMaxUseCount}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="{DynamicResource 剩余预警数量：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="6" Grid.Column="1" Content="{Binding TapeAlarmTipLeftCount}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="{DynamicResource 左飞达当前使用数量：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="1" Content="{Binding Feeder1CurrentUseCount}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="8" Grid.Column="0" Content="{DynamicResource 右飞达当前使用数量：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="8" Grid.Column="1" Content="{Binding Feeder2CurrentUseCount}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label Grid.Row="9" Grid.Column="0" Content="{DynamicResource 左飞达当前剩余数量：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="9" Grid.Column="1" Content="{Binding Feeder1CurrentLeftCount}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="0" Content="{DynamicResource 右飞达当前剩余数量：}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="10" Grid.Column="1" Content="{Binding Feeder2CurrentLeftCount}"
+               FontSize="18" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+    </Grid>
+</UserControl>

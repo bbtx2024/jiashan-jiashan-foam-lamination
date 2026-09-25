@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="QA.SpotCheckPages.Views.SpotCheckPressurePageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.SpotCheckPages.Views"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal ="http://www.caliburnproject.org"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <StackPanel>
+            <UniformGrid Columns="4">
+                <Label Content="{DynamicResource 机头选择：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <ComboBox ItemsSource="{Binding Model.Heads}" SelectedIndex="{Binding Model.SltNozzleIdx}"
+                              HorizontalContentAlignment="Center"
+                              cal:Message.Attach="[Event SelectionChanged] = [Action GetCurPress]">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Head}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Label Content="{DynamicResource 当前压力（非实时）：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <Label Content="{Binding Model.CurPress}" FontSize="18"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </UniformGrid>
+
+            <Line Stroke="Gray" X2="1" Stretch="Fill" Margin="2,2,2,2"/>
+
+            <UniformGrid Columns="4">
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" Padding="0" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.LowPressCalibValue}"/>
+                <Button Content="{DynamicResource 低压校准}" FontSize="18" Height="Auto" HorizontalAlignment="Stretch"
+                            cal:Message.Attach="[Event Click] = [Action DoLowPressCalib]"/>
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" Padding="0" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.HighPressCalibValue}"/>
+                <Button Content="{DynamicResource 高压校准}" FontSize="18" Height="Auto" HorizontalAlignment="Stretch"
+                            cal:Message.Attach="[Event Click] = [Action DoHighPressCalib]"/>
+            </UniformGrid>
+
+            <Line Stroke="Gray" X2="1" Stretch="Fill" Margin="2,2,2,2"/>
+
+            <UniformGrid Columns="4">
+                <Button x:Name="SetPressPos" Content="{DynamicResource 设置动压力点位}" Height="Auto"  FontSize="18" HorizontalAlignment="Stretch"></Button>
+                <TextBlock Text="{Binding CurPressPosVlaue}"  VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Stretch"></TextBlock>
+                <Button x:Name="MoveSpacePressPosXY" Content="{DynamicResource 空移XY}"  Height="Auto" FontSize="18" HorizontalAlignment="Stretch"></Button>
+                <Button x:Name="MoveSpacePressPosZ"  Content="{DynamicResource 空移Z}" Height="Auto" FontSize="18" HorizontalAlignment="Stretch"></Button>
+            </UniformGrid>
+            <Line Stroke="Gray" X2="1" Stretch="Fill" Margin="2,2,2,2"/>
+            <UniformGrid Columns="4">
+                <Label Content="{DynamicResource 空压目标位置(mm)：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.DoPressTargetPos}"/>
+                <Label Content="{DynamicResource 空压目标压力(N)：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.DoPressTargetPress}"/>
+                <Label Content="{DynamicResource 空压速度(mm/s)：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.DoPressSpeed}"/>
+                <Label Content="{DynamicResource 超时时间(ms)：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.DoPressTimeout}"/>
+                <Label Content="{DynamicResource 上抬距离(mm)：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <hc:NumericUpDown DecimalPlaces="2" FontSize="18" HorizontalContentAlignment="Center"
+                                      Value="{Binding Model.DoPressLiftUp}"/>
+            </UniformGrid>
+
+            <UniformGrid Columns="2">
+                <Button Content="{DynamicResource 执行一次空压}" Margin="5,5" FontSize="18" Height="Auto" HorizontalAlignment="Stretch"
+                            cal:Message.Attach="[Event Click] = [Action DoEmptyPress]"/>
+                <Button Content="{DynamicResource 停止空压}" Margin="5,5" FontSize="18" Height="Auto" HorizontalAlignment="Stretch"
+                            cal:Message.Attach="[Event Click] = [Action StopEmptyPress]"/>
+                <Button Name="SaveEmptyPressParam" Margin="5,5" Content="{DynamicResource 保存压力参数}" Height="Auto" FontSize="18"
+                        HorizontalAlignment="Stretch"/>
+                <Button Name="GetCurPress" Margin="5,5" Content="{DynamicResource 获取当前压力}" Height="Auto" FontSize="18"
+                        HorizontalAlignment="Stretch"/>
+            </UniformGrid>
+
+            <UniformGrid Columns="3">
+                <Label Content="{DynamicResource 应力测试保压时间(ms)：}" FontSize="18" HorizontalAlignment="Stretch"/>
+                <hc:NumericUpDown FontSize="18" HorizontalContentAlignment="Center" Value="{Binding StressPlaceDelay}"/>
+                <Button Name="TestStress" Margin="5,5" Content="{DynamicResource 应力测试}" Height="Auto" FontSize="18"
+                        HorizontalAlignment="Stretch"/>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetPressTestStartPos" Content="{DynamicResource 设置应力测试起始点}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding StressTestStartPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <UniformGrid Rows="1">
+                    <Button  Name="MovePressTestStartPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Button  Name="SetPressTestEndPos" Content="{DynamicResource 设置应力测试结束点}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock  Text="{Binding StressTestEndPos}" FontSize="18" Height="35"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <UniformGrid Rows="1">
+                    <Button  Name="MovePressTestEndPos" Content="{DynamicResource 空移}" FontSize="18" Height="35"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </UniformGrid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

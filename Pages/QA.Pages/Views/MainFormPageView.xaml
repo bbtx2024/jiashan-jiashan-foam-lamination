@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="QA.Pages.Views.MainFormPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.Pages.Views"
+             mc:Ignorable="d" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:convert="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             xmlns:unity="clr-namespace:DisplayImage;assembly=DisplayImage"
+             xmlns:uc="clr-namespace:QA.UserControls;assembly=QA.UserControls"
+             d:DesignHeight="960" d:DesignWidth="1280" Margin="5" FontFamily="微软雅黑" FontSize="18">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/GroupBoxStyle1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="QuickGreen" Color="#008D86"></SolidColorBrush>
+            <Thickness x:Key="Padding1">3</Thickness>
+            <convert:PcsConvert x:Key="PcsConvert"></convert:PcsConvert>
+            <convert:FloatToSecondConvert x:Key="FloatToSecondConvert"></convert:FloatToSecondConvert>
+            <convert:FloatToPercentConvert x:Key="FloatToPercentConvert"></convert:FloatToPercentConvert>
+            <convert:BoolToConnectStringConvert x:Key="BoolToConnectStringConvert"></convert:BoolToConnectStringConvert>
+            <convert:BoolToBackgroundConvert x:Key="BoolToBackgroundConvert"></convert:BoolToBackgroundConvert>
+
+            <convert:TriStateToConnectStringConvert x:Key="TriStateToConnectStringConvert"></convert:TriStateToConnectStringConvert>
+            <convert:TriStateToBackgroundConvert x:Key="TriStateToBackgroundConvert"></convert:TriStateToBackgroundConvert>
+
+            <convert:BoolToEnableStringConvert x:Key="BoolToEnableStringConvert"></convert:BoolToEnableStringConvert>
+            <convert:InfoLevelToColorConvert x:Key="InfoLevelToColorConvert"></convert:InfoLevelToColorConvert>
+            <Style x:Key="MoveFont" TargetType="TextBlock">
+                <Setter Property="TextBlock.FontFamily" Value="微软雅黑" />
+                <Setter Property="TextBlock.Width" Value="100"/>
+                <Setter Property="TextBlock.Height" Value="30"/>
+                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                <Setter Property="TextBlock.Padding" Value="2"/>
+                <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.FontSize" Value="18"/>
+                <Setter Property="TextBlock.Foreground" Value= "Black"/>
+                <Style.Triggers>
+                    <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Background" Value="#008D86"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TabControl Grid.Row="0" FontSize="18">
+                <!--<TabItem Header="{DynamicResource 视觉界面}" FontSize="18" Width="200">
+                    <wfi:WindowsFormsHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <unity:Diisplay></unity:Diisplay>
+                    </wfi:WindowsFormsHost>
+                </TabItem>-->
+                <TabItem Header="{DynamicResource 穴位信息}" FontSize="18" Width="200">
+                    <ContentControl x:Name="CarrierInfoPanelViewModel"/>
+                </TabItem>
+                <TabItem Header="{DynamicResource MES相关}" FontSize="18" Width="200">
+                    <ContentControl x:Name="MesInfoViewModel"/>
+                </TabItem>
+                <TabItem Header="{DynamicResource HIVE界面}" FontSize="18" Width="200">
+                    <ContentControl x:Name="HiveChartViewModel"/>
+                </TabItem>
+            </TabControl>
+            <GridSplitter Grid.Row="1" Height="4" Margin="0,5" Background="#008D86" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <UniformGrid Grid.Row="1" Rows="1">
+                    <UniformGrid Columns="1">
+                        <GroupBox Style="{StaticResource GroupBoxStyle1}" Header="{DynamicResource 相机轴运行步骤}" FontFamily="微软雅黑" HorizontalAlignment="Stretch" >
+                            <ContentControl x:Name="ShowRunStep1ViewModel"></ContentControl>
+                        </GroupBox>
+                        <GroupBox Style="{StaticResource GroupBoxStyle1}" Header="{DynamicResource 吸嘴轴运行步骤}" FontFamily="微软雅黑" HorizontalAlignment="Stretch" >
+                            <ContentControl x:Name="ShowRunStep2ViewModel"></ContentControl>
+                        </GroupBox>
+                    </UniformGrid>
+                    <UniformGrid Columns="1">
+                        <UniformGrid Rows="1">
+                            <Button Content="{DynamicResource 相机到位左飞达}" Margin="3" FontFamily="微软雅黑" FontSize="12" Height="auto" Background="{Binding PlcIOMode.CddIsPosition1, Converter={StaticResource BoolToBackgroundConvert}}"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <Button Content="{DynamicResource 相机到位右飞达}" Margin="3" FontFamily="微软雅黑" FontSize="12" Height="auto" Background="{Binding PlcIOMode.CddIsPosition2, Converter={StaticResource BoolToBackgroundConvert}}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        </UniformGrid>
+                        <UniformGrid Rows="1">
+                            <Button Content="{DynamicResource 左飞达有料}" Margin="3" FontFamily="微软雅黑" FontSize="12" Height="auto" Background="{Binding PlcIOMode.FeederTypeStatus, Converter={StaticResource BoolToBackgroundConvert}}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <Button Content="{DynamicResource 左飞达到位}" Margin="3" FontFamily="微软雅黑" FontSize="12" Height="auto" Background="{Binding PlcIOMode.FeederInPlaceStatus, Converter={StaticResource BoolToBackgroundConvert}}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        </UniformGrid>
+                        <UniformGrid Rows="1">
+                            <Button Content="{DynamicResource 右飞达有料}" Margin="3" FontFamily="微软雅黑" FontSize="12" Height="auto" Background="{Binding PlcIOMode.Feeder2TypeStatus, Converter={StaticResource BoolToBackgroundConvert}}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <Button Content="{DynamicResource 右飞达到位}" Margin="3" FontFamily="微软雅黑" FontSize="12" Height="auto" Background="{Binding PlcIOMode.Feeder2InPlaceStatus, Converter={StaticResource BoolToBackgroundConvert}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        </UniformGrid>
+                        <UniformGrid Rows="1">
+                            <Button  Content="{DynamicResource 吸废料开关}" Name="ChangeSuctionFilm" FontSize="18" Height="35" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                            <Button  Content="{DynamicResource 飞达送料}" Name="GetTape" FontSize="18" Height="35" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </UniformGrid>
+                <ScrollViewer Grid.Column="1">
+                    <StackPanel Orientation="Vertical">
+                        <ContentControl x:Name="ShowFunctionIsEnabledViewModel"/>
+                    </StackPanel>
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="2">
+                    <StackPanel Orientation="Vertical" >
+                        <ContentControl x:Name="ShowNormalToolsViewModel"></ContentControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+        <GridSplitter Grid.Column="1" Width="4" Margin="5,0,5,0" Background="{StaticResource QuickGreen}" 
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <Grid Grid.Column="2" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Row="0" Header="{DynamicResource 统计信息}" FontFamily="微软雅黑" Style="{DynamicResource GroupBoxStyle1}">
+                <ContentControl x:Name="StatisticViewModel"/>
+            </GroupBox>
+            <GridSplitter Grid.Row="1" Height="4" Margin="0,5,0,5" Background="#008D86" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <GroupBox Grid.Row="2" Header="{DynamicResource 运行日志}" FontFamily="微软雅黑" Style="{DynamicResource GroupBoxStyle1}">
+                <uc:ScrollingListBox Style="{x:Null}" ItemsSource="{Binding RunTimeLogs.Logs}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DispMsg}" FontSize="18" Foreground="{Binding RunLevel,Converter={StaticResource InfoLevelToColorConvert}}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="清空运行日志" cal:Message.Attach="[Event Click]=[Action ClearLogs]"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </uc:ScrollingListBox>
+            </GroupBox>
+            <GridSplitter Grid.Row="3" Height="4" Margin="0,5,0,5" Background="#008D86" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <GroupBox Grid.Row="4" Header="{DynamicResource 报警信息}" FontFamily="微软雅黑" Style="{DynamicResource GroupBoxStyle1}">
+                <uc:ScrollingListBox Style="{x:Null}" ItemsSource="{Binding RunTimeLogs.AlarmLogs}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DispMsg}" FontSize="18" Foreground="{Binding RunLevel,Converter={StaticResource InfoLevelToColorConvert}}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="清空报警信息" cal:Message.Attach="[Event Click]=[Action ClearAlarmLogs]"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </uc:ScrollingListBox>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

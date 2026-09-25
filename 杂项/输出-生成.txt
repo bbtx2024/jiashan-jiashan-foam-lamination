@@ -1,0 +1,13 @@
+﻿已启动重新生成…
+1>------ 已启动全部重新生成: 项目: QA.Business, 配置: Debug x64 ------
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Station\BaseBiz.cs(335,49,335,51): warning CS1998: 此异步方法缺少 "await" 运算符，将以同步方式运行。请考虑使用 "await" 运算符等待非阻止的 API 调用，或者使用 "await Task.Run(...)" 在后台线程上执行占用大量 CPU 的工作。
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Model\FtpWeb.cs(289,22,289,35): warning CS0219: 变量“downloadFiles”已被赋值，但从未使用过它的值
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Model\HttpInterface.cs(968,30,968,32): warning CS0168: 声明了变量“ex”，但从未使用过
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Steps\AutoRecheck_Step.cs(46,13,46,19): warning CS0162: 检测到无法访问的代码
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Component\PLC\PLC_Component.cs(476,13,476,15): warning CS0162: 检测到无法访问的代码
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Component\Motion\Robot9075\Motion9075_Component.cs(320,17,320,21): warning CS0219: 变量“bRun”已被赋值，但从未使用过它的值
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Status\GantryNo1Steps\ScannerCarrierSnStep.cs(119,13,119,15): warning CS0162: 检测到无法访问的代码
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Model\RunTimeInfoModel.cs(66,24,66,32): warning CS0169: 从不使用字段“RunTimeInfoModel._dispMsg”
+1>D:\Gitee\2022\FA06-005\FA06-005-0820\Services\Component\ScrewDriver\ScrewDriver_Component.cs(37,21,37,30): warning CS0649: 从未对字段“ScrewDriver_Component._clientId”赋值，字段将一直保持其默认值 0
+1>  QA.Business -> D:\Gitee\2022\FA06-005\FA06-005-0820\Services\bin\x64\Debug\QA.Business.dll
+========== 全部重新生成: 成功 1 个，失败 0 个，跳过 0 个 ==========

@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="QA.UserControls.Views.ChangeHiveState1View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:convert="clr-namespace:QA.Business.Converts;assembly=QA.Business"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="450" MinWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="/QA.Pages;component/Styles/GroupBoxStyle1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="QuickGreen" Color="#008D86"></SolidColorBrush>
+            <Thickness x:Key="Padding1">3</Thickness>
+
+            <convert:PcsConvert x:Key="PcsConvert"></convert:PcsConvert>
+            <convert:FloatToSecondConvert x:Key="FloatToSecondConvert"></convert:FloatToSecondConvert>
+            <convert:FloatToPercentConvert x:Key="FloatToPercentConvert"></convert:FloatToPercentConvert>
+            <convert:BoolToConnectStringConvert x:Key="BoolToConnectStringConvert"></convert:BoolToConnectStringConvert>
+            <convert:BoolToBackgroundConvert x:Key="BoolToBackgroundConvert"></convert:BoolToBackgroundConvert>
+            <convert:BoolToEnableStringConvert x:Key="BoolToEnableStringConvert"></convert:BoolToEnableStringConvert>
+            <convert:PickOpportunityToBackgroundConvert x:Key="PickOpportunityToBackgroundConvert"></convert:PickOpportunityToBackgroundConvert>
+            <convert:PickOpportunityToEnableStringConvert x:Key="PickOpportunityToEnableStringConvert"></convert:PickOpportunityToEnableStringConvert>
+            <convert:OncePickNumToBackgroundConvert x:Key="OncePickNumToBackgroundConvert"></convert:OncePickNumToBackgroundConvert>
+            <convert:OncePickNumToEnableStringConvert x:Key="OncePickNumToEnableStringConvert"></convert:OncePickNumToEnableStringConvert>
+
+            <Style x:Key="MoveFont" TargetType="TextBlock">
+                <Setter Property="TextBlock.FontFamily" Value="微软雅黑" />
+                <Setter Property="TextBlock.Width" Value="100"/>
+                <Setter Property="TextBlock.Height" Value="30"/>
+                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                <Setter Property="TextBlock.Padding" Value="2"/>
+                <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.FontSize" Value="18"/>
+                <Setter Property="TextBlock.Foreground" Value= "Black"/>
+                <Style.Triggers>
+                    <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Background" Value="#008D86"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" FontFamily="微软雅黑" FontSize="18" Height="auto" IsEnabled="{Binding CanChangeToRunning}"
+                Content="Running(运行)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                cal:Message.Attach="[Event Click] = [Action ChangeHiveState(1)]"/>
+
+        <Button Grid.Row="2" FontFamily="微软雅黑" FontSize="18" Height="auto" IsEnabled="{Binding CanChangeToIdle}"
+                Content="Idle(空闲)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                cal:Message.Attach="[Event Click] = [Action ChangeHiveState(2)]"/>
+
+        <!--<Button Grid.Row="4" FontFamily="微软雅黑" FontSize="18" Height="auto" IsEnabled="{Binding CanChangeToEngineering}"
+                Content="Engineering(工程师模式)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                cal:Message.Attach="[Event Click] = [Action ChangeHiveState(3)]"/>
+
+        <Button Grid.Row="6" FontFamily="微软雅黑" FontSize="18" Height="auto" IsEnabled="{Binding CanChangeToPlannedDT}"
+                Content="Planned Downtime(计划停机)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                cal:Message.Attach="[Event Click] = [Action ChangeHiveState(4)]"/>-->
+
+        <Button Grid.Row="4" FontFamily="微软雅黑" FontSize="18" Height="auto" IsEnabled="{Binding CanChangeToDowntime}"
+                Content="Manually Downtime(手动宕机)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                cal:Message.Attach="[Event Click] = [Action ChangeHiveState(5)]"/>
+    </Grid>
+</UserControl>

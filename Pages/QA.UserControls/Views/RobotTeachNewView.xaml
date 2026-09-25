@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="QA.UserControls.Views.RobotTeachNewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA.UserControls.Views"
+             mc:Ignorable="d" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:convert="clr-namespace:QA.UserControls.Converters"
+             Width="750" Height="500" FontFamily="微软雅黑">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinQuick.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="/QA.UserControls;component/Styles/MoveFontStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+            <convert:StationToBackgroundConvert x:Key="StationToBackgroundConvert"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="AliceBlue" IsEnabled="{Binding IsContainerEnabled}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <UniformGrid Rows="2" Columns="1">
+                <UniformGrid Columns ="5" >
+                    <CheckBox Content="点动(mm)" MaxHeight="35" FontSize="18" IsChecked="{Binding IsDotMove}"/>
+                    <hc:NumericUpDown DecimalPlaces="2" Increment="0.01" Height="35"  Value="{Binding DotStepLenth,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      Minimum="0" Maximum="30" HorizontalContentAlignment="Center" FontSize="18"/>
+                    <Label Content="速度：" Background="Transparent" BorderThickness="0" FontSize="18" Height="35"/>
+                    <ComboBox Width="120" MaxHeight="35" ItemsSource="{Binding SpeedTypes}" SelectedItem="{Binding CurSpeedType}" FontSize="18"
+                          cal:Message.Attach="[Event SelectionChanged]=[Action SpeedSelectionChanged()]"/>
+                    <TextBlock x:Name="tbReset" Text="&#xF079;" Style="{StaticResource MoveFont}"
+                       cal:Message.Attach="[Event MouseLeftButtonUp] = [Action RobotReset]" Margin="33,0,17,-50"/>
+                </UniformGrid>
+                <UniformGrid Columns ="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Width="650" MinHeight="50">
+                        <Label Content="站别:                   " Background="Transparent" VerticalAlignment="Center" FontSize="18" BorderThickness="0"/>
+                        <ComboBox Width="150" Height="35" FontSize="18" ItemsSource="{Binding WeldingPens}" SelectedItem="{Binding CurWeldingPen}"/>
+                    </StackPanel>
+                </UniformGrid>
+            </UniformGrid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,0,0,10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="tbForward" Grid.Row="0" Grid.Column="1" Text="&#xF062;" Style="{StaticResource MoveFont}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('Backward','true')];
+                       [Event MouseLeftButtonUp] = [Action RobotMove('Backward','false')];
+                       [Event MouseLeave] = [Action StopMove('Backward')]"/>
+
+            <TextBlock x:Name="tbBackward" Grid.Row="1" Grid.Column="1" Text="&#xF063;" Style="{StaticResource MoveFont}" Padding="20,25"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('Forward','true')];
+                       [Event MouseLeftButtonUp] = [Action RobotMove('Forward','false')];
+                       [Event MouseLeave] = [Action StopMove('Forward')]"/>
+            
+            <TextBlock x:Name="tbLeft" Grid.Row="1" Grid.Column="0" Text="&#xF060;" Style="{StaticResource MoveFont}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('Right','true')];
+                       [Event MouseLeftButtonUp] = [Action RobotMove('Left','false')];
+                       [Event MouseLeave] = [Action StopMove('Left')]"/>
+
+            <TextBlock x:Name="tbRight" Grid.Row="1" Grid.Column="2" Text="&#xF061;" Style="{StaticResource MoveFont}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('Left','true')];
+                       [Event MouseLeftButtonUp] = [Action RobotMove('Right','false')];
+                       [Event MouseLeave] = [Action StopMove('Right')]"/>
+
+            <TextBlock x:Name="tbUp" Grid.Row="0" Grid.Column="3" Text="&#xF0aa;" Style="{StaticResource MoveFont}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('Up','true')];
+                       [Event MouseLeftButtonUp] = [Action RobotMove('Up','false')];
+                       [Event MouseLeave] = [Action StopMove('Up')]" Visibility="{Binding Station2Visable}"/>
+
+            <TextBlock x:Name="tbDown" Grid.Row="1" Grid.Column="3" Text="&#xF0ab;" Style="{StaticResource MoveFont}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('Down','true')];
+                       [Event MouseLeftButtonUp] = [Action RobotMove('Down','false')];
+                       [Event MouseLeave] = [Action StopMove('Down')]" Visibility="{Binding Station2Visable}"/>
+
+
+            <TextBlock x:Name="rotate1Pos" Grid.Row="0" Grid.Column="4" Text="R1+" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R1Pos','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R1Pos','false')];
+                       [Event MouseLeave] = [Action StopMove('R1Pos')]"/>
+
+            <TextBlock x:Name="rotate1Neg" Grid.Row="0" Grid.Column="5" Text="R1-" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R1Neg','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R1Neg','false')];
+                       [Event MouseLeave] = [Action StopMove('R1Neg')]"/>
+
+            <TextBlock x:Name="rotate2Pos" Grid.Row="1" Grid.Column="4" Text="R2+" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R2Pos','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R2Pos','false')];
+                       [Event MouseLeave] = [Action StopMove('R2Pos')]"/>
+
+            <TextBlock x:Name="rotate2Neg" Grid.Row="1" Grid.Column="5" Text="R2-" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R2Neg','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R2Neg','false')];
+                       [Event MouseLeave] = [Action StopMove('R2Neg')]"/>
+
+            <!--<TextBlock x:Name="rotate3Pos" Grid.Row="2" Grid.Column="4" Text="R3+" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R3Pos','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R3Pos','false')];
+                       [Event MouseLeave] = [Action StopMove('R3Pos')]"/>
+
+            <TextBlock x:Name="rotate3Neg" Grid.Row="2" Grid.Column="5" Text="R3-" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R3Neg','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R3Neg','false')];
+                       [Event MouseLeave] = [Action StopMove('R3Neg')]"/>
+
+            <TextBlock x:Name="rotate4Pos" Grid.Row="3" Grid.Column="4" Text="R4+" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R4Pos','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R4Pos','false')];
+                       [Event MouseLeave] = [Action StopMove('R4Pos')]"/>
+
+            <TextBlock x:Name="rotate4Neg" Grid.Row="3" Grid.Column="5" Text="R4-" Style="{StaticResource MoveFont}" Visibility="{Binding Station2Visable}"
+                       cal:Message.Attach="[Event MouseLeftButtonDown] = [Action RobotMove('R4Neg','true')];
+                                           [Event MouseLeftButtonUp] = [Action RobotMove('R4Neg','false')];
+                       [Event MouseLeave] = [Action StopMove('R4Neg')]"/>-->
+
+            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="30,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="X1:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station1Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_X1}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station1Visable}" FontSize="18"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="Y1:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station1Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_Y1}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station1Visable}" FontSize="18"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="X2:" BorderThickness="0"  Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_X2}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="Y2:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_Y2}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="Z2:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_Z2}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <Label Content="R1:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_R1}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <Label Content="R2:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_R2}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>
+                <!--<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                    <Label Content="R3:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_R3}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <Label Content="R4:" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                    <Label Content="{Binding Position_Axias.Position_R4}" BorderThickness="0" Background="Transparent" Visibility="{Binding Station2Visable}" FontSize="18"/>
+                </StackPanel>-->
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
